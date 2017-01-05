@@ -33,9 +33,10 @@ func ( TemplateAStt *Template ) Init (){
       "string": func( el interface{} ) string {
         switch el.( type ) {
         case AggregateList: return el.( AggregateList ).String()
+        case ComplexJavaScriptType: return el.( ComplexJavaScriptType ).String()
         }
 
-        return "error";
+        return "error: falta criar o tipo no template";
       },
     },
   )

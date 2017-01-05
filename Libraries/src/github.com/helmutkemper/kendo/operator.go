@@ -1,6 +1,8 @@
 //Comentários Revisado em 20170105
 package kendo
 
+import "fmt"
+
 // The filter operator (comparison).
 //
 // The supported operators are:
@@ -30,20 +32,20 @@ package kendo
 type OperatorEnum int
 
 const(
-  FILTER_LOGIC_EQ  OperatorEnum = iota
-  FILTER_LOGIC_NEQ
-  FILTER_LOGIC_ISNULL
-  FILTER_LOGIC_ISNOTNULL
-  FILTER_LOGIC_LT
-  FILTER_LOGIC_LTE
-  FILTER_LOGIC_GT
-  FILTER_LOGIC_GTE
-  FILTER_LOGIC_STARTSWITH
-  FILTER_LOGIC_ENDSWITH
-  FILTER_LOGIC_CONTAINS
-  FILTER_LOGIC_DOESNOTCONTAIN
-  FILTER_LOGIC_ISEMPTY
-  FILTER_LOGIC_ISNOTEMPTY
+  FILTER_OPERATOR_EQ  OperatorEnum = iota
+  FILTER_OPERATOR_NEQ
+  FILTER_OPERATOR_ISNULL
+  FILTER_OPERATOR_ISNOTNULL
+  FILTER_OPERATOR_LT
+  FILTER_OPERATOR_LTE
+  FILTER_OPERATOR_GT
+  FILTER_OPERATOR_GTE
+  FILTER_OPERATOR_STARTSWITH
+  FILTER_OPERATOR_ENDSWITH
+  FILTER_OPERATOR_CONTAINS
+  FILTER_OPERATOR_DOESNOTCONTAIN
+  FILTER_OPERATOR_ISEMPTY
+  FILTER_OPERATOR_ISNOTEMPTY
 )
 
 var OperatorEnums = [...]string{
@@ -64,5 +66,6 @@ var OperatorEnums = [...]string{
 }
 
 func (el OperatorEnum) String() string {
+  fmt.Print( el )
   return OperatorEnums[ el ]
 }

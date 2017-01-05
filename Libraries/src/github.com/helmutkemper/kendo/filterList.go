@@ -157,11 +157,7 @@ type FilterLine struct {
 }
 
 func ( el FilterLine ) getTemplate () string {
-  return `{
-  {{if .Field}}field: "{{.Field}}", {{end}}
-  {{if .Operator}}operator: "{{.Operator}}", {{end}}
-  {{if ne .Value ""}}value: "{{.Value}}"{{end}}
-  }`
+  return `{ {{if .Field}}field: "{{.Field}}"{{if ( ne (string .Operator) "" ) or ( ne (string .Value) "null" )}}, {{end}}{{end}}{{if .Operator}}operator: "{{.Operator}}"{{if ne (string .Value) "null"}}, {{end}}{{end}}{{if ne (string .Value) "null"}}value: "{{string .Value}}"{{end}} }`
 }
 
 func ( el FilterLine ) Buffer() bytes.Buffer {

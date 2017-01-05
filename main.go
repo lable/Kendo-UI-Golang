@@ -2,14 +2,11 @@ package main
 
 import (
   "github.com/helmutkemper/kendo"
-  "os"
   "fmt"
 )
 
 func main() {
-  var t kendo.Template = kendo.Template{
-    Out: os.Stdout,
-  }
+  var t kendo.Template = kendo.Template{}
 
   type dataToJSon struct{
     Nome string
