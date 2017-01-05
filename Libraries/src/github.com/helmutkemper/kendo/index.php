@@ -4,7 +4,8 @@ error_reporting(0);
 
 // This class use dir ""./class/output/" to make files
 //$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete" );
-$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/data/datasource" );
+//$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/data/datasource" );
+$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/data/model" );
 
 class classMaker
 {
@@ -96,6 +97,7 @@ class classMaker
       preg_match_all ( "%<p>(.*?)</p>%s", $matchesMainValueLStr, $matchesPLArr );
       preg_match_all ( "%<em>.*?default: *(.*?)\)</em>%s", $matchesH3LArr[ 0 ][ 0 ], $matchesDefaultLArr );
       preg_match_all ( "%<h4><em>(.*?)</em></h4>[ \r\n]*<p>(.*?)</p>%s", $matchesMainValueLStr, $matchesPH4LArr );
+      preg_match_all ( "%<h4>(Parameters)</h4>[ \r\n]*<h5>(.*?)(?:<h4>Example)%s", $matchesMainValueLStr, $matchesPH4ParametersLArr );
       
       // Separa a função dos atributos
       $objectKeyNameLArr = trim ( $matchesLinkLArr[ 2 ][ 0 ] );
@@ -157,6 +159,7 @@ class classMaker
         }
         
         $outputReferenceLPt[ "textToCorrect" ][ $objectKeyNameKeyLUInt ][] = $matchesPH4LArr;
+        $outputReferenceLPt[ "specification" ][ $objectKeyNameKeyLUInt ][] = $matchesPH4ParametersLArr;
         
         // procura pelo text explicativo
         foreach ( $matchesPLArr[ 1 ] as $matchesPKeyLStr => $matchesPValueLStr )
@@ -334,7 +337,7 @@ class classMaker
     $outputToControlPanelJavaScriptLStr = "";
     $outputToToolTipPanelScriptLStr = "";
     $outputToControlToolTipJavaScriptLStr = "";
-    print "<pre>";
+    
     $outputGolangLStr = "";
     foreach ( $outputLArr as $functionNameLStr => $functionDataLArr )
     {
@@ -342,7 +345,7 @@ class classMaker
         foreach( $nameList as $line => $value ){
           $outputGolangLStr .= "\n";
           if( !is_null( $functionDataLArr["default"][$nameKey][$line] ) ) {
-            $outputGolangLStr .= "  // default: " . $functionDataLArr["default"][$nameKey][$line] . "\n";
+            $outputGolangLStr .= "  // default: " . $functionDataLArr["default"][$nameKey][$line] . "\n  //\n";
           }
           $outputGolangLStr .= "  // " . preg_replace(
             array(
@@ -351,19 +354,27 @@ class classMaker
               "%(</u></b>)%si",
               "%(</strong>)%si",
               "%(<strong>)%si",
+              "%(<code>)%si",
+              "%(</code>)%si",
             ),
             array(
               "$4 ( http://docs.telerik.com$2 )",
               "'",
               "'",
               "*",
-              "*"
+              "*",
+              "'",
+              "'"
             ),
               implode( "\n  //  \n  // ", $functionDataLArr["text"][$nameKey][$line] ) ) . "\n  //\n";
           $outputGolangLStr .= "  // " . str_replace( "@see ", "", $functionDataLArr["see"][$nameKey][$line] ) . "\n";
           if( !is_null( $functionDataLArr["exampleToHtmlToolTip"][$nameKey][$line] ) ) {
-            //$outputGolangLStr .= "  /*\n  ```\n  " . str_replace("<br>", "<br>\n  ", $functionDataLArr["exampleToHtmlToolTip"][$nameKey][$line]) . "\n  ```\n  */\n\n";
-            $outputGolangLStr .= "  /*\n      " . str_replace("<br>", "\n      ", html_entity_decode($functionDataLArr["exampleToHtmlToolTip"][$nameKey][$line])) . "\n*/\n";
+              $outputGolangLStr .= "  /*\n";
+            foreach($functionDataLArr["exampleToHtmlToolTip"][$nameKey] as $example) {
+                $outputGolangLStr .= "      " . str_replace("<br>", "\n      ", html_entity_decode($example)) . "\n      \n      \n";
+            }
+            $outputGolangLStr = substr( $outputGolangLStr, 0, strlen( "\n      \n      " ) * -1 );
+            $outputGolangLStr .= "  */\n";
           }
           $outputGolangLStr .= "  " . str_replace( " . ", ".", ucwords( str_replace( ".", " . ", $functionDataLArr["name"][$nameKey][$line] ) ) ) . "  ";
           if( is_array( $functionDataLArr["type"][$nameKey][$line] ) ) {
@@ -556,7 +567,7 @@ class classMaker
   
     print $outputGolangLStr . "\n\n\n\n\n";
     print "\n\n\n\n";
-    die();
+    die("-----------------------------");
     $this->return = array (
       "toolTipPanel" => $outputToToolTipPanelScriptLStr,
       "toolTipScript" => $outputToControlToolTipJavaScriptLStr,
@@ -588,9 +599,10 @@ class classMaker
           {
             switch ( $typeValueLStr )
             {
-              default:
-                print "$typeValueLStr\r\n";
-                die ( $functionNameLStr );
+              //default:
+                //print "$typeValueLStr\r\n";
+                //die ( $functionNameLStr );
+                    //break;
               
               case "Boolean":
                 
@@ -1137,9 +1149,9 @@ class classMaker
       }
     }
     
-    print "{$namePropertyAStr}\r\n";
-    print "{$typeLStr}\r\n";
-    print "{$exampleAStr}\r\n";
-    die ( ">" . $matchesLArr[ 1 ] . "<" );
+    //print "{$namePropertyAStr}\r\n";
+    //print "{$typeLStr}\r\n";
+    //print "{$exampleAStr}\r\n";
+    //die ( ">" . $matchesLArr[ 1 ] . "<" );
   }
 }

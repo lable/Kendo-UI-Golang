@@ -1,5 +1,5 @@
 package kendo
-
+/*
 import "encoding/json"
 
 
@@ -18,3 +18,4 @@ func ( el ComplexJavaScriptType ) String() string {
 
   return `JSON.parse( "` + json.Marshal( el.JSon ) + `" )`
 }
+*/

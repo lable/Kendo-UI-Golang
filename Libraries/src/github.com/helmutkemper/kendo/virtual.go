@@ -147,5 +147,5 @@ type Virtual struct {
   // The 'valueMapper' function is *mandatory* for the functionality of the virtualized widget. The widget calls the 'valueMapper' function when the widget receives a value, that is not fetched from the remote server yet. The widget will pass the selected value(s) in the 'valueMapper' function. In turn, the valueMapper implementation should return the *respective data item(s) index/indices*.
   //
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-virtual.valueMapper
-  ValueMapper  Function
+  //ValueMapper  Function
 }

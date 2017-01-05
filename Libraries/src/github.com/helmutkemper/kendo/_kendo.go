@@ -1,5 +1,5 @@
 package kendo
-
+/*
 // The animation played when the suggestion popup is open/closed.
 type AnimationAction struct {
   // default: 100
@@ -15,7 +15,7 @@ type AnimationAction struct {
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-animation.close.effects
   Effects   string
 }
-
+*/
 // Configures the opening and closing animations of the suggestion popup. Setting the 'animation' option to 'false' will disable the opening and closing animations. As a result the suggestion popup will open and close instantly.
 //
 // 'animation:true' is not a valid configuration.
@@ -30,6 +30,7 @@ type AnimationAction struct {
       });
       </script>
 */
+/*
 type Animation struct {
   // Configures the opening and closing animations of the suggestion popup. Setting the 'animation' option to 'false' will disable the opening and closing animations. As a result the suggestion popup will open and close instantly.
   //
@@ -559,7 +560,7 @@ type Animation struct {
   */
   ValuePrimitive  bool
 }
-
+*/
 
 
 
