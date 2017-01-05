@@ -1,5 +1,6 @@
 package kendo
 
+import "encoding/json"
 
 type ComplexJavaScriptType struct {
   AsString      string
@@ -14,6 +15,6 @@ func ( el ComplexJavaScriptType ) String() string {
     return el.AsFunction
   }
 
-  return ``
-  //return `JSON.parse( "` + json.Marshal( el.AsJSon ) + `" )`
+  js, _ := json.Marshal( el.AsJSon )
+  return string( js )
 }

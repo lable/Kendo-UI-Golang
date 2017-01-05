@@ -138,7 +138,7 @@ type AggregateList struct {
 }
 
 func ( el AggregateList ) getTemplate () string {
-  return `    { field: "{{.Field}}", aggregate: "{{.Aggregate}}" }{{nl}}`
+  return `{ field: "{{.Field}}", aggregate: "{{.Aggregate}}" }`
 }
 
 func ( el AggregateList ) Buffer() bytes.Buffer {

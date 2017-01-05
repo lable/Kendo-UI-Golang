@@ -701,7 +701,10 @@ type DataSource  struct{
 
 func ( el DataSource ) getTemplate () string {
   return `{{define "DataSource"}}
-  aggregate: [ {{range $v := .Aggregate}}{{string $v}}{{end}} ]
+  {{if .Aggregate}}aggregate: [{{range $v := .Aggregate}}{{string $v}},{{end}}],{{end}}
+  {{if .AutoSync}}autoSync: true,{{end}}
+  {{if .Batch}}batch: true,{{end}}
+  {{if .Data}}data: {{.Data}},{{end}}
   {{end}}`
 }
 

@@ -1,17 +1,14 @@
-//Comentários Revisado em 20170105
 package kendo
 
 import "bytes"
 
-// The filters which are applied over the data items. By default, no filter is applied.
+// The nested filter expressions. Supports the same options as 'filter'
+// ( http://docs.telerik.comhttp://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter ).
+// Filters can be nested indefinitely.
 //
-// The data source filters the data items client-side unless the 'serverFiltering'
-// ( http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering ) option is set to
-// 'true'.
-//
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.filters
 /*
-    Example - set a single filter
+    Example - set the filter field
     <script>
     var dataSource = new kendo.data.DataSource({
      data: [
@@ -28,29 +25,7 @@ import "bytes"
     </script>
 
 
-    Example - set filter as conjunction (and)
-    <script>
-    var dataSource = new kendo.data.DataSource({
-     data: [
-      { name: "Tea", category: "Beverages" },
-      { name: "Coffee", category: "Beverages" },
-      { name: "Ham", category: "Food" }
-     ],
-     filter: [
-      // leave data items which are "Beverage" and not "Coffee"
-      { field: "category", operator: "eq", value: "Beverages" },
-      { field: "name", operator: "neq", value: "Coffee" }
-     ]
-    });
-    dataSource.fetch(function(){
-     var view = dataSource.view();
-     console.log(view.length); // displays "1"
-     console.log(view[0].name); // displays "Tea"
-    });
-    </script>
-
-
-    Example - set filter as disjunction (or)
+    Example - nested filters
     <script>
     var dataSource = new kendo.data.DataSource({
      data: [
@@ -74,8 +49,68 @@ import "bytes"
      console.log(view[1].name); // displays "Ham"
     });
     </script>
+
+
+    Example - set the filter logic
+    <script>
+    var dataSource = new kendo.data.DataSource({
+     data: [
+      { name: "Tea", category: "Beverages" },
+      { name: "Coffee", category: "Beverages" },
+      { name: "Ham", category: "Food" }
+     ],
+     filter: {
+      // leave data items which are "Food" or "Tea"
+      logic: "or",
+      filters: [
+       { field: "category", operator: "eq", value: "Food" },
+       { field: "name", operator: "eq", value: "Tea" }
+      ]
+     }
+    });
+    dataSource.fetch(function(){
+     var view = dataSource.view();
+     console.log(view.length); // displays "2"
+     console.log(view[0].name); // displays "Tea"
+     console.log(view[1].name); // displays "Ham"
+    });
+    </script>
+
+
+    Example - set the filter operator
+    <script>
+    var dataSource = new kendo.data.DataSource({
+     data: [
+      { name: "Jane Doe" },
+      { name: "John Doe" }
+     ],
+     filter: { field: "name", operator: "startswith", value: "Jane" }
+    });
+    dataSource.fetch(function(){
+     var view = dataSource.view();
+     console.log(view.length); // displays "1"
+     console.log(view[0].name); // displays "Jane Doe"
+    });
+    </script>
+
+
+    Example - specify the filter value
+    <script>
+    var dataSource = new kendo.data.DataSource({
+     data: [
+      { name: "Jane Doe", birthday: new Date(1983, 1, 1) },
+      { name: "John Doe", birthday: new Date(1980, 1, 1)}
+     ],
+     filter: { field: "birthday", operator: "gt", value: new Date(1980, 1, 1) }
+    });
+    dataSource.fetch(function(){
+     var view = dataSource.view();
+     console.log(view.length); // displays "1"
+     console.log(view[0].name); // displays "Jane Doe"
+    });
+    </script>
 */
-type FilterLine struct {
+type Filter struct {
   // The data item field to which the filter operator is applied.
   //
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.field
@@ -97,6 +132,72 @@ type FilterLine struct {
       </script>
   */
   Field     string
+
+  // The nested filter expressions. Supports the same options as 'filter'
+  // ( http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter ). Filters can be nested
+  // indefinitely.
+  //
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.filters
+  /*
+      Example - nested filters
+      <script>
+      var dataSource = new kendo.data.DataSource({
+       data: [
+        { name: "Tea", category: "Beverages" },
+        { name: "Coffee", category: "Beverages" },
+        { name: "Ham", category: "Food" }
+       ],
+       filter: {
+        // leave data items which are "Food" or "Tea"
+        logic: "or",
+        filters: [
+         { field: "category", operator: "eq", value: "Food" },
+         { field: "name", operator: "eq", value: "Tea" }
+        ]
+       }
+      });
+      dataSource.fetch(function(){
+       var view = dataSource.view();
+       console.log(view.length); // displays "2"
+       console.log(view[0].name); // displays "Tea"
+       console.log(view[1].name); // displays "Ham"
+      });
+      </script>
+  */
+  Filters   []FilterLine
+
+  // The logical operation to use when the 'filter.filters' option is set.
+  //
+  // The supported values are:
+  //
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.logic
+  /*
+      Example - set the filter logic
+      <script>
+      var dataSource = new kendo.data.DataSource({
+       data: [
+        { name: "Tea", category: "Beverages" },
+        { name: "Coffee", category: "Beverages" },
+        { name: "Ham", category: "Food" }
+       ],
+       filter: {
+        // leave data items which are "Food" or "Tea"
+        logic: "or",
+        filters: [
+         { field: "category", operator: "eq", value: "Food" },
+         { field: "name", operator: "eq", value: "Tea" }
+        ]
+       }
+      });
+      dataSource.fetch(function(){
+       var view = dataSource.view();
+       console.log(view.length); // displays "2"
+       console.log(view[0].name); // displays "Tea"
+       console.log(view[1].name); // displays "Ham"
+      });
+      </script>
+  */
+  Logic     LogicEnum
 
   // The filter operator (comparison).
   //
@@ -127,7 +228,7 @@ type FilterLine struct {
   Operator  OperatorEnum
 
   // The value to which the 'field'
-  // ( http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.field ) is compared. The
+  // ( hhttp://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.field ) is compared. The
   // value has to be of the same type as the field.
   //
   // By design, the '"\n"' is removed from the filter before the filtering is performed. That is why an '"\n"'
@@ -156,11 +257,11 @@ type FilterLine struct {
   Template *Template
 }
 
-func ( el FilterLine ) getTemplate () string {
+func ( el Filter ) getTemplate () string {
   return `{ field: "{{.Field}}", aggregate: "{{.Aggregate}}" }`
 }
 
-func ( el FilterLine ) Buffer() bytes.Buffer {
+func ( el Filter ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
   el.Template.ParserString( el.getTemplate() )
   el.Template.ExecuteTemplate( &buffer, "", el )
@@ -168,7 +269,7 @@ func ( el FilterLine ) Buffer() bytes.Buffer {
   return buffer
 }
 
-func ( el FilterLine ) String() string {
+func ( el Filter ) String() string {
   out := el.Buffer()
   return out.String()
 }
