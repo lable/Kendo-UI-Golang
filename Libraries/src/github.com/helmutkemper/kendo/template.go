@@ -3,13 +3,11 @@ package kendo
 import (
   "html/template"
   "io/ioutil"
-  "io"
   "bytes"
 )
 
 type Template struct{
   Name      string
-  Out       io.Writer
   template *template.Template
   isInit    bool
 }
@@ -87,10 +85,10 @@ func ( TemplateAStt *Template ) Execute( data interface{} ) {
     TemplateAStt.Init()
   }
 
-  err := TemplateAStt.template.Execute( TemplateAStt.Out, data )
+  /*err := TemplateAStt.template.Execute( TemplateAStt.Out, data )
   if err != nil {
     panic( err )
-  }
+  }*/
 }
 
 func ( TemplateAStt *Template ) ExecuteTemplate ( out *bytes.Buffer, name string, data interface{} ) {
