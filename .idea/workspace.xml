@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fba84870-efb2-435f-aae2-363e89bda916" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GOPATH__Kendo_UI_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GOPATH__Kendo_UI_.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filterList.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filterList.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filterList_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filterList_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/operator.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/operator.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/template.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/template.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -439,7 +433,7 @@
       <option name="presentableId" value="Default" />
       <updated>1483612748758</updated>
       <workItem from="1483612750137" duration="29721000" />
-      <workItem from="1483653526876" duration="2502000" />
+      <workItem from="1483653526876" duration="2517000" />
     </task>
     <task id="LOCAL-00001" summary="trabalhando">
       <created>1483642391239</created>
@@ -469,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483647994738</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="trabalhando">
+      <created>1483656033243</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1483656033243</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -505,7 +506,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32223000" />
+    <option name="totallyTimeSpent" value="32238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="18" width="1317" height="750" extended-state="6" />
