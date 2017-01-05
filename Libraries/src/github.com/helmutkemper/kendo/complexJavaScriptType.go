@@ -13,8 +13,9 @@ func ( el ComplexJavaScriptType ) String() string {
     return `"` + el.AsString +  `"`
   } else if el.AsFunction != "" {
     return el.AsFunction
+  } else if el.AsJSon != "" {
+    js, _ := json.Marshal( el.AsJSon )
+    return string( js )
   }
-
-  js, _ := json.Marshal( el.AsJSon )
-  return string( js )
+  return ""
 }
