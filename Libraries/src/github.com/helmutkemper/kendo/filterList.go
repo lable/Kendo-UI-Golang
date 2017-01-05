@@ -157,7 +157,7 @@ type FilterLine struct {
 }
 
 func ( el FilterLine ) getTemplate () string {
-  return `{ field: "{{.Field}}", aggregate: "{{.Aggregate}}" }`
+  return `{ field: "{{.Field}}", operator: "{{.Operator}}", value: "{{.Value}}" }`
 }
 
 func ( el FilterLine ) Buffer() bytes.Buffer {
