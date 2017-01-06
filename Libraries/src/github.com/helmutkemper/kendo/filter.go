@@ -258,9 +258,7 @@ type Filter struct {
 }
 
 func ( el Filter ) getTemplate () string {
-  return `filter: {
-  {{if .Filters}}filters: [{{range $v := .Filters}}{{string $v}},{{end}}],{{end}}
-  field: "{{.Field}}", operator: "{{.Operator}}", value: "{{.Value}}" }`
+  return `filter: { {{if .Field}}field: "{{.Field}}",{{end}}{{if .Filters}}filters: [{{range $v := .Filters}}{{string $v}},{{end}}],{{end}}{{if .Logic}}logic: "{{.Logic}}",{{end}}{{if .Operator}}operator: "{{.Operator}}",{{end}} },`
 }
 
 func ( el Filter ) Buffer() bytes.Buffer {

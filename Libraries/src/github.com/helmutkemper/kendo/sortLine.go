@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // The sort order which will be applied over the data items. By default the data items are not sorted.
 //
 // The data source sorts the data items client-side unless the serverSorting ( http://docs.telerik.com#configuration-serverSorting ) option is set to 'true'.
@@ -42,7 +44,7 @@ package kendo
     });
     </script>
 */
-type Sort struct {
+type SortLine struct {
   // The sort order (direction).
   //
   // The supported values are:
@@ -132,5 +134,24 @@ type Sort struct {
         });
       </script>
   */
-  Compare         string
+  Compare         ComplexJavaScriptType
+
+  Template *Template
+}
+
+func ( el SortLine ) getTemplate () string {
+  return `{ field: "{{.Field}}", aggregate: "{{.Aggregate}}" }`
+}
+
+func ( el SortLine ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el SortLine ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

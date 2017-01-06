@@ -4,12 +4,6 @@ import (
   "fmt"
 )
 
-var t Template
-
-func init(){
-  t = Template{}
-}
-
 func ExampleFilterLine_String() {
   f := FilterLine{
     Field: "field_name",
@@ -23,7 +17,7 @@ func ExampleFilterLine_String() {
 
 func ExampleFilterLine_String2() {
   f := FilterLine{
-    Operator: FILTER_OPERATOR_CONTAINS,
+    Operator: OPERATOR_CONTAINS,
     Template: &t,
   }
   fmt.Print( f.String() );
@@ -46,7 +40,7 @@ func ExampleFilterLine_String3() {
 func ExampleFilterLine_String4() {
   f := FilterLine{
     Field: "field_name",
-    Operator: FILTER_OPERATOR_CONTAINS,
+    Operator: OPERATOR_CONTAINS,
     Template: &t,
   }
   fmt.Print( f.String() );
@@ -57,7 +51,7 @@ func ExampleFilterLine_String4() {
 
 func ExampleFilterLine_String5() {
   f := FilterLine{
-    Operator: FILTER_OPERATOR_CONTAINS,
+    Operator: OPERATOR_CONTAINS,
     Value: ComplexJavaScriptType{ AsFunction: "new Date( 1980, 1, 1 )" },
     Template: &t,
   }
@@ -70,7 +64,7 @@ func ExampleFilterLine_String5() {
 func ExampleFilterLine_String6() {
   f := FilterLine{
     Field: "field_name",
-    Operator: FILTER_OPERATOR_CONTAINS,
+    Operator: OPERATOR_CONTAINS,
     Value: ComplexJavaScriptType{ AsFunction: "new Date( 1980, 1, 1 )" },
     Template: &t,
   }

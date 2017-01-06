@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // The grouping configuration of the data source. If set, the data items will be grouped when the data source is populated. By default, grouping is not applied.
 //
 // The data source groups the data items client-side unless the 'serverGrouping' ( http://docs.telerik.com#configuration-serverGrouping ) option is set to 'true'.
@@ -295,4 +297,26 @@ type Group struct {
       </script>
   */
   Field           string
+
+  Template          Template
+}
+
+func ( el Group ) getTemplate () string {
+  return `group: { {{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{{string $v}},{{end}}],{{end}}{{if .Dir}}dir: "{{.Dir}}",{{end}}{{if .Field}}field: "{{.Field}}",{{end}} }`
+}
+
+func ( el Group ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Group ) String() string {
+  var buffer bytes.Buffer
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer.String()
 }

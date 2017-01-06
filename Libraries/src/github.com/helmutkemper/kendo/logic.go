@@ -35,9 +35,9 @@ package kendo
 type LogicEnum int
 
 const(
-  FILTER_LOGIC_NULL LogicEnum = iota
-  FILTER_LOGIC_AND
-  FILTER_LOGIC_OR
+  LOGIC_NULL LogicEnum = iota
+  LOGIC_AND
+  LOGIC_OR
 )
 
 var LogicEnums = [...]string{
