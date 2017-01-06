@@ -5,11 +5,13 @@ package kendo
 type DataJSonOrJSonpEnum int
 
 const(
-  DATA_TYPE_JSON_OR_JSONP_SET_JSONP DataJSonOrJSonpEnum = iota
+  DATA_TYPE_JSON_OR_JSONP_NULL DataJSonOrJSonpEnum = iota
+  DATA_TYPE_JSON_OR_JSONP_SET_JSONP
   DATA_TYPE_JSON_OR_JSONP_SET_JSON
 )
 
 var DataJSonOrJSonpEnums = [...]string{
+  "",
   "jsonp",
   "json",
 }

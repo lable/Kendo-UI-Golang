@@ -35,7 +35,8 @@ import "bytes"
 type AggregateEnum int
 
 const(
-  AGGREGATE_AVERAGE AggregateEnum = iota
+  AGGREGATE_NULL AggregateEnum = iota
+  AGGREGATE_AVERAGE
   AGGREGATE_COUNT
   AGGREGATE_MAX
   AGGREGATE_MIN
@@ -43,6 +44,7 @@ const(
 )
 
 var AggregateEnums = [...]string{
+  "",
   "average",
   "count",
   "max",

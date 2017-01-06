@@ -34,9 +34,10 @@ func ( TemplateAStt *Template ) Init (){
         switch el.( type ) {
         case AggregateList: return el.( AggregateList ).String()
         case ComplexJavaScriptType: return el.( ComplexJavaScriptType ).String()
+        case OperatorEnum: return el.( OperatorEnum ).String()
         }
 
-        return "error: falta criar o tipo no template";
+        return " - error: falta criar o tipo no template - ";
       },
     },
   )

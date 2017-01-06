@@ -5,11 +5,13 @@ package kendo
 type DirEnum int
 
 const(
-  DIR_ASC DirEnum = iota
+  DIR_NULL DirEnum = iota
+  DIR_ASC
   DIR_DESC
 )
 
 var DirEnums = [...]string{
+  "",
   "asc",
   "desc",
 }

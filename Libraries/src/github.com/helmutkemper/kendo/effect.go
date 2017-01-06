@@ -3,7 +3,8 @@ package kendo
 type EffectEnum int
 
 const(
-  EFFECTS_ZOOM_IN EffectEnum = iota
+  EFFECTS_ZOOM_NULL EffectEnum = iota
+  EFFECTS_ZOOM_IN
   EFFECTS_ZOOM_OUT
   EFFECTS_EXPAND_HORIZONTAL
   EFFECTS_EXPAND_VERTICAL
@@ -19,6 +20,7 @@ const(
 )
 
 var EffectEnums = [...]string{
+  "",
   "zoom:in",
   "zoom:out",
   "expand:horizontal",
