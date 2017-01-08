@@ -32,7 +32,7 @@ import "bytes"
     });
     </script>
 */
-type AggregateList struct {
+type AggregateLine struct {
   // The name of the aggregate function.
   //
   // The supported aggregates are: "average", "count", "max", "min" or "sum"
@@ -84,19 +84,25 @@ type AggregateList struct {
   Template *Template
 }
 
-func ( el AggregateList ) getTemplate () string {
+func ( el AggregateLine ) getTemplate () string {
   return `{ field: "{{.Field}}", aggregate: "{{.Aggregate}}" }`
 }
 
-func ( el AggregateList ) Buffer() bytes.Buffer {
+func ( el AggregateLine ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
   el.Template.ParserString( el.getTemplate() )
   el.Template.ExecuteTemplate( &buffer, "", el )
 
   return buffer
 }
 
-func ( el AggregateList ) String() string {
+func ( el AggregateLine ) String() string {
   out := el.Buffer()
   return out.String()
 }

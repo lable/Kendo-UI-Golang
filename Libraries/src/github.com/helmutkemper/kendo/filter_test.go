@@ -37,7 +37,7 @@ func ExampleFilter_String1() {
   fmt.Print( f.String() )
 
   // Output:
-  // filter: { field: "field_name",filters: [{ operator: &#34;contains&#34; },{ field: &#34;field_name&#34;, operator: &#34;contains&#34;, value: new Date( 1980, 1, 1 ) },], },
+  // field: "field_name",filters: [{ operator: &#34;contains&#34; },{ field: &#34;field_name&#34;, operator: &#34;contains&#34;, value: new Date( 1980, 1, 1 ) },],
 }
 
 func ExampleFilter_String2() {
@@ -62,7 +62,7 @@ func ExampleFilter_String2() {
   fmt.Print( f.String() )
 
   // Output:
-  // filter: { field: "field_name",filters: [{ operator: &#34;contains&#34; },{ field: &#34;field_name&#34;, operator: &#34;contains&#34;, value: new Date( 1980, 1, 1 ) },],logic: "and", },
+  // field: "field_name",filters: [{ operator: &#34;contains&#34; },{ field: &#34;field_name&#34;, operator: &#34;contains&#34;, value: new Date( 1980, 1, 1 ) },],logic: "and",
 }
 
 func ExampleFilter_String3() {

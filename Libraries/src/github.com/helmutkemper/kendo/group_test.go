@@ -4,7 +4,7 @@ import "fmt"
 
 func ExampleGroup_String() {
   g := Group{
-    Aggregates: []AggregateList{
+    Aggregates: []AggregateLine{
       {
         Field: "field_name",
         Aggregate: AGGREGATE_MAX,
@@ -21,33 +21,36 @@ func ExampleGroup_String() {
         Template: &t,
       },
     },
+    Template: &t,
   }
 
   fmt.Print( g.String() )
 
   // Output:
-  // group: { aggregates: [{ field: &#34;field_name&#34;, aggregate: &#34;max&#34; },{ field: &#34;field_name_2&#34;, aggregate: &#34;count&#34; },{ field: &#34;field_name_3&#34;, aggregate: &#34;min&#34; },], }
+  // aggregates: [{ field: &#34;field_name&#34;, aggregate: &#34;max&#34; },{ field: &#34;field_name_2&#34;, aggregate: &#34;count&#34; },{ field: &#34;field_name_3&#34;, aggregate: &#34;min&#34; },],
 }
 
 func ExampleGroup_String2() {
   g := Group{
     Dir: DIR_ASC,
+    Template: &t,
   }
 
   fmt.Print( g.String() )
 
   // Output:
-  // group: { dir: "asc", }
+  // dir: "asc",
 }
 
 
 func ExampleGroup_String3() {
   g := Group{
     Field: "field_name",
+    Template: &t,
   }
 
   fmt.Print( g.String() )
 
   // Output:
-  // group: { field: "field_name", }
+  // field: "field_name",
 }

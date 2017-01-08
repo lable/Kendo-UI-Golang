@@ -5,7 +5,7 @@ import (
 )
 
 func ExampleAggregateList_String() {
-  a := AggregateList{
+  a := AggregateLine{
     Aggregate: AGGREGATE_MAX,
     Field: "field_name",
     Template: &t,

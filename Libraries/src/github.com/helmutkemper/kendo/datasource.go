@@ -11,7 +11,7 @@ import "bytes"
 // See the DataSource Overview and Basic Usage for an introduction to the DataSource.
 //
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
-type DataSource  struct{
+type DataSource struct{
 
   // The aggregates which are calculated when the data source populates with data.
   //
@@ -42,7 +42,7 @@ type DataSource  struct{
       });
       </script>
   */
-  Aggregate       []AggregateList
+  Aggregate       []AggregateLine
 
   // default: false
   //
@@ -346,7 +346,7 @@ type DataSource  struct{
       });
       </script>
   */
-  OfflineStorage  string
+  OfflineStorage  ComplexJavaScriptType
 
   // The page of data which the data source will return when the 'view'
   // ( http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods-view ) method is invoked or request from
@@ -664,7 +664,7 @@ type DataSource  struct{
       });
       </script>
   */
-  Sort              Sort
+  Sort              []SortLine
 
   // The configuration used to load and save the data items. A data source is remote or local based on the way of it
   // retrieves data items.
@@ -696,22 +696,41 @@ type DataSource  struct{
    */
   Transport         DataJSonOrJSonpEnum
 
-  Template          Template
+  Template          *Template
 }
 
 func ( el DataSource ) getTemplate () string {
-  return `{{define "DataSource"}}
+  return `
   {{if .Aggregate}}aggregate: [{{range $v := .Aggregate}}{{string $v}},{{end}}],{{end}}
   {{if .AutoSync}}autoSync: true,{{end}}
   {{if .Batch}}batch: true,{{end}}
-  {{if .Data}}data: {{.Data}},{{end}}
-  {{end}}`
+  {{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
+  {{if ne (string .Filter) "null"}}filter:{ {{string .Filter}} },{{end}}
+  {{if ne (string .Group) "null"}}group: [ {{string .Group}} ],{{end}}
+  {{if ne (string .OfflineStorage) "null"}}offlineStorage: {{string .OfflineStorage}},{{end}}
+  {{if .Page}}page: {{.Page}},{{end}}
+  {{if .PageSize}}pageSize: {{.PageSize}},{{end}}
+  {{if ne (string .Schema) "null"}}schema: { {{string .Schema}} },{{end}}
+  {{if .ServerAggregates}}serverAggregates: true,{{end}}
+  {{if .ServerFiltering}}serverFiltering: true,{{end}}
+  {{if .ServerGrouping}}serverGrouping: true,{{end}}
+  {{if .ServerPaging}}serverPaging: true,{{end}}
+  {{if .ServerSorting}}serverSorting: true,{{end}}
+  {{if .Sort}}sort: [ {{range $v := .Sort}}{{string $v}},{{end}} ],{{end}}
+  {{if ne (string .Transport) "null"}}transport: {{string .Transport}},{{end}}
+  `
 }
 
 func ( el DataSource ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
   el.Template.ParserString( el.getTemplate() )
-  el.Template.ExecuteTemplate( &buffer, "DataSource", el )
+  el.Template.ExecuteTemplate( &buffer, "", el )
 
   return buffer
 }
@@ -719,7 +738,7 @@ func ( el DataSource ) Buffer() bytes.Buffer {
 func ( el DataSource ) String() string {
   var buffer bytes.Buffer
   el.Template.ParserString( el.getTemplate() )
-  el.Template.ExecuteTemplate( &buffer, "DataSource", el )
+  el.Template.ExecuteTemplate( &buffer, "", el )
 
   return buffer.String()
 }

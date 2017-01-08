@@ -140,7 +140,7 @@ type Group struct {
       });
       </script>
   */
-  Aggregates      []AggregateList
+  Aggregates      []AggregateLine
 
   // default: "asc"
   //
@@ -298,15 +298,21 @@ type Group struct {
   */
   Field           string
 
-  Template          Template
+  Template        *Template
 }
 
 func ( el Group ) getTemplate () string {
-  return `group: { {{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{{string $v}},{{end}}],{{end}}{{if .Dir}}dir: "{{.Dir}}",{{end}}{{if .Field}}field: "{{.Field}}",{{end}} }`
+  return `{{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{{string $v}},{{end}}],{{end}}{{if .Dir}}dir: "{{.Dir}}",{{end}}{{if .Field}}field: "{{.Field}}",{{end}}`
 }
 
 func ( el Group ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
   el.Template.ParserString( el.getTemplate() )
   el.Template.ExecuteTemplate( &buffer, "", el )
 
@@ -314,9 +320,6 @@ func ( el Group ) Buffer() bytes.Buffer {
 }
 
 func ( el Group ) String() string {
-  var buffer bytes.Buffer
-  el.Template.ParserString( el.getTemplate() )
-  el.Template.ExecuteTemplate( &buffer, "", el )
-
-  return buffer.String()
+  out := el.Buffer()
+  return out.String()
 }

@@ -258,11 +258,17 @@ type Filter struct {
 }
 
 func ( el Filter ) getTemplate () string {
-  return `filter: { {{if .Field}}field: "{{.Field}}",{{end}}{{if .Filters}}filters: [{{range $v := .Filters}}{{string $v}},{{end}}],{{end}}{{if .Logic}}logic: "{{.Logic}}",{{end}}{{if .Operator}}operator: "{{.Operator}}",{{end}} },`
+  return `{{if .Field}}field: "{{.Field}}",{{end}}{{if .Filters}}filters: [{{range $v := .Filters}}{{string $v}},{{end}}],{{end}}{{if .Logic}}logic: "{{.Logic}}",{{end}}{{if .Operator}}operator: "{{.Operator}}",{{end}}`
 }
 
 func ( el Filter ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
   el.Template.ParserString( el.getTemplate() )
   el.Template.ExecuteTemplate( &buffer, "", el )
 

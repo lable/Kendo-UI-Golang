@@ -140,11 +140,17 @@ type SortLine struct {
 }
 
 func ( el SortLine ) getTemplate () string {
-  return `{ field: "{{.Field}}", aggregate: "{{.Aggregate}}" }`
+  return `{{if .Dir}}dir: "{{.Dir}}",{{end}} {{if .Field}}field: "{{.Field}}",{{end}} {{if ne (string .Compare) "null"}}compare: {{.Compare}}{{end}}`
 }
 
 func ( el SortLine ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
   el.Template.ParserString( el.getTemplate() )
   el.Template.ExecuteTemplate( &buffer, "", el )
 
