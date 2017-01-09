@@ -123,55 +123,66 @@ class classMaker
     }
   
     $output = array();
+    $outputRef = null;
     foreach( $structList as $structName => $structData ){
       foreach( $structData as $itemName => $itemData ){
+  
+        if( isset( $structList[ $itemName ] ) ){
+          
+        }
+        else {
+          
+        }
         
         if( !isset( $output[ $itemName ] ) ){
           $output[ $itemName ]  = "";
-          $output[ $itemName ] .= "// " . $itemData[ "helpLink" ] . "\n// \n";
-          //$output[ $itemName ] .= "// Type: " . $itemData[ "type" ][ 0 ];
+    
+          $outputRef = &$output[ $itemName ];
+          
+          $outputRef .= "// " . $itemData[ "helpLink" ] . "\n// \n";
+          //$outputRef .= "// Type: " . $itemData[ "type" ][ 0 ];
   
           //if( $itemData[ "default" ] ){
-          //  $output[ $itemName ] .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
+          //  $outputRef .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
           //}
           //else{
-          //  $output[ $itemName ] .= "\n// \n";
+          //  $outputRef .= "\n// \n";
           //}
   
-          $output[ $itemName ] .= str_replace( "  //", "//", $itemData[ "description" ] ) . "\n// \n";
-          $output[ $itemName ] .= str_replace( "  //", "//", $itemData[ "spotlight" ] ) . "\n// \n";
-          $output[ $itemName ] .= str_replace( "\n  ", "\n", substr( $itemData[ "example" ], 2 ) ) . "\n// \n";
+          $outputRef .= str_replace( "  //", "//", $itemData[ "description" ] ) . "\n// \n";
+          $outputRef .= str_replace( "  //", "//", $itemData[ "spotlight" ] ) . "\n// \n";
+          $outputRef .= str_replace( "\n  ", "\n", substr( $itemData[ "example" ], 2 ) ) . "\n// \n";
   
           if( $itemData[ "parameters" ] ) {
-            $output[ $itemName ] .= $itemData["parameters"] . "\n// \n";
+            $outputRef .= $itemData["parameters"] . "\n// \n";
           }
           if( $itemData[ "return" ] ) {
-            $output[ $itemName ] .= $itemData["return"] . "\n// \n";
+            $outputRef .= $itemData["return"] . "\n// \n";
           }
-          $output[ $itemName ] .= "type " . ucfirst( $itemName ) . " struct{\n\n";
+          $outputRef .= "type " . ucfirst( $itemName ) . " struct{\n\n";
         }
         
         if( isset( $structList[ $itemName ] ) ){
           if( count( $itemData[ "type" ] ) == 1 ){
-              $output[ $itemName ] .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
-              $output[ $itemName ] .= "  // Type: " . $itemData[ "type" ][ 0 ];
+              $outputRef .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
+              $outputRef .= "  // Type: " . $itemData[ "type" ][ 0 ];
               
               if( $itemData[ "default" ] ){
-                $output[ $itemName ] .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
+                $outputRef .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
               }
               else{
-                $output[ $itemName ] .= "\n  // \n";
+                $outputRef .= "\n  // \n";
               }
               
-              $output[ $itemName ] .= $itemData[ "description" ] . "\n  // \n";
-              $output[ $itemName ] .= $itemData[ "spotlight" ] . "\n  // \n";
-              $output[ $itemName ] .= $itemData[ "example" ] . "\n  // \n";
+              $outputRef .= $itemData[ "description" ] . "\n  // \n";
+              $outputRef .= $itemData[ "spotlight" ] . "\n  // \n";
+              $outputRef .= $itemData[ "example" ] . "\n  // \n";
               
               if( $itemData[ "parameters" ] ) {
-                $output[ $itemName ] .= $itemData["parameters"] . "\n  // \n";
+                $outputRef .= $itemData["parameters"] . "\n  // \n";
               }
               if( $itemData[ "return" ] ) {
-                $output[ $itemName ] .= $itemData["return"] . "\n  // \n";
+                $outputRef .= $itemData["return"] . "\n  // \n";
               }
   
             if( $itemData[ "type" ][ 0 ] == "Array" ) {
@@ -206,25 +217,25 @@ class classMaker
                 die( "falta criar um tipo de variável" );
             }
             
-            $output[ $itemName ] .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
-            $output[ $itemName ] .= "  // Type: " . $type;
+            $outputRef .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
+            $outputRef .= "  // Type: " . $type;
     
             if( $itemData[ "default" ] ){
-              $output[ $itemName ] .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
+              $outputRef .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
             }
             else{
-              $output[ $itemName ] .= "\n  // \n";
+              $outputRef .= "\n  // \n";
             }
     
-            $output[ $itemName ] .= $itemData[ "description" ] . "\n  // \n";
-            $output[ $itemName ] .= $itemData[ "spotlight" ] . "\n  // \n";
-            $output[ $itemName ] .= $itemData[ "example" ] . "\n  // \n";
+            $outputRef .= $itemData[ "description" ] . "\n  // \n";
+            $outputRef .= $itemData[ "spotlight" ] . "\n  // \n";
+            $outputRef .= $itemData[ "example" ] . "\n  // \n";
     
             if( $itemData[ "parameters" ] ) {
-              $output[ $itemName ] .= $itemData["parameters"] . "\n  // \n";
+              $outputRef .= $itemData["parameters"] . "\n  // \n";
             }
             if( $itemData[ "return" ] ) {
-              $output[ $itemName ] .= $itemData["return"] . "\n  // \n";
+              $outputRef .= $itemData["return"] . "\n  // \n";
             }
     
             if( $itemData[ "type" ][ 0 ] == "Array" ) {
