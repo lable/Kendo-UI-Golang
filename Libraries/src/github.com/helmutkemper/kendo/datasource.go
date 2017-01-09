@@ -1,5 +1,6 @@
 package kendo
 
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
 //
 // The aggregates which are calculated when the data source populates with data.
@@ -157,6 +158,253 @@ type Datasource struct{
   */
   //
   Batch    bool
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-data
+  //
+  // Type: Array
+  //
+  // The array of data items which the data source contains. The data source will wrap those items as 'kendo.data.ObservableObject' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/observableobject  or 'kendo.data.Model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model  (if 'schema.model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema-model  is set).
+  //
+  // Can be set to a string value if the 'schema.type' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.type  option is set to "xml".
+  //
+  //
+  //
+  /*
+    Example - set the data items of a data source
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ]
+      });
+      dataSource.fetch(function(){
+        var janeDoe = dataSource.at(0);
+        console.log(janeDoe.name); // displays "Jane Doe"
+      });
+      </script>
+
+
+      Example - set the data items as an XML string
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: '<books><book id="1"><title>Secrets of the JavaScript Ninja</title></book></books>',
+        schema: {
+          // specify the the schema is XML
+          type: "xml",
+          // the XML element which represents a single data record
+          data: "/books/book",
+          // define the model - the object which will represent a single data record
+          model: {
+            // configure the fields of the object
+            fields: {
+              // the "title" field is mapped to the text of the "title" XML element
+              title: "title/text()",
+              // the "id" field is mapped to the "id" attribute of the "book" XML element
+              id: "@id"
+            }
+          }
+        }
+      });
+      dataSource.fetch(function() {
+        var books = dataSource.data();
+        console.log(books[0].title); // displays "Secrets of the JavaScript Ninja"
+      });
+      </script>
+  */
+  //
+  Data    ComplexJavaScriptType
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter
+  //
+  // Type: Array
+  //
+  // The filters which are applied over the data items. By default, no filter is applied.
+  //
+  //    The data source filters the data items client-side unless the 'serverFiltering' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering option is set to 'true'.
+  //
+  /*
+    Example - set a single filter
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Jane Doe" },
+          { name: "John Doe" }
+        ],
+        filter: { field: "name", operator: "startswith", value: "Jane" }
+      });
+      dataSource.fetch(function(){
+        var view = dataSource.view();
+        console.log(view.length); // displays "1"
+        console.log(view[0].name); // displays "Jane Doe"
+      });
+      </script>
+
+
+      Example - set filter as conjunction (and)
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Tea", category: "Beverages" },
+          { name: "Coffee", category: "Beverages" },
+          { name: "Ham", category: "Food" }
+        ],
+        filter: [
+          // leave data items which are "Beverage" and not "Coffee"
+          { field: "category", operator: "eq", value: "Beverages" },
+          { field: "name", operator: "neq", value: "Coffee" }
+        ]
+      });
+      dataSource.fetch(function(){
+        var view = dataSource.view();
+        console.log(view.length); // displays "1"
+        console.log(view[0].name); // displays "Tea"
+      });
+      </script>
+
+
+      Example - set filter as disjunction (or)
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Tea", category: "Beverages" },
+          { name: "Coffee", category: "Beverages" },
+          { name: "Ham", category: "Food" }
+        ],
+        filter: {
+          // leave data items which are "Food" or "Tea"
+          logic: "or",
+          filters: [
+            { field: "category", operator: "eq", value: "Food" },
+            { field: "name", operator: "eq", value: "Tea" }
+          ]
+        }
+      });
+      dataSource.fetch(function(){
+        var view = dataSource.view();
+        console.log(view.length); // displays "2"
+        console.log(view[0].name); // displays "Tea"
+        console.log(view[1].name); // displays "Ham"
+      });
+      </script>
+  */
+  //
+  Filter    Filter
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group
+  //
+  // Type: Array
+  //
+  // The grouping configuration of the data source. If set, the data items will be grouped when the data source is populated. By default, grouping is not applied.
+  //
+  //    The data source groups the data items client-side unless the 'serverGrouping' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping option is set to 'true'.
+  //
+  /*
+    Example - set a group as an object
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Tea", category: "Beverages" },
+          { name: "Coffee", category: "Beverages" },
+          { name: "Ham", category: "Food" }
+        ],
+        // group by the "category" field
+        group: { field: "category" }
+      });
+      dataSource.fetch(function(){
+        var view = dataSource.view();
+        console.log(view.length); // displays "2"
+        var beverages = view[0];
+        console.log(beverages.value); // displays "Beverages"
+        console.log(beverages.items[0].name); // displays "Tea"
+        console.log(beverages.items[1].name); // displays "Coffee"
+        var food = view[1];
+        console.log(food.value); // displays "Food"
+        console.log(food.items[0].name); // displays "Ham"
+      });
+      </script>
+
+
+      Example - set a group as an array (subgroups)
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Pork", category: "Food", subcategory: "Meat" },
+          { name: "Pepper", category: "Food", subcategory: "Vegetables" },
+          { name: "Beef", category: "Food", subcategory: "Meat" }
+        ],
+        group: [
+          // group by "category" and then by "subcategory"
+          { field: "category" },
+          { field: "subcategory" },
+        ]
+      });
+      dataSource.fetch(function(){
+        var view = dataSource.view();
+        console.log(view.length); // displays "1"
+        var food = view[0];
+        console.log(food.value); // displays "Food"
+        var meat = food.items[0];
+        console.log(meat.value); // displays "Meat"
+        console.log(meat.items.length); // displays "2"
+        console.log(meat.items[0].name); // displays "Pork"
+        console.log(meat.items[1].name); // displays "Beef"
+        var vegetables = food.items[1];
+        console.log(vegetables.value); // displays "Vegetables"
+        console.log(vegetables.items.length); // displays "1"
+        console.log(vegetables.items[0].name); // displays "Pepper"
+      });
+      </script>
+  */
+  //
+  Group    Group
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-offlineStorage
+  //
+  // Type: String
+  //
+  // The offline storage key or custom offline storage implementation.
+  //
+  //
+  //
+  /*
+    Example - set offline storage key
+      <script>
+      var dataSource = new kendo.data.DataSource({
+          offlineStorage: "products-offline",
+          transport: {
+              read: {
+                  url: "http://demos.telerik.com/kendo-ui/service/products",
+                  type: "jsonp"
+              }
+          }
+      });
+      </script>
+
+
+      Example - set custom offline storage implementation
+      <script>
+      var dataSource = new kendo.data.DataSource({
+          // use sessionStorage instead of localStorage
+          offlineStorage: {
+              getItem: function() {
+                  return JSON.parse(sessionStorage.getItem("products-key"));
+              },
+              setItem: function(item) {
+                  sessionStorage.setItem("products-key", JSON.stringify(item));
+              }
+          },
+          transport: {
+              read: {
+                  url: "http://demos.telerik.com/kendo-ui/service/products",
+                  type: "jsonp"
+              }
+          }
+      });
+      </script>
+  */
+  //
+  OfflineStorage    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-page
   //
@@ -429,6 +677,54 @@ type Datasource struct{
   //
   ServerSorting    bool
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-sort
+  //
+  // Type: Array
+  //
+  // The sort order which will be applied over the data items. By default the data items are not sorted.
+  //
+  //    The data source sorts the data items client-side unless the serverSorting option is set to 'true'.
+  //
+  /*
+    Example - sort the data items
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Jane Doe", age: 30 },
+          { name: "John Doe", age: 33 }
+        ],
+        sort: { field: "age", dir: "desc" }
+      });
+      dataSource.fetch(function(){
+        var data = dataSource.view();
+        console.log(data[0].age); // displays "33"
+      });
+      </script>
+
+
+      Example - sort the data items by multiple fields
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Tea", category: "Beverages" },
+          { name: "Coffee", category: "Beverages" },
+          { name: "Ham", category: "Food" }
+        ],
+        sort: [
+          // sort by "category" in descending order and then by "name" in ascending order
+          { field: "category", dir: "desc" },
+          { field: "name", dir: "asc" }
+        ]
+      });
+      dataSource.fetch(function(){
+        var data = dataSource.view();
+        console.log(data[1].name); // displays "Coffee"
+      });
+      </script>
+  */
+  //
+  Sort    Sort
+
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport
   //
   // Type: Object
@@ -503,15 +799,25 @@ type Datasource struct{
 }
 
 func ( el Datasource ) getTemplate () string {
-  return `{{if .Aggregate}}aggregate: [{{range $v := .Aggregate}}{{string $v}},{{end}}],{{end}}
-{{if .AutoSync}}batch: true,{{end}}
+  return `{{if .ServerAggregates}}aggregate: [{{range $v := .Aggregate}}{{string $v}},{{end}}],{{end}}
+{{if .AutoSync}}autoSync: true,{{end}}
 {{if .Batch}}batch: true,{{end}}
-{{if ne (string .Page) "null"}}page: {{string .Page}},{{end}}{{if ne (string .PageSize) "null"}}pageSize: {{string .PageSize}},{{end}}{{if .ServerAggregates}}batch: true,{{end}}
-{{if .ServerFiltering}}batch: true,{{end}}
-{{if .ServerGrouping}}batch: true,{{end}}
-{{if .ServerPaging}}batch: true,{{end}}
-{{if .ServerSorting}}batch: true,{{end}}
-{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}`
+{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
+{{if .ServerFiltering}}{{$length := len .Filter}}{{if le $length 1}}filter: { {{string .Filter}} },{{else}}filter: [ {{string .Filter}} ],{{end}},{{end}}
+{{if .ServerGrouping}}{{$length := len .Group}}{{if le $length 1}}group: { {{string .Group}} },{{else}}group: [ {{string .Group}} ],{{end}},{{end}}
+{{if ne (string .OfflineStorage) "null"}}offlineStorage: {{string .OfflineStorage}},{{end}}
+{{if .ServerPaging}}page: {{.Page}},{{end}}
+{{if .ServerPaging}}pageSize: {{.PageSize}},{{end}}
+{{if ne (string .Schema) "null"}}schema: {{string .Schema}},{{end}}
+{{if .ServerAggregates}}serverAggregates: true,{{end}}
+{{if .ServerFiltering}}serverFiltering: true,{{end}}
+{{if .ServerGrouping}}serverGrouping: true,{{end}}
+{{if .ServerPaging}}serverPaging: true,{{end}}
+{{if .ServerSorting}}serverSorting: true,{{end}}
+{{if ne (string .Sort) "null"}}{{$length := len .Sort}}{{if le $length 1}}sort: { {{string .Sort}} },{{else}}sort: [ {{string .Sort}} ],{{end}},{{end}}
+{{if ne (string .Transport) "null"}}transport: {{string .Transport}},{{end}}
+{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
+`
 }
 
 
@@ -636,7 +942,9 @@ type Aggregate struct{
 }
 
 func ( el Aggregate ) getTemplate () string {
-  return `{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}`
+  return `{{if ne (string .Aggregate) "null"}}aggregate: {{string .Aggregate}},{{end}}
+{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+`
 }
 
 
@@ -787,6 +1095,65 @@ type Filter struct{
   //
   Logic    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.operator
+  //
+  // Type: String
+  //
+  // The filter operator (comparison).
+  //
+  // The supported operators are:
+  //
+  //
+  //
+  // "eq" (equal to)
+  //
+  // "neq" (not equal to)
+  //
+  // "isnull" (is equal to null)
+  //
+  // "isnotnull" (is not equal to null)
+  //
+  // "lt" (less than)
+  //
+  // "lte" (less than or equal to)
+  //
+  // "gt" (greater than)
+  //
+  // "gte" (greater than or equal to)
+  // *  "startswith"
+  // *  "endswith"
+  // *  "contains"
+  // *  "doesnotcontain"
+  // *  "isempty"
+  //
+  // "isnotempty"
+  //
+  // The last five are supported only for string fields.
+  //
+  //
+  //
+  //
+  //
+  /*
+    Example - set the filter operator
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        data: [
+          { name: "Jane Doe" },
+          { name: "John Doe" }
+        ],
+        filter: { field: "name", operator: "startswith", value: "Jane" }
+      });
+      dataSource.fetch(function(){
+        var view = dataSource.view();
+        console.log(view.length); // displays "1"
+        console.log(view[0].name); // displays "Jane Doe"
+      });
+      </script>
+  */
+  //
+  Operator    ComplexJavaScriptType
+
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.value
   //
   // Type: Object
@@ -819,7 +1186,12 @@ type Filter struct{
 }
 
 func ( el Filter ) getTemplate () string {
-  return `{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}{{if ne (string .Filters) "null"}}filters: {{string .Filters}},{{end}}{{if ne (string .Logic) "null"}}logic: {{string .Logic}},{{end}}{{if ne (string .Value) "null"}}value: {{string .Value}},{{end}}`
+  return `{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+{{if ne (string .Filters) "null"}}filters: {{string .Filters}},{{end}}
+{{if ne (string .Logic) "null"}}logic: {{string .Logic}},{{end}}
+{{if ne (string .Operator) "null"}}operator: {{string .Operator}},{{end}}
+{{if ne (string .Value) "null"}}value: {{string .Value}},{{end}}
+`
 }
 
 
@@ -1011,7 +1383,9 @@ type Group struct{
 
 func ( el Group ) getTemplate () string {
   return `{{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{{string $v}},{{end}}],{{end}}
-{{if ne (string .Dir) "null"}}dir: {{string .Dir}},{{end}}{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}`
+{{if ne (string .Dir) "null"}}dir: {{string .Dir}},{{end}}
+{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+`
 }
 
 
@@ -1154,7 +1528,9 @@ type Aggregates struct{
 }
 
 func ( el Aggregates ) getTemplate () string {
-  return `{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}`
+  return `{{if ne (string .Aggregate) "null"}}aggregate: {{string .Aggregate}},{{end}}
+{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+`
 }
 
 
@@ -1209,83 +1585,302 @@ func ( el Aggregates ) getTemplate () string {
 //
 type Schema struct{
 
-  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.model
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.aggregates
   //
-  // Type: Object
+  // Type: Function
   //
-  // The data item (model) configuration.
+  // The field from the response which contains the aggregate results. Can be set to a function which is called to return the aggregate results from the response.
   //
-  // If set to an object, the 'Model.define' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model#model.define  method will be used to initialize the data source model.
-  //
-  // If set to an existing 'kendo.data.Model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model  instance, the data source will use that instance and will not initialize a new one.
-  //
-  //
+  //    The 'aggregates' option is used only when the 'serverAggregates' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverAggregates option is set to 'true'.
   //
   /*
-    Example - set the model as a JavaScript object
+    Example - set aggregates as a string
       <script>
       var dataSource = new kendo.data.DataSource({
+        transport: {
+          /@ transport configuration @/
+        }
+        serverAggregates: true,
         schema: {
-          model: {
-            id: "ProductID",
-            fields: {
-              ProductID: {
-                //this field will not be editable (default value is true)
-                editable: false,
-                // a defaultValue will not be assigned (default value is false)
-                nullable: true
-              },
-              ProductName: {
-                //set validation rules
-                validation: { required: true }
-              },
-              UnitPrice: {
-                //data type of the field {Number|String|Boolean|Date} default is String
-                type: "number",
-                // used when new model is created
-                defaultValue: 42,
-                validation: { required: true, min: 1 }
-              }
-            }
-          }
+          aggregates: "aggregates" // aggregate results are returned in the "aggregates" field of the response
         }
       });
       </script>
 
 
-      Example - set the model as an existing <code>kendo.data.Model</code> instance
+      Example - set aggregates as a function
       <script>
-      var Product = kendo.model.define({
-        id: "ProductID",
-        fields: {
-          ProductID: {
-            //this field will not be editable (default value is true)
-            editable: false,
-            // a defaultValue will not be assigned (default value is false)
-            nullable: true
-          },
-          ProductName: {
-            //set validation rules
-            validation: { required: true }
-          },
-          UnitPrice: {
-            //data type of the field {Number|String|Boolean|Date} default is String
-            type: "number",
-            // used when new model is created
-            defaultValue: 42,
-            validation: { required: true, min: 1 }
-          }
-        }
-      });
       var dataSource = new kendo.data.DataSource({
+        transport: {
+          /@ transport configuration @/
+        }
+        serverAggregates: true,
         schema: {
-          model: Product
+          aggregates: function(response) {
+            return response.aggregates;
+          }
         }
       });
       </script>
   */
   //
-  Model    Model
+  Aggregates    ComplexJavaScriptType
+
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data
+//
+// Type: Function
+//
+// The field from the server response which contains the data items. Can be set to a function which is called to return the data items for the response.
+//
+//
+//
+/*
+  Returns
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read: {
+          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          data: { q: "html5" } // search for tweets that contain "html5"
+        }
+      },
+      schema: {
+        data: "statuses" // twitter's response is { "statuses": [ /@ results @/ ] }
+      }
+    });
+    dataSource.fetch(function(){
+      var data = this.data();
+      console.log(data.length);
+    });
+    </script>
+
+
+    Example - specify the field which contains the data items as a string
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read: {
+          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          data: { q: "html5" } // search for tweets that contain "html5"
+        }
+      },
+      schema: {
+        data: function(response) {
+          return response.statuses; // twitter's response is { "statuses": [ /@ results @/ ] }
+        }
+      }
+    });
+    dataSource.fetch(function(){
+      var data = this.data();
+      console.log(data.length);
+    });
+    </script>
+
+
+    Example - specify the field which contains the data items as a function
+*/
+//
+
+
+<p>'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.</p>
+
+
+//
+Data    ComplexJavaScriptType
+
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.errors
+//
+// Type: Function
+// Defalt: errors
+//
+// The field from the server response which contains server-side errors. Can be set to a function which is called to return the errors for response. If there are any errors, the 'error' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#events-error  event will be fired.
+//
+//
+//
+/*
+  Example - specify the error field as a string
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read: {
+          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          data: { q: "#" }
+        }
+      },
+      schema: {
+        errors: "error" // twitter's response is { "error": "Invalid query" }
+      },
+      error: function(e) {
+        console.log(e.errors); // displays "Invalid query"
+      }
+    });
+    dataSource.fetch();
+    </script>
+
+
+    Example - specify the error field as a function
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read: {
+          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          data: { q: "#" }
+        }
+      },
+      schema: {
+        errors: function(response) {
+          return response.error; // twitter's response is { "error": "Invalid query" }
+        }
+      },
+      error: function(e) {
+        console.log(e.errors); // displays "Invalid query"
+      }
+    });
+    dataSource.fetch();
+    </script>
+*/
+//
+Errors    ComplexJavaScriptType
+
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.groups
+//
+// Type: Function
+//
+// The field from the server response which contains the groups. Can be set to a function which is called to return the groups from the response.
+//
+//    The 'groups' option is used only when the 'serverGrouping' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping option is set to 'true'.
+//
+/*
+  Example - set groups as a string
+    [{
+      aggregates: {
+        FIEL1DNAME: {
+          FUNCTON1NAME: FUNCTION1VALUE,
+          FUNCTON2NAME: FUNCTION2VALUE
+        },
+        FIELD2NAME: {
+          FUNCTON1NAME: FUNCTION1VALUE
+        }
+      },
+      field: FIELDNAME, // the field by which the data items are grouped
+      hasSubgroups: true, // true if there are subgroups
+      items: [
+        // either the subgroups or the data items
+        {
+          aggregates: {
+            //nested group aggregates
+          },
+          field: NESTEDGROUPFIELDNAME,
+          hasSubgroups: false,
+          items: [
+          // data records
+          ],
+          value: NESTEDGROUPVALUE
+        },
+        //nestedgroup2, nestedgroup3, etc.
+      ],
+      value: VALUE // the group key
+    } /@ other groups @/
+    ]
+
+
+    Example - set groups as a function
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        /@ transport configuration @/
+      },
+      serverGrouping: true,
+      schema: {
+        groups: "groups" // groups are returned in the "groups" field of the response
+      }
+    });
+    </script>
+*/
+//
+Groups    ComplexJavaScriptType
+
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.model
+//
+// Type: Object
+//
+// The data item (model) configuration.
+//
+// If set to an object, the 'Model.define' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model#model.define  method will be used to initialize the data source model.
+//
+// If set to an existing 'kendo.data.Model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model  instance, the data source will use that instance and will not initialize a new one.
+//
+//
+//
+/*
+  Example - set the model as a JavaScript object
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      schema: {
+        model: {
+          id: "ProductID",
+          fields: {
+            ProductID: {
+              //this field will not be editable (default value is true)
+              editable: false,
+              // a defaultValue will not be assigned (default value is false)
+              nullable: true
+            },
+            ProductName: {
+              //set validation rules
+              validation: { required: true }
+            },
+            UnitPrice: {
+              //data type of the field {Number|String|Boolean|Date} default is String
+              type: "number",
+              // used when new model is created
+              defaultValue: 42,
+              validation: { required: true, min: 1 }
+            }
+          }
+        }
+      }
+    });
+    </script>
+
+
+    Example - set the model as an existing <code>kendo.data.Model</code> instance
+    <script>
+    var Product = kendo.model.define({
+      id: "ProductID",
+      fields: {
+        ProductID: {
+          //this field will not be editable (default value is true)
+          editable: false,
+          // a defaultValue will not be assigned (default value is false)
+          nullable: true
+        },
+        ProductName: {
+          //set validation rules
+          validation: { required: true }
+        },
+        UnitPrice: {
+          //data type of the field {Number|String|Boolean|Date} default is String
+          type: "number",
+          // used when new model is created
+          defaultValue: 42,
+          validation: { required: true, min: 1 }
+        }
+      }
+    });
+    var dataSource = new kendo.data.DataSource({
+      schema: {
+        model: Product
+      }
+    });
+    </script>
+*/
+//
+Model    Model
 
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.parse
 //
@@ -1350,6 +1945,58 @@ type Schema struct{
 //
 Parse    ComplexJavaScriptType
 
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.total
+//
+// Type: Function
+//
+// The field from the server response which contains the total number of data items. Can be set to a function which is called to return the total number of data items for the response.
+//
+//    The 'schema.total' setting may be omitted when the Grid is bound to a plain 'Array' (that is, the data items' collection is not a value of a field in the server response). In this case, the 'length' of the response 'Array' will be used.
+
+The 'schema.total' must be set if the 'serverPaging' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging option is set to 'true' or the 'schema.data' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data option is used.
+//
+/*
+  Returns
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        /@ transport configuration @/
+      },
+      serverGrouping: true,
+      schema: {
+        total: "total" // total is returned in the "total" field of the response
+      }
+    });
+    </script>
+
+
+    Example - set the total as a string
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        /@ transport configuration @/
+      },
+      serverGrouping: true,
+      schema: {
+        total: function(response) {
+          return response.total; // total is returned in the "total" field of the response
+        }
+      }
+    });
+    </script>
+
+
+    Example - set the total as a function
+*/
+//
+
+
+<p>'Number' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number  The total number of data items.</p>
+
+
+//
+Total    ComplexJavaScriptType
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.type
 //
 // Type: String
@@ -1403,7 +2050,15 @@ Template    *Template
 }
 
 func ( el Schema ) getTemplate () string {
-  return `{{if ne (string .Model) "null"}}model: {{string .Model}},{{end}}{{if ne (string .Parse) "null"}}parse: {{string .Parse}},{{end}}{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}`
+  return `{{if ne (string .Aggregates) "null"}}aggregates: {{string .Aggregates}},{{end}}
+{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
+{{if ne (string .Errors) "null"}}errors: {{string .Errors}},{{end}}
+{{if ne (string .Groups) "null"}}groups: {{string .Groups}},{{end}}
+{{if ne (string .Model) "null"}}model: {{string .Model}},{{end}}
+{{if ne (string .Parse) "null"}}parse: {{string .Parse}},{{end}}
+{{if ne (string .Total) "null"}}total: {{string .Total}},{{end}}
+{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
+`
 }
 
 
@@ -1569,7 +2224,10 @@ type Sort struct{
 }
 
 func ( el Sort ) getTemplate () string {
-  return `{{if ne (string .Dir) "null"}}dir: {{string .Dir}},{{end}}{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}{{if ne (string .Compare) "null"}}compare: {{string .Compare}},{{end}}`
+  return `{{if ne (string .Dir) "null"}}dir: {{string .Dir}},{{end}}
+{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+{{if ne (string .Compare) "null"}}compare: {{string .Compare}},{{end}}
+`
 }
 
 
@@ -1658,6 +2316,174 @@ func ( el Sort ) getTemplate () string {
 */
 //
 type Transport struct{
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.create
+  //
+  // Type: Object
+  //
+  // The configuration used when the data source saves newly created data items. Those are items added to the data source via the 'add' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods-add  or 'insert' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods-insert  methods.
+  //
+  //    The data source uses 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax/ to make a HTTP request to the remote service. The value configured via 'transport.create' is passed to 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jquery.ajax/#jQuery-ajax-settings. This means that you can set all options supported by 'jQuery.ajax' via 'transport.create' except the 'success' and 'error' callback functions which are used by the transport.
+  //
+  /*
+    Example - set the create remote service
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          // make JSONP request to http://demos.telerik.com/kendo-ui/service/products/create
+          create: {
+            url: "http://demos.telerik.com/kendo-ui/service/products/create",
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          parameterMap: function(data, type) {
+            if (type == "create") {
+              // send the created data items as the "models" service parameter encoded in JSON
+              return { models: kendo.stringify(data.models) };
+            }
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      // create a new data item
+      dataSource.add( { ProductName: "New Product" });
+      // save the created data item
+      dataSource.sync(); // server response is [{"ProductID":78,"ProductName":"New Product","UnitPrice":0,"UnitsInStock":0,"Discontinued":false}]
+      </script>
+
+
+      Example - set create as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: function(options) {
+            /@ implementation omitted for brevity @/
+          },
+          create: function(options) {
+            // make JSONP request to http://demos.telerik.com/kendo-ui/service/products/create
+            $.ajax({
+              url: "http://demos.telerik.com/kendo-ui/service/products/create",
+              dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+              // send the created data items as the "models" service parameter encoded in JSON
+              data: {
+                models: kendo.stringify(options.data.models)
+              },
+              success: function(result) {
+                // notify the data source that the request succeeded
+                options.success(result);
+              },
+              error: function(result) {
+                // notify the data source that the request failed
+                options.error(result);
+              }
+            });
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.add( { ProductName: "New Product" });
+      dataSource.sync();
+      </script>
+  */
+  //
+  Create    ComplexJavaScriptType
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.destroy
+  //
+  // Type: Object
+  //
+  // The configuration used when the data source destroys data items. Those are items removed from the data source via the 'remove' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods-remove  method.
+  //
+  //    The data source uses 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax to make an HTTP request to the remote service. The value configured via 'transport.destroy' is passed to 'jQuery.ajax'. This means that you can set all options supported by 'jQuery.ajax' via 'transport.destroy' except the 'success' and 'error' callback functions which are used by the transport.
+  //
+  /*
+    Example - set the destroy remote service
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp"
+          },
+          // make JSONP request to http://demos.telerik.com/kendo-ui/service/products/destroy
+          destroy: {
+            url: "http://demos.telerik.com/kendo-ui/service/products/destroy",
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          parameterMap: function(data, type) {
+            if (type == "destroy") {
+              // send the destroyed data items as the "models" service parameter encoded in JSON
+              return { models: kendo.stringify(data.models) }
+            }
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.fetch(function() {
+        var products = dataSource.data();
+        // remove the first data item
+        dataSource.remove(products[0]);
+        // send the destroyed data item to the remote service
+        dataSource.sync();
+      });
+      </script>
+
+
+      Example - set destroy as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: function(options) {
+            $.ajax({
+              url: "http://demos.telerik.com/kendo-ui/service/products",
+              dataType: "jsonp",
+              success: function(result) {
+                options.success(result);
+              }
+            });
+          },
+          destroy: function (options) {
+            // make JSONP request to http://demos.telerik.com/kendo-ui/service/products/destroy
+            $.ajax({
+              url: "http://demos.telerik.com/kendo-ui/service/products/destroy",
+              dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+              // send the destroyed data items as the "models" service parameter encoded in JSON
+              data: {
+                models: kendo.stringify(options.data.models)
+              },
+              success: function(result) {
+                // notify the data source that the request succeeded
+                options.success(result);
+              },
+              error: function(result) {
+                // notify the data source that the request failed
+                options.error(result);
+              }
+            });
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.fetch(function() {
+        var products = dataSource.data();
+        dataSource.remove(products[0]);
+        dataSource.sync();
+      });
+      </script>
+  */
+  //
+  Destroy    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.parameterMap
   //
@@ -1883,6 +2709,79 @@ which should follow the <code>schema.data</code> configuration.</p>
 //
 Push    ComplexJavaScriptType
 
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.read
+//
+// Type: Object
+//
+// The configuration used when the data source loads data items from a remote service.
+//
+//    The data source uses 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax to make a HTTP request to the remote service. The value configured via 'transport.read' is passed to 'jQuery.ajax'. This means that you can set all options supported by 'jQuery.ajax' via 'transport.read' except the 'success' and 'error' callback functions which are used by the transport.
+//
+/*
+  Example - set the read remote service
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        // make JSONP request to http://demos.telerik.com/kendo-ui/service/products
+        read: {
+          url: "http://demos.telerik.com/kendo-ui/service/products",
+          dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+        }
+      }
+    });
+    dataSource.fetch(function() {
+      console.log(dataSource.view().length); // displays "77"
+    });
+    </script>
+
+
+    Example - send additional parameters to the remote service
+    <input value="html5" id="search" />
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read: {
+          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          data: {
+            q: $("#search").val() // send the value of the #search input to the remote service
+          }
+        }
+      }
+    });
+    dataSource.fetch();
+    </script>
+
+
+    Example - set read as a function
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read: function(options) {
+          // make JSONP request to http://demos.telerik.com/kendo-ui/service/products
+          $.ajax({
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            success: function(result) {
+              // notify the data source that the request succeeded
+              options.success(result);
+            },
+            error: function(result) {
+              // notify the data source that the request failed
+              options.error(result);
+            }
+          });
+        }
+      }
+    });
+    dataSource.fetch(function() {
+      console.log(dataSource.view().length); // displays "77"
+    });
+    </script>
+*/
+//
+Read    ComplexJavaScriptType
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.signalr
 //
 // Type: Object
@@ -1977,11 +2876,95 @@ Signalr    Signalr
 //
 Submit    ComplexJavaScriptType
 
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update
+//
+// Type: Object
+//
+// The configuration used when the data source saves updated data items. Those are data items whose fields have been updated.
+//
+//    The data source uses 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax to make a HTTP request to the remote service. The value configured via 'transport.update' is passed to 'jQuery.ajax'. This means that you can set all options supported by 'jQuery.ajax' via 'transport.update' except the 'success' and 'error' callback functions which are used by the transport.
+//
+/*
+  Example - specify update as a string
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read:  {
+          url: "http://demos.telerik.com/kendo-ui/service/products",
+          dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+        },
+        update: {
+          url: "http://demos.telerik.com/kendo-ui/service/products/update",
+          dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+        }
+      },
+      schema: {
+        model: { id: "ProductID" }
+      }
+    });
+    dataSource.fetch(function() {
+      var product = dataSource.at(0);
+      product.set("UnitPrice", 20);
+      dataSource.sync(); makes request to http://demos.telerik.com/kendo-ui/service/products/update
+    });
+    </script>
+
+
+    Example - specify update as a function
+    <script>
+    var dataSource = new kendo.data.DataSource({
+      transport: {
+        read: function(options) {
+          /@ implementation omitted for brevity @/
+        },
+        update: function(options) {
+          // make JSONP request to http://demos.telerik.com/kendo-ui/service/products/update
+          $.ajax({
+            url: "http://demos.telerik.com/kendo-ui/service/products/update",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            // send the updated data items as the "models" service parameter encoded in JSON
+            data: {
+              models: kendo.stringify(options.data.models)
+            },
+            success: function(result) {
+              // notify the data source that the request succeeded
+              options.success(result);
+            },
+            error: function(result) {
+              // notify the data source that the request failed
+              options.error(result);
+            }
+          });
+        }
+      },
+      batch: true,
+      schema: {
+        model: { id: "ProductID" }
+      }
+    });
+    dataSource.fetch(function() {
+      var product = dataSource.at(0);
+      product.set("UnitPrice", 20);
+      dataSource.sync(); //makes request to http://demos.telerik.com/kendo-ui/service/products/update
+    });
+    </script>
+*/
+//
+Update    ComplexJavaScriptType
+
 Template    *Template
 }
 
 func ( el Transport ) getTemplate () string {
-  return `{{if ne (string .ParameterMap) "null"}}parameterMap: {{string .ParameterMap}},{{end}}{{if ne (string .Push) "null"}}push: {{string .Push}},{{end}}{{if ne (string .Submit) "null"}}submit: {{string .Submit}},{{end}}`
+  return `{{if ne (string .Create) "null"}}create: {{string .Create}},{{end}}
+{{if ne (string .Destroy) "null"}}destroy: {{string .Destroy}},{{end}}
+{{if ne (string .ParameterMap) "null"}}parameterMap: {{string .ParameterMap}},{{end}}
+{{if ne (string .Push) "null"}}push: {{string .Push}},{{end}}
+{{if ne (string .Read) "null"}}read: {{string .Read}},{{end}}
+{{if ne (string .Signalr) "null"}}signalr: {{string .Signalr}},{{end}}
+{{if ne (string .Submit) "null"}}submit: {{string .Submit}},{{end}}
+{{if ne (string .Update) "null"}}update: {{string .Update}},{{end}}
+`
 }
 
 
@@ -2071,6 +3054,53 @@ type Create struct{
   //
   ContentType    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.create.data
+  //
+  // Type: Object
+  //
+  // Additional parameters that are sent to the remote service. The parameter names must not match reserved words, which are used by the Kendo UI DataSource for sorting http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverSorting , filtering http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering , paging http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging , and grouping http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping .
+  //
+  // Refer to the 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax  documentation for further information.
+  //
+  //
+  //
+  /*
+    Example - send additional parameters as an object
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          create: {
+            /@ omitted for brevity @/
+            data: {
+              name: "Jane Doe",
+              age: 30
+            }
+          }
+        }
+      });
+      </script>
+
+
+      Example - send additional parameters by returning them from a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          create: {
+            /@ omitted for brevity @/
+            data: function() {
+              return {
+                name: "Jane Doe",
+                age: 30
+              }
+            }
+          }
+        }
+      });
+      </script>
+  */
+  //
+  Data    ComplexJavaScriptType
+
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.create.dataType
   //
   // Type: String
@@ -2122,12 +3152,82 @@ type Create struct{
   //
   Type    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.create.url
+  //
+  // Type: String
+  //
+  // The URL to which the request is sent.
+  //
+  // If set to function, the data source will invoke it and use the result as the URL.
+  //
+  //
+  //
+  /*
+    Example - specify the URL as a string
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          create: {
+            url: "http://demos.telerik.com/kendo-ui/service/products/create",
+            cache: true,
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          parameterMap: function(data, type) {
+            if (type == "create") {
+              return { models: kendo.stringify(data.models) }
+            }
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.add( { ProductName: "New Product" });
+      dataSource.sync();
+      </script>
+
+
+      Example - specify the URL as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          create: {
+            url: function(options) {
+              return "http://demos.telerik.com/kendo-ui/service/products/create"
+            },
+            cache: true,
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          parameterMap: function(data, type) {
+            if (type == "create") {
+              return { models: kendo.stringify(data.models) }
+            }
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.add( { ProductName: "New Product" });
+      dataSource.sync();
+      </script>
+  */
+  //
+  Url    ComplexJavaScriptType
+
   Template    *Template
 }
 
 func ( el Create ) getTemplate () string {
-  return `{{if .Cache}}batch: true,{{end}}
-{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}`
+  return `{{if .Cache}}cache: true,{{end}}
+{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}
+{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
+{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}
+{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
+{{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}
+`
 }
 
 
@@ -2217,6 +3317,53 @@ type Destroy struct{
   //
   ContentType    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.destroy.data
+  //
+  // Type: Object
+  //
+  // Additional parameters which are sent to the remote service. The parameter names must not match reserved words, which are used by the Kendo UI DataSource for sorting http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverSorting , filtering http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering , paging http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging , and grouping http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping .
+  //
+  // Refer to the 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax  documentation for further information.
+  //
+  //
+  //
+  /*
+    Example - send additional parameters as an object
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          destroy: {
+            /@ omitted for brevity @/
+            data: {
+              name: "Jane Doe",
+              age: 30
+            }
+          }
+        }
+      });
+      </script>
+
+
+      Example - send additional parameters by returning them from a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          destroy: {
+            /@ omitted for brevity @/
+            data: function() {
+              return {
+                name: "Jane Doe",
+                age: 30
+              }
+            }
+          }
+        }
+      });
+      </script>
+  */
+  //
+  Data    ComplexJavaScriptType
+
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.destroy.dataType
   //
   // Type: String
@@ -2267,12 +3414,94 @@ type Destroy struct{
   //
   Type    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.destroy.url
+  //
+  // Type: String
+  //
+  // The URL to which the request is sent.
+  //
+  // If set to function, the data source will invoke it and use the result as the URL.
+  //
+  //
+  //
+  /*
+    Example - specify the URL as a string
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: "http://demos.telerik.com/kendo-ui/service/products/destroy",
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          parameterMap: function(data, type) {
+            if (type == "destroy") {
+              return { models: kendo.stringify(data.models) }
+            }
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.fetch(function() {
+        var products = dataSource.data();
+        dataSource.remove(products[0]);
+        dataSource.sync();
+      });
+      </script>
+
+
+      Example - specify the URL as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp"
+          },
+          destroy: {
+            url: function (options) {
+              return "http://demos.telerik.com/kendo-ui/service/products/destroy",
+            },
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          parameterMap: function(data, type) {
+            if (type == "destroy") {
+              return { models: kendo.stringify(data.models) }
+            }
+          }
+        },
+        batch: true,
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.fetch(function() {
+        var products = dataSource.data();
+        dataSource.remove(products[0]);
+        dataSource.sync();
+      });
+      </script>
+  */
+  //
+  Url    ComplexJavaScriptType
+
   Template    *Template
 }
 
 func ( el Destroy ) getTemplate () string {
-  return `{{if .Cache}}batch: true,{{end}}
-{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}`
+  return `{{if .Cache}}cache: true,{{end}}
+{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}
+{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
+{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}
+{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
+{{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}
+`
 }
 
 
@@ -2362,6 +3591,55 @@ type Read struct{
   //
   ContentType    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.read.data
+  //
+  // Type: Object
+  //
+  // Additional parameters which are sent to the remote service. The parameter names must not match reserved words, which are used by the Kendo UI DataSource for sorting http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverSorting , filtering http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering , paging http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging , and grouping http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping .
+  //
+  // Refer to the 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax  documentation for further information.
+  //
+  //
+  //
+  /*
+    Example - send additional parameters as an object
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            data: {
+              q: "html5" // send "html5" as the "q" parameter
+            }
+          }
+        }
+      });
+      dataSource.fetch();
+      </script>
+
+
+      Example - send additional parameters by returning them from a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            data: function() {
+              return {
+                q: "html5" // send "html5" as the "q" parameter
+              };
+            }
+          }
+        }
+      });
+      dataSource.fetch();
+      </script>
+  */
+  //
+  Data    ComplexJavaScriptType
+
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.read.dataType
   //
   // Type: String
@@ -2412,12 +3690,64 @@ type Read struct{
   //
   Type    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.read.url
+  //
+  // Type: String
+  //
+  // The URL to which the request is sent.
+  //
+  // If set to function, the data source will invoke it and use the result as the URL.
+  //
+  //
+  //
+  /*
+    Example - specify URL as a string
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          }
+        }
+      });
+      dataSource.fetch(function() {
+        console.log(dataSource.view().length); // displays "77"
+      });
+      </script>
+
+
+      Example - specify URL as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: function(options) {
+              return "http://demos.telerik.com/kendo-ui/service/products",
+            }
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          }
+        }
+      });
+      dataSource.fetch(function() {
+        console.log(dataSource.view().length); // displays "77"
+      });
+      </script>
+  */
+  //
+  Url    ComplexJavaScriptType
+
   Template    *Template
 }
 
 func ( el Read ) getTemplate () string {
-  return `{{if .Cache}}batch: true,{{end}}
-{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}`
+  return `{{if .Cache}}cache: true,{{end}}
+{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}
+{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
+{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}
+{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
+{{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}
+`
 }
 
 
@@ -2495,7 +3825,11 @@ type Signalr struct{
 }
 
 func ( el Signalr ) getTemplate () string {
-  return `{{if ne (string .Hub) "null"}}hub: {{string .Hub}},{{end}}{{if ne (string .Promise) "null"}}promise: {{string .Promise}},{{end}}`
+  return `{{if ne (string .Client) "null"}}client: {{string .Client}},{{end}}
+{{if ne (string .Hub) "null"}}hub: {{string .Hub}},{{end}}
+{{if ne (string .Promise) "null"}}promise: {{string .Promise}},{{end}}
+{{if ne (string .Server) "null"}}server: {{string .Server}},{{end}}
+`
 }
 
 
@@ -2573,7 +3907,11 @@ type Client struct{
 }
 
 func ( el Client ) getTemplate () string {
-  return ``
+  return `{{if ne (string .Create) "null"}}create: {{string .Create}},{{end}}
+{{if ne (string .Destroy) "null"}}destroy: {{string .Destroy}},{{end}}
+{{if ne (string .Read) "null"}}read: {{string .Read}},{{end}}
+{{if ne (string .Update) "null"}}update: {{string .Update}},{{end}}
+`
 }
 
 
@@ -2651,7 +3989,11 @@ type Server struct{
 }
 
 func ( el Server ) getTemplate () string {
-  return ``
+  return `{{if ne (string .Create) "null"}}create: {{string .Create}},{{end}}
+{{if ne (string .Destroy) "null"}}destroy: {{string .Destroy}},{{end}}
+{{if ne (string .Read) "null"}}read: {{string .Read}},{{end}}
+{{if ne (string .Update) "null"}}update: {{string .Update}},{{end}}
+`
 }
 
 
@@ -2742,6 +4084,54 @@ type Update struct{
   //
   ContentType    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update.data
+  //
+  // Type: Object
+  //
+  // Additional parameters which are sent to the remote service. The parameter names must not match reserved words, which are used by the Kendo UI DataSource for
+  // sorting http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverSorting , filtering http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering , paging http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging , and grouping http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping .
+  //
+  // Refer to the 'jQuery.ajax' http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.ajax  documentation for further information.
+  //
+  //
+  //
+  /*
+    Example - send additional parameters as an object
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          update: {
+            /@ omitted for brevity @/
+            data: {
+              name: "Jane Doe",
+              age: 30
+            }
+          }
+        }
+      });
+      </script>
+
+
+      Example - send additional parameters by returning them from a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          update: {
+            /@ omitted for brevity @/
+            data: function() {
+              return {
+                name: "Jane Doe",
+                age: 30
+              }
+            }
+          }
+        }
+      });
+      </script>
+  */
+  //
+  Data    ComplexJavaScriptType
+
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update.dataType
   //
   // Type: String
@@ -2792,12 +4182,82 @@ type Update struct{
   //
   Type    string
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update.url
+  //
+  // Type: String
+  //
+  // The URL to which the request is sent.
+  //
+  // If set to function, the data source will invoke it and use the result as the URL.
+  //
+  //
+  //
+  /*
+    Example - specify URL as a string
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read:  {
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          update: {
+            url: "http://demos.telerik.com/kendo-ui/service/products/update",
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          }
+        },
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.fetch(function() {
+        var product = dataSource.at(0);
+        product.set("UnitPrice", 20);
+        dataSource.sync();
+      });
+      </script>
+
+
+      Example - specify URL as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read:  {
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          },
+          update: {
+            url: function(options) {
+              return "http://demos.telerik.com/kendo-ui/service/products/update",
+            },
+            dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+          }
+        },
+        schema: {
+          model: { id: "ProductID" }
+        }
+      });
+      dataSource.fetch(function() {
+        var product = dataSource.at(0);
+        product.set("UnitPrice", 20);
+        dataSource.sync();
+      });
+      </script>
+  */
+  //
+  Url    ComplexJavaScriptType
+
   Template    *Template
 }
 
 func ( el Update ) getTemplate () string {
-  return `{{if .Cache}}batch: true,{{end}}
-{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}`
+  return `{{if .Cache}}cache: true,{{end}}
+{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}
+{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
+{{if ne (string .DataType) "null"}}dataType: {{string .DataType}},{{end}}
+{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
+{{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}
+`
 }
 
 

@@ -61,6 +61,10 @@ class classMaker
       $configurationDescription[ $methodsBlocksKey ] = preg_replace( "%// \n// (?:\n)%si", "", $configurationDescription[ $methodsBlocksKey ] );
   
       preg_match_all( "%<blockquote>(.*?)</blockquote>%si", $methodsBlocksLine, $matchesMethodsTypes );
+      
+      preg_match_all( "%<a href=\"(.*?)\"><code>(.*?)\s*</code></a>\s*option\s+is\s+set\s+to\s*<code>\s*true\s*</code>%si", $matchesMethodsTypes[ 1 ][ 0 ], $matchesEspecialType );
+      $configurationSpecialType[ $methodsBlocksKey ] = $matchesEspecialType[ 2 ][ 0 ];
+      
       $configurationSpotlight[ $methodsBlocksKey ] = preg_replace( "%<a href=\"(.*?)\"><code>(.*?)</code></a>%si", "'$2' {$linkAStr}$1", $matchesMethodsTypes[ 1 ][ 0 ] );
       $configurationSpotlight[ $methodsBlocksKey ] = "  //    " . trim( strip_tags( preg_replace( "%<code>(.*?)</code>%si", "'$1'", $configurationSpotlight[ $methodsBlocksKey ] ) ) );
   
@@ -94,6 +98,7 @@ class classMaker
             $structList[basename($linkAStr)][$structsValue] = array(
               "type" => $configurationType[ $keyToGet ][ 1 ],
               "default" => $configurationDefault[ $keyToGet ],
+              "specialType" => $configurationSpecialType[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
               "helpLink" => $configurationLink[ $keyToGet ],
               "parameters" => $configurationReturnsParameters[ $keyToGet ],
@@ -109,6 +114,7 @@ class classMaker
             $structList[ $structs[$structsKey - 1 ] ][ $structsValue ] = array(
               "type" => $configurationType[ $keyToGet ][ 1 ],
               "default" => $configurationDefault[ $keyToGet ],
+              "specialType" => $configurationSpecialType[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
               "helpLink" => $configurationLink[ $keyToGet ],
               "parameters" => $configurationReturnsParameters[ $keyToGet ],
@@ -124,7 +130,6 @@ class classMaker
   
     $output = array();
     $outputRef = null;
-    $model = "";
     foreach( $structList as $structName => $structData ){
       $model = "";
       foreach( $structData as $itemName => $itemData ){
@@ -155,7 +160,25 @@ class classMaker
             $nameUcFirst = ucfirst( $itemName );
             if( $itemData[ "type" ][ 0 ] == "Array" ){
               $type = "[]{$type}Line";
-              $model .= "{{if .{$nameUcFirst}}}{$itemName}: [{{range \$v := .{$nameUcFirst}}}{{string \$v}},{{end}}],{{end}}\n";
+  
+              if( $itemData[ "specialType" ] ){
+                $testName = ucfirst( $itemData[ "specialType" ] );
+              }
+              else{
+                $testName = $nameUcFirst;
+              }
+  
+              $model .= "{{if .{$testName}}}{$itemName}: [{{range \$v := .{$nameUcFirst}}}{{string \$v}},{{end}}],{{end}}\n";
+            }
+            else{
+  
+              if( $itemData[ "specialType" ] ){
+                $testName = ucfirst( $itemData[ "specialType" ] );
+                $model .= "{{if .{$testName}}}{$itemName}: {{string .{$type}}},{{end}}\n";
+              }
+              else{
+                $model .= "{{if ne (string .{$type}) \"null\"}}{$itemName}: {{string .{$type}}},{{end}}\n";
+              }
             }
           }
           else{
@@ -163,28 +186,57 @@ class classMaker
             switch ( $itemData[ "type" ][ 0 ] ){
               case "String":
                 $type = "string";
-                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
+                
+                if( $itemData[ "specialType" ] ){
+                  $testName = ucfirst( $itemData[ "specialType" ] );
+                  $model .= "{{if ne (string .{$nameUcFirst}) \"null\" and .{{{$testName}}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+                }
+                else{
+                  $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+                }
                 break;
   
               case "Boolean":
                 $type = "bool";
-                $model .= "{{if .{$nameUcFirst}}}batch: true,{{end}}\n";
+                $model .= "{{if .{$nameUcFirst}}}{$itemName}: true,{{end}}\n";
                 break;
   
               case "Number":
                 $type = "int64";
-                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
+  
+                if( $itemData[ "specialType" ] ){
+                  $testName = ucfirst( $itemData[ "specialType" ] );
+                }
+                else{
+                  $testName = $nameUcFirst;
+                }
+  
+                $model .= "{{if .{$testName} and .{$nameUcFirst}}}{$itemName}: {{.{$nameUcFirst}}},{{end}}\n";
                 break;
   
               case "Function":
                 $type = "ComplexJavaScriptType";
-                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
+  
+                if( $itemData[ "specialType" ] ){
+                  $testName = ucfirst( $itemData[ "specialType" ] );
+                  $model .= "{{if ne (string .{$nameUcFirst}) \"null\" and .{$testName}}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+                }
+                else{
+                  $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+                }
                 break;
   
               case "Object":
               case "Array":
                 $type = ucfirst( $itemName );
-                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
+  
+                if( $itemData[ "specialType" ] ){
+                  $testName = ucfirst( $itemData[ "specialType" ] );
+                  $model .= "{{if ne (string .{$nameUcFirst}) \"null\" and .{$testName}}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+                }
+                else{
+                  $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+                }
                 break;
   
               default:
@@ -213,6 +265,76 @@ class classMaker
             $outputRef .= $itemData["return"] . "\n  // \n";
           }
 
+          $outputRef .= "  " . ucfirst($itemName) . "    " . $type . "\n\n";
+        }
+        else{
+          $nameUcFirst = ucfirst( $itemName );
+          if( count( $itemData[ "type" ] ) == 2 ){
+            
+            if( in_array( "Array", $itemData[ "type" ] ) && in_array( "String", $itemData[ "type" ] ) ){
+              $type = "ComplexJavaScriptType";
+              $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+            }
+            else if( in_array( "Function", $itemData[ "type" ] ) && in_array( "String", $itemData[ "type" ] ) ){
+              $type = "ComplexJavaScriptType";
+              $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+            }
+            else if( in_array( "Object", $itemData[ "type" ] ) && in_array( "String", $itemData[ "type" ] ) ){
+              $type = "ComplexJavaScriptType";
+              $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+            }
+            else if( in_array( "Array", $itemData[ "type" ] ) && in_array( "Object", $itemData[ "type" ] ) ){
+              $type = ucfirst( $itemName );
+  
+              if( $itemData[ "specialType" ] ){
+                $testName = ucfirst( $itemData[ "specialType" ] );
+                $model .= "{{if ne (string .{$nameUcFirst}) \"null\" and .{$testName}}}{{\$length := len .$type}}{{if le \$length 1}}{$itemName}: { {{string .{$nameUcFirst}}} },{{else}}{$itemName}: [ {{string .{$nameUcFirst}}} ],{{end}},{{end}}\n";
+              }
+              else{
+                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{{\$length := len .$type}}{{if le \$length 1}}{$itemName}: { {{string .{$nameUcFirst}}} },{{else}}{$itemName}: [ {{string .{$nameUcFirst}}} ],{{end}},{{end}}\n";
+              }
+              
+              
+            }
+            else if( in_array( "Object", $itemData[ "type" ] ) && in_array( "Function", $itemData[ "type" ] ) ){
+              $type = "ComplexJavaScriptType";
+              $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+            }
+            else{
+              print "";
+            }
+          }
+          else if( count( $itemData[ "type" ] ) == 3 ){
+            if( in_array( "Object", $itemData[ "type" ] ) && in_array( "Function", $itemData[ "type" ] ) && in_array( "String", $itemData[ "type" ] ) ){
+              $type = "ComplexJavaScriptType";
+              $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
+            }
+          }
+          else{
+            print "";
+          }
+  
+          $outputRef .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
+          $outputRef .= "  // Type: " . $itemData[ "type" ][ 0 ] . "\n";
+  
+          if( $itemData[ "default" ] ){
+            $outputRef .= "  // Defalt: " . $itemData[ "default" ] . "\n  // \n";
+          }
+          else{
+            $outputRef .= "  // \n";
+          }
+  
+          $outputRef .= $itemData[ "description" ] . "\n  // \n";
+          $outputRef .= $itemData[ "spotlight" ] . "\n  // \n";
+          $outputRef .= $itemData[ "example" ] . "\n  // \n";
+  
+          if( $itemData[ "parameters" ] ) {
+            $outputRef .= $itemData["parameters"] . "\n  // \n";
+          }
+          if( $itemData[ "return" ] ) {
+            $outputRef .= $itemData["return"] . "\n  // \n";
+          }
+  
           $outputRef .= "  " . ucfirst($itemName) . "    " . $type . "\n\n";
         }
       }
