@@ -93,7 +93,7 @@ class classMaker
           if( !isset( $structList[ basename( $linkAStr ) ][ $structsValue ] ) ) {
             $structList[basename($linkAStr)][$structsValue] = array(
               "type" => $configurationType[ $keyToGet ][ 1 ],
-              "default" => $configurationDefault[ $keyToGet ][ 1 ],
+              "default" => $configurationDefault[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
               "helpLink" => $configurationLink[ $keyToGet ],
               "parameters" => $configurationReturnsParameters[ $keyToGet ],
@@ -108,7 +108,7 @@ class classMaker
           if( !isset( $structList[ $structs[$structsKey - 1 ] ][ $structsValue ] ) ) {
             $structList[ $structs[$structsKey - 1 ] ][ $structsValue ] = array(
               "type" => $configurationType[ $keyToGet ][ 1 ],
-              "default" => $configurationDefault[ $keyToGet ][ 1 ],
+              "default" => $configurationDefault[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
               "helpLink" => $configurationLink[ $keyToGet ],
               "parameters" => $configurationReturnsParameters[ $keyToGet ],
@@ -124,30 +124,16 @@ class classMaker
   
     $output = array();
     $outputRef = null;
+    $model = "";
     foreach( $structList as $structName => $structData ){
+      $model = "";
       foreach( $structData as $itemName => $itemData ){
   
-        if( isset( $structList[ $itemName ] ) ){
-          
-        }
-        else {
-          
-        }
-        
-        if( !isset( $output[ $itemName ] ) ){
-          $output[ $itemName ]  = "";
-    
-          $outputRef = &$output[ $itemName ];
+        if( !isset( $output[ $structName ] ) ) {
+          $output[ $structName ] = "";
+          $outputRef = &$output[ $structName ];
           
           $outputRef .= "// " . $itemData[ "helpLink" ] . "\n// \n";
-          //$outputRef .= "// Type: " . $itemData[ "type" ][ 0 ];
-  
-          //if( $itemData[ "default" ] ){
-          //  $outputRef .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
-          //}
-          //else{
-          //  $outputRef .= "\n// \n";
-          //}
   
           $outputRef .= str_replace( "  //", "//", $itemData[ "description" ] ) . "\n// \n";
           $outputRef .= str_replace( "  //", "//", $itemData[ "spotlight" ] ) . "\n// \n";
@@ -159,94 +145,82 @@ class classMaker
           if( $itemData[ "return" ] ) {
             $outputRef .= $itemData["return"] . "\n// \n";
           }
-          $outputRef .= "type " . ucfirst( $itemName ) . " struct{\n\n";
+          $outputRef .= "type " . ucfirst( $structName ) . " struct{\n\n";
         }
         
-        if( isset( $structList[ $itemName ] ) ){
-          if( count( $itemData[ "type" ] ) == 1 ){
-              $outputRef .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
-              $outputRef .= "  // Type: " . $itemData[ "type" ][ 0 ];
-              
-              if( $itemData[ "default" ] ){
-                $outputRef .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
-              }
-              else{
-                $outputRef .= "\n  // \n";
-              }
-              
-              $outputRef .= $itemData[ "description" ] . "\n  // \n";
-              $outputRef .= $itemData[ "spotlight" ] . "\n  // \n";
-              $outputRef .= $itemData[ "example" ] . "\n  // \n";
-              
-              if( $itemData[ "parameters" ] ) {
-                $outputRef .= $itemData["parameters"] . "\n  // \n";
-              }
-              if( $itemData[ "return" ] ) {
-                $outputRef .= $itemData["return"] . "\n  // \n";
-              }
-  
-            if( $itemData[ "type" ][ 0 ] == "Array" ) {
-              $output[$itemName] .= ucfirst($itemName) . "    []" . ucfirst($itemName) . "Line\n";
-            }
-            else {
-              $output[$itemName] .= ucfirst($itemName) . "    " . ucfirst($itemName) . "\n";
+        if( count( $itemData[ "type" ] ) == 1 ){
+
+          if( isset( $structList[ $itemName ] ) ){
+            $type = ucfirst( $itemName );
+            $nameUcFirst = ucfirst( $itemName );
+            if( $itemData[ "type" ][ 0 ] == "Array" ){
+              $type = "[]{$type}Line";
+              $model .= "{{if .{$nameUcFirst}}}{$itemName}: [{{range \$v := .{$nameUcFirst}}}{{string \$v}},{{end}}],{{end}}\n";
             }
           }
-        }
-        else {
-          if( count( $itemData[ "type" ] ) == 1 ){
-            
+          else{
+            $nameUcFirst = ucfirst( $itemName );
             switch ( $itemData[ "type" ][ 0 ] ){
               case "String":
                 $type = "string";
+                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
                 break;
-              
+  
               case "Boolean":
                 $type = "bool";
+                $model .= "{{if .{$nameUcFirst}}}batch: true,{{end}}\n";
                 break;
-                
+  
               case "Number":
                 $type = "int64";
+                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
                 break;
-                
+  
+              case "Function":
+                $type = "ComplexJavaScriptType";
+                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
+                break;
+  
               case "Object":
               case "Array":
-                die( "ainda tem problemas com os tipos" );
-                
+                $type = ucfirst( $itemName );
+                $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}";
+                break;
+  
               default:
                 die( "falta criar um tipo de variável" );
             }
-            
-            $outputRef .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
-            $outputRef .= "  // Type: " . $type;
-    
-            if( $itemData[ "default" ] ){
-              $outputRef .= "Defalt: " . $itemData[ "default" ] . "\n  // \n";
-            }
-            else{
-              $outputRef .= "\n  // \n";
-            }
-    
-            $outputRef .= $itemData[ "description" ] . "\n  // \n";
-            $outputRef .= $itemData[ "spotlight" ] . "\n  // \n";
-            $outputRef .= $itemData[ "example" ] . "\n  // \n";
-    
-            if( $itemData[ "parameters" ] ) {
-              $outputRef .= $itemData["parameters"] . "\n  // \n";
-            }
-            if( $itemData[ "return" ] ) {
-              $outputRef .= $itemData["return"] . "\n  // \n";
-            }
-    
-            if( $itemData[ "type" ][ 0 ] == "Array" ) {
-              $output[$itemName] .= ucfirst($itemName) . "    []" . ucfirst($itemName) . "Line\n";
-            }
-            else {
-              $output[$itemName] .= ucfirst($itemName) . "    " . $type . "\n";
-            }
           }
+                      
+          $outputRef .= "  // " . $itemData[ "helpLink" ] . "\n  // \n";
+          $outputRef .= "  // Type: " . $itemData[ "type" ][ 0 ] . "\n";
+  
+          if( $itemData[ "default" ] ){
+            $outputRef .= "  // Defalt: " . $itemData[ "default" ] . "\n  // \n";
+          }
+          else{
+            $outputRef .= "  // \n";
+          }
+  
+          $outputRef .= $itemData[ "description" ] . "\n  // \n";
+          $outputRef .= $itemData[ "spotlight" ] . "\n  // \n";
+          $outputRef .= $itemData[ "example" ] . "\n  // \n";
+  
+          if( $itemData[ "parameters" ] ) {
+            $outputRef .= $itemData["parameters"] . "\n  // \n";
+          }
+          if( $itemData[ "return" ] ) {
+            $outputRef .= $itemData["return"] . "\n  // \n";
+          }
+
+          $outputRef .= "  " . ucfirst($itemName) . "    " . $type . "\n\n";
         }
       }
+      $outputRef .= "  Template    *Template\n";
+      $outputRef .= "}\n\n";
+      $outputRef .= "func ( el " . ucfirst( $structName ) . " ) getTemplate () string {\n  return `{$model}`\n}\n\n";
+      $outputRef .= "\n\n\n\n\n\n\n\n\n\n\n\n";
     }
+    print implode( "\n", $output );
   }
 }
