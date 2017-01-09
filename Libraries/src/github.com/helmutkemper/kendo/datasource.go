@@ -803,11 +803,11 @@ func ( el Datasource ) getTemplate () string {
 {{if .AutoSync}}autoSync: true,{{end}}
 {{if .Batch}}batch: true,{{end}}
 {{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
-{{if .ServerFiltering}}{{$length := len .Filter}}{{if le $length 1}}filter: { {{string .Filter}} },{{else}}filter: [ {{string .Filter}} ],{{end}},{{end}}
-{{if .ServerGrouping}}{{$length := len .Group}}{{if le $length 1}}group: { {{string .Group}} },{{else}}group: [ {{string .Group}} ],{{end}},{{end}}
+{{if ne (string .Filter) "null" and .ServerFiltering}}{{$length := len .Filter}}{{if le $length 1}}filter: { {{string .Filter}} },{{else}}filter: [ {{string .Filter}} ],{{end}},{{end}}
+{{if ne (string .Group) "null" and .ServerGrouping}}{{$length := len .Group}}{{if le $length 1}}group: { {{string .Group}} },{{else}}group: [ {{string .Group}} ],{{end}},{{end}}
 {{if ne (string .OfflineStorage) "null"}}offlineStorage: {{string .OfflineStorage}},{{end}}
-{{if .ServerPaging}}page: {{.Page}},{{end}}
-{{if .ServerPaging}}pageSize: {{.PageSize}},{{end}}
+{{if .ServerPaging and .Page}}page: {{.Page}},{{end}}
+{{if .ServerPaging and .PageSize}}pageSize: {{.PageSize}},{{end}}
 {{if ne (string .Schema) "null"}}schema: {{string .Schema}},{{end}}
 {{if .ServerAggregates}}serverAggregates: true,{{end}}
 {{if .ServerFiltering}}serverFiltering: true,{{end}}

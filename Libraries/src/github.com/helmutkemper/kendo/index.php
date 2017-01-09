@@ -43,10 +43,24 @@ class classMaker
       $configurationType[ $methodsBlocksKey ] = array( $matchesMethodsTypes[ 1 ], $matchesMethodsTypes[ 2 ] );
   
       preg_match_all( "%<h4>Parameters</h4>(.*?)(?:<h4>Example|<script|<h4>Returns)%si", $methodsBlocksLine . "<endLine>", $matchesMethodsTypes );
-      $configurationReturnsParameters[ $methodsBlocksKey ] = preg_replace( "%<a href=\"(.*?)\" class=\"type-link\"><code>(.*?)</code></a>%si", "'$2' $1 ", $matchesMethodsTypes[ 1 ][ 0 ] );
+      $configurationParameters[ $methodsBlocksKey ] = trim( strip_tags( preg_replace( "%<a href=\"(.*?)\" class=\"type-link\"><code>(.*?)\s*\|*</code></a>%si", "'$2' $1 ", $matchesMethodsTypes[ 1 ][ 0 ] ) ) );
+      if( $configurationParameters[ $methodsBlocksKey ] ) {
+        $configurationParameters[$methodsBlocksKey] = preg_split("%[\n\r]+%", $configurationParameters[$methodsBlocksKey]);
+        foreach ($configurationParameters[$methodsBlocksKey] as $parameterKey => $parameterValue) {
+          $configurationParameters[$methodsBlocksKey][$parameterKey] = "// " . $parameterValue;
+        }
+        $configurationParameters[$methodsBlocksKey] = implode("\n", $configurationParameters[$methodsBlocksKey]);
+      }
       
       preg_match_all( "%<h4>Returns</h4>(.*?)(?:<h4>Example|<script)%si", $methodsBlocksLine . "<endLine>", $matchesMethodsTypes );
-      $configurationReturnsLink[ $methodsBlocksKey ] = preg_replace( "%<a href=\"(.*?)\" class=\"type-link\"><code>(.*?)</code></a>%si", "'$2' $1 ", $matchesMethodsTypes[ 1 ][ 0 ] );
+      $configurationReturns[ $methodsBlocksKey ] = trim( strip_tags( preg_replace( "%<a href=\"(.*?)\" class=\"type-link\"><code>(.*?)\s*\|*</code></a>%si", "'$2' $1 ", $matchesMethodsTypes[ 1 ][ 0 ] ) ) );
+      if( $configurationReturns[ $methodsBlocksKey ] ) {
+        $configurationReturns[$methodsBlocksKey] = preg_split("%[\n\r]+%", $configurationReturns[$methodsBlocksKey]);
+        foreach ($configurationReturns[$methodsBlocksKey] as $parameterKey => $parameterValue) {
+          $configurationReturns[$methodsBlocksKey][$parameterKey] = "// " . $parameterValue;
+        }
+        $configurationReturns[$methodsBlocksKey] = implode("\n", $configurationReturns[$methodsBlocksKey]);
+      }
       
       preg_match_all( "%</h3>(.*?)(?:<blockquote>|<h4>|<endLine>)%si", $methodsBlocksLine . "<endLine>", $matchesMethodsTypes );
       $configurationDescription[ $methodsBlocksKey ] = $matchesMethodsTypes[ 1 ][ 0 ];
@@ -101,8 +115,8 @@ class classMaker
               "specialType" => $configurationSpecialType[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
               "helpLink" => $configurationLink[ $keyToGet ],
-              "parameters" => $configurationReturnsParameters[ $keyToGet ],
-              "return" => $configurationReturnsLink[ $keyToGet ],
+              "parameters" => $configurationParameters[ $keyToGet ],
+              "return" => $configurationReturns[ $keyToGet ],
               "description" => $configurationDescription[ $keyToGet ],
               "spotlight" => $configurationSpotlight[ $keyToGet ],
               "example" => $configurationExample[ $keyToGet ],
@@ -117,8 +131,8 @@ class classMaker
               "specialType" => $configurationSpecialType[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
               "helpLink" => $configurationLink[ $keyToGet ],
-              "parameters" => $configurationReturnsParameters[ $keyToGet ],
-              "return" => $configurationReturnsLink[ $keyToGet ],
+              "parameters" => $configurationParameters[ $keyToGet ],
+              "return" => $configurationReturns[ $keyToGet ],
               "description" => $configurationDescription[ $keyToGet ],
               "spotlight" => $configurationSpotlight[ $keyToGet ],
               "example" => $configurationExample[ $keyToGet ],
@@ -145,9 +159,11 @@ class classMaker
           $outputRef .= str_replace( "\n  ", "\n", substr( $itemData[ "example" ], 2 ) ) . "\n// \n";
   
           if( $itemData[ "parameters" ] ) {
+            $outputRef .= "// Parameters:\n";
             $outputRef .= $itemData["parameters"] . "\n// \n";
           }
           if( $itemData[ "return" ] ) {
+            $outputRef .= "// Return:\n";
             $outputRef .= $itemData["return"] . "\n// \n";
           }
           $outputRef .= "type " . ucfirst( $structName ) . " struct{\n\n";
@@ -293,8 +309,6 @@ class classMaker
               else{
                 $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{{\$length := len .$type}}{{if le \$length 1}}{$itemName}: { {{string .{$nameUcFirst}}} },{{else}}{$itemName}: [ {{string .{$nameUcFirst}}} ],{{end}},{{end}}\n";
               }
-              
-              
             }
             else if( in_array( "Object", $itemData[ "type" ] ) && in_array( "Function", $itemData[ "type" ] ) ){
               $type = "ComplexJavaScriptType";
