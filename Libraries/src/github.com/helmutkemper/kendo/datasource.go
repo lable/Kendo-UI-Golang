@@ -1,6 +1,5 @@
 package kendo
 
-
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
 //
 // The aggregates which are calculated when the data source populates with data.
@@ -1626,334 +1625,322 @@ type Schema struct{
   //
   Aggregates    ComplexJavaScriptType
 
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data
-//
-// Type: Function
-//
-// The field from the server response which contains the data items. Can be set to a function which is called to return the data items for the response.
-//
-//
-//
-/*
-  Returns
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      transport: {
-        read: {
-          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
-          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-          data: { q: "html5" } // search for tweets that contain "html5"
-        }
-      },
-      schema: {
-        data: "statuses" // twitter's response is { "statuses": [ /@ results @/ ] }
-      }
-    });
-    dataSource.fetch(function(){
-      var data = this.data();
-      console.log(data.length);
-    });
-    </script>
-
-
-    Example - specify the field which contains the data items as a string
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      transport: {
-        read: {
-          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
-          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-          data: { q: "html5" } // search for tweets that contain "html5"
-        }
-      },
-      schema: {
-        data: function(response) {
-          return response.statuses; // twitter's response is { "statuses": [ /@ results @/ ] }
-        }
-      }
-    });
-    dataSource.fetch(function(){
-      var data = this.data();
-      console.log(data.length);
-    });
-    </script>
-
-
-    Example - specify the field which contains the data items as a function
-*/
-//
-
-
-<p>'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.</p>
-
-
-//
-Data    ComplexJavaScriptType
-
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.errors
-//
-// Type: Function
-// Defalt: errors
-//
-// The field from the server response which contains server-side errors. Can be set to a function which is called to return the errors for response. If there are any errors, the 'error' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#events-error  event will be fired.
-//
-//
-//
-/*
-  Example - specify the error field as a string
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      transport: {
-        read: {
-          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
-          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-          data: { q: "#" }
-        }
-      },
-      schema: {
-        errors: "error" // twitter's response is { "error": "Invalid query" }
-      },
-      error: function(e) {
-        console.log(e.errors); // displays "Invalid query"
-      }
-    });
-    dataSource.fetch();
-    </script>
-
-
-    Example - specify the error field as a function
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      transport: {
-        read: {
-          url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
-          dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-          data: { q: "#" }
-        }
-      },
-      schema: {
-        errors: function(response) {
-          return response.error; // twitter's response is { "error": "Invalid query" }
-        }
-      },
-      error: function(e) {
-        console.log(e.errors); // displays "Invalid query"
-      }
-    });
-    dataSource.fetch();
-    </script>
-*/
-//
-Errors    ComplexJavaScriptType
-
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.groups
-//
-// Type: Function
-//
-// The field from the server response which contains the groups. Can be set to a function which is called to return the groups from the response.
-//
-//    The 'groups' option is used only when the 'serverGrouping' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping option is set to 'true'.
-//
-/*
-  Example - set groups as a string
-    [{
-      aggregates: {
-        FIEL1DNAME: {
-          FUNCTON1NAME: FUNCTION1VALUE,
-          FUNCTON2NAME: FUNCTION2VALUE
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data
+  //
+  // Type: Function
+  //
+  // The field from the server response which contains the data items. Can be set to a function which is called to return the data items for the response.
+  //
+  //
+  //
+  /*
+    Returns
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            data: { q: "html5" } // search for tweets that contain "html5"
+          }
         },
-        FIELD2NAME: {
-          FUNCTON1NAME: FUNCTION1VALUE
+        schema: {
+          data: "statuses" // twitter's response is { "statuses": [ /@ results @/ ] }
         }
-      },
-      field: FIELDNAME, // the field by which the data items are grouped
-      hasSubgroups: true, // true if there are subgroups
-      items: [
-        // either the subgroups or the data items
-        {
-          aggregates: {
-            //nested group aggregates
+      });
+      dataSource.fetch(function(){
+        var data = this.data();
+        console.log(data.length);
+      });
+      </script>
+
+
+      Example - specify the field which contains the data items as a string
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            data: { q: "html5" } // search for tweets that contain "html5"
+          }
+        },
+        schema: {
+          data: function(response) {
+            return response.statuses; // twitter's response is { "statuses": [ /@ results @/ ] }
+          }
+        }
+      });
+      dataSource.fetch(function(){
+        var data = this.data();
+        console.log(data.length);
+      });
+      </script>
+
+
+      Example - specify the field which contains the data items as a function
+  */
+  //
+  // 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.
+  //
+  Data    ComplexJavaScriptType
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.errors
+  //
+  // Type: Function
+  // Defalt: errors
+  //
+  // The field from the server response which contains server-side errors. Can be set to a function which is called to return the errors for response. If there are any errors, the 'error' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#events-error  event will be fired.
+  //
+  //
+  //
+  /*
+    Example - specify the error field as a string
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            data: { q: "#" }
+          }
+        },
+        schema: {
+          errors: "error" // twitter's response is { "error": "Invalid query" }
+        },
+        error: function(e) {
+          console.log(e.errors); // displays "Invalid query"
+        }
+      });
+      dataSource.fetch();
+      </script>
+
+
+      Example - specify the error field as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/twitter/search",
+            dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            data: { q: "#" }
+          }
+        },
+        schema: {
+          errors: function(response) {
+            return response.error; // twitter's response is { "error": "Invalid query" }
+          }
+        },
+        error: function(e) {
+          console.log(e.errors); // displays "Invalid query"
+        }
+      });
+      dataSource.fetch();
+      </script>
+  */
+  //
+  Errors    ComplexJavaScriptType
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.groups
+  //
+  // Type: Function
+  //
+  // The field from the server response which contains the groups. Can be set to a function which is called to return the groups from the response.
+  //
+  //    The 'groups' option is used only when the 'serverGrouping' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping option is set to 'true'.
+  //
+  /*
+    Example - set groups as a string
+      [{
+        aggregates: {
+          FIEL1DNAME: {
+            FUNCTON1NAME: FUNCTION1VALUE,
+            FUNCTON2NAME: FUNCTION2VALUE
           },
-          field: NESTEDGROUPFIELDNAME,
-          hasSubgroups: false,
-          items: [
-          // data records
-          ],
-          value: NESTEDGROUPVALUE
+          FIELD2NAME: {
+            FUNCTON1NAME: FUNCTION1VALUE
+          }
         },
-        //nestedgroup2, nestedgroup3, etc.
-      ],
-      value: VALUE // the group key
-    } /@ other groups @/
-    ]
-
-
-    Example - set groups as a function
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      transport: {
-        /@ transport configuration @/
-      },
-      serverGrouping: true,
-      schema: {
-        groups: "groups" // groups are returned in the "groups" field of the response
-      }
-    });
-    </script>
-*/
-//
-Groups    ComplexJavaScriptType
-
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.model
-//
-// Type: Object
-//
-// The data item (model) configuration.
-//
-// If set to an object, the 'Model.define' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model#model.define  method will be used to initialize the data source model.
-//
-// If set to an existing 'kendo.data.Model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model  instance, the data source will use that instance and will not initialize a new one.
-//
-//
-//
-/*
-  Example - set the model as a JavaScript object
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      schema: {
-        model: {
-          id: "ProductID",
-          fields: {
-            ProductID: {
-              //this field will not be editable (default value is true)
-              editable: false,
-              // a defaultValue will not be assigned (default value is false)
-              nullable: true
+        field: FIELDNAME, // the field by which the data items are grouped
+        hasSubgroups: true, // true if there are subgroups
+        items: [
+          // either the subgroups or the data items
+          {
+            aggregates: {
+              //nested group aggregates
             },
-            ProductName: {
-              //set validation rules
-              validation: { required: true }
-            },
-            UnitPrice: {
-              //data type of the field {Number|String|Boolean|Date} default is String
-              type: "number",
-              // used when new model is created
-              defaultValue: 42,
-              validation: { required: true, min: 1 }
+            field: NESTEDGROUPFIELDNAME,
+            hasSubgroups: false,
+            items: [
+            // data records
+            ],
+            value: NESTEDGROUPVALUE
+          },
+          //nestedgroup2, nestedgroup3, etc.
+        ],
+        value: VALUE // the group key
+      } /@ other groups @/
+      ]
+
+
+      Example - set groups as a function
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          /@ transport configuration @/
+        },
+        serverGrouping: true,
+        schema: {
+          groups: "groups" // groups are returned in the "groups" field of the response
+        }
+      });
+      </script>
+  */
+  //
+  Groups    ComplexJavaScriptType
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.model
+  //
+  // Type: Object
+  //
+  // The data item (model) configuration.
+  //
+  // If set to an object, the 'Model.define' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model#model.define  method will be used to initialize the data source model.
+  //
+  // If set to an existing 'kendo.data.Model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model  instance, the data source will use that instance and will not initialize a new one.
+  //
+  //
+  //
+  /*
+    Example - set the model as a JavaScript object
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        schema: {
+          model: {
+            id: "ProductID",
+            fields: {
+              ProductID: {
+                //this field will not be editable (default value is true)
+                editable: false,
+                // a defaultValue will not be assigned (default value is false)
+                nullable: true
+              },
+              ProductName: {
+                //set validation rules
+                validation: { required: true }
+              },
+              UnitPrice: {
+                //data type of the field {Number|String|Boolean|Date} default is String
+                type: "number",
+                // used when new model is created
+                defaultValue: 42,
+                validation: { required: true, min: 1 }
+              }
             }
           }
         }
-      }
-    });
-    </script>
+      });
+      </script>
 
 
-    Example - set the model as an existing <code>kendo.data.Model</code> instance
-    <script>
-    var Product = kendo.model.define({
-      id: "ProductID",
-      fields: {
-        ProductID: {
-          //this field will not be editable (default value is true)
-          editable: false,
-          // a defaultValue will not be assigned (default value is false)
-          nullable: true
-        },
-        ProductName: {
-          //set validation rules
-          validation: { required: true }
-        },
-        UnitPrice: {
-          //data type of the field {Number|String|Boolean|Date} default is String
-          type: "number",
-          // used when new model is created
-          defaultValue: 42,
-          validation: { required: true, min: 1 }
-        }
-      }
-    });
-    var dataSource = new kendo.data.DataSource({
-      schema: {
-        model: Product
-      }
-    });
-    </script>
-*/
-//
-Model    Model
-
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.parse
-//
-// Type: Function
-//
-// Executed before the server response is used. Use it to preprocess or parse the server response.
-//
-//
-//
-/*
-  Parameters
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      transport: {
-        read: {
-          url: "http://demos.telerik.com/kendo-ui/service/products",
-          dataType: "jsonp"
-        }
-      },
-      schema: {
-        parse: function(response) {
-          var products = [];
-          for (var i = 0; i < response.length; i++) {
-            var product = {
-              id: response[i].ProductID,
-              name: response[i].ProductName
-            };
-            products.push(product);
+      Example - set the model as an existing <code>kendo.data.Model</code> instance
+      <script>
+      var Product = kendo.model.define({
+        id: "ProductID",
+        fields: {
+          ProductID: {
+            //this field will not be editable (default value is true)
+            editable: false,
+            // a defaultValue will not be assigned (default value is false)
+            nullable: true
+          },
+          ProductName: {
+            //set validation rules
+            validation: { required: true }
+          },
+          UnitPrice: {
+            //data type of the field {Number|String|Boolean|Date} default is String
+            type: "number",
+            // used when new model is created
+            defaultValue: 42,
+            validation: { required: true, min: 1 }
           }
-          return products;
         }
-      }
-    });
-    dataSource.fetch(function(){
-      var data = dataSource.data();
-      var product = data[0];
-      console.log(product.name); // displays "Chai"
-    });
-    </script>
+      });
+      var dataSource = new kendo.data.DataSource({
+        schema: {
+          model: Product
+        }
+      });
+      </script>
+  */
+  //
+  Model    Model
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.parse
+  //
+  // Type: Function
+  //
+  // Executed before the server response is used. Use it to preprocess or parse the server response.
+  //
+  //
+  //
+  /*
+    Parameters
+      <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "http://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          parse: function(response) {
+            var products = [];
+            for (var i = 0; i < response.length; i++) {
+              var product = {
+                id: response[i].ProductID,
+                name: response[i].ProductName
+              };
+              products.push(product);
+            }
+            return products;
+          }
+        }
+      });
+      dataSource.fetch(function(){
+        var data = dataSource.data();
+        var product = data[0];
+        console.log(product.name); // displays "Chai"
+      });
+      </script>
 
 
-    Returns
+      Returns
 
 
-    Example - data projection
-*/
-//
+      Example - data projection
+  */
+  //
+  // Parameters:
+  // response 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+  // The initially parsed server response that may need additional modifications.
+  //
+  // Return:
+  // 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.
+  //
+  Parse    ComplexJavaScriptType
 
+  // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.total
+  //
+  // Type: Function
+  //
+  // The field from the server response which contains the total number of data items. Can be set to a function which is called to return the total number of data items for the response.
+  //
+  //    The 'schema.total' setting may be omitted when the Grid is bound to a plain 'Array' (that is, the data items' collection is not a value of a field in the server response). In this case, the 'length' of the response 'Array' will be used.
 
-<h5>response 'Object |' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-</h5>
-
-<p>The initially parsed server response that may need additional modifications.</p>
-
-
-//
-
-
-<p>'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.</p>
-
-
-//
-Parse    ComplexJavaScriptType
-
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.total
-//
-// Type: Function
-//
-// The field from the server response which contains the total number of data items. Can be set to a function which is called to return the total number of data items for the response.
-//
-//    The 'schema.total' setting may be omitted when the Grid is bound to a plain 'Array' (that is, the data items' collection is not a value of a field in the server response). In this case, the 'length' of the response 'Array' will be used.
-
-The 'schema.total' must be set if the 'serverPaging' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging option is set to 'true' or the 'schema.data' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data option is used.
+  The 'schema.total' must be set if the 'serverPaging' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging option is set to 'true' or the 'schema.data' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data option is used.
 //
 /*
   Returns
@@ -1989,11 +1976,7 @@ The 'schema.total' must be set if the 'serverPaging' http://docs.telerik.com/ken
     Example - set the total as a function
 */
 //
-
-
-<p>'Number' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number  The total number of data items.</p>
-
-
+// 'Number' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number  The total number of data items.
 //
 Total    ComplexJavaScriptType
 
@@ -2555,79 +2538,22 @@ type Transport struct{
     Example - send request parameters as JSON
 */
 //
-
-
-<h5>data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-</h5>
-
-<p>The parameters which will be sent to the remote service. The value specified in the <code>data</code> field of the transport settings (create, read, update or destroy) is included as well. If 'Array' #batch-boolean-default"><code>batch</code></a> is set to <code>false</code>, the fields of the changed data items are also included.</p>
-
-<h5>data.aggregate <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-</h5>
-
-<p>The current aggregate configuration as set via the 'Array' #configuration-aggregate"><code>aggregate</code></a> option. Available if the <a href="#configuration-serverAggregates"><code>serverAggregates</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>data.group <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-</h5>
-
-<p>The current grouping configuration as set via the 'Object' #configuration-group"><code>group</code></a> option. Available if the <a href="#configuration-serverGrouping"><code>serverGrouping</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>data.filter <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-</h5>
-
-<p>The current filter configuration as set via the 'Array' #configuration-filter"><code>filter</code></a> option. Available if the <a href="#configuration-serverFiltering"><code>serverFiltering</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>data.models <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-</h5>
-
-<p>All changed data items. Available if there are any data item changes and the 'Number' #configuration-batch"><code>batch</code></a> option is set to <code>true</code>.</p>
-
-<h5>data.page <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-</h5>
-
-<p>The current page. Available if the 'Number' #configuration-serverPaging"><code>serverPaging</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>data.pageSize <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-</h5>
-
-<p>The current page size as set via the 'Number' #configuration-pageSize"><code>pageSize</code></a> option. Available if the <a href="#configuration-serverPaging"><code>serverPaging</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>data.skip <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-</h5>
-
-<p>The number of data items to skip. Available if the 'Array' #configuration-serverPaging"><code>serverPaging</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>data.sort <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-</h5>
-
-<p>The current sort configuration as set via the 'Number' #configuration-sort"><code>sort</code></a> option. Available if the <a href="#configuration-serverSorting"><code>serverSorting</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>data.take <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-</h5>
-
-<p>The number of data items to return (the same as <code>data.pageSize</code>). Available if the 'String' #configuration-serverPaging"><code>serverPaging</code></a> option is set to <code>true</code> and the data source makes a <code>"read"</code> request.</p>
-
-<h5>type <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
-</h5>
-
-<p>The type of the request which the data source makes.</p>
-
-<p>The supported values are:</p>
-
-<ul>
-<li><code>"create"</code></li>
-<li><code>"read"</code></li>
-<li><code>"update"</code></li>
-<li><code>"destroy"</code></li>
-</ul>
-
-
+// Parameters:
+// data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+// The parameters which will be sent to the remote service. The value specified in the data field of the transport settings (create, read, update or destroy) is included as well. If 'Array' #batch-boolean-default">batch is set to false, the fields of the changed data items are also included.
+// data.aggregate aggregate option. Available if the serverAggregates option is set to true and the data source makes a "read" request.
+// data.group group option. Available if the serverGrouping option is set to true and the data source makes a "read" request.
+// data.filter filter option. Available if the serverFiltering option is set to true and the data source makes a "read" request.
+// data.models batch option is set to true.
+// data.page serverPaging option is set to true and the data source makes a "read" request.
+// data.pageSize pageSize option. Available if the serverPaging option is set to true and the data source makes a "read" request.
+// data.skip serverPaging option is set to true and the data source makes a "read" request.
+// data.sort sort option. Available if the serverSorting option is set to true and the data source makes a "read" request.
+// data.take serverPaging option is set to true and the data source makes a "read" request.
+// type
 //
-
-
-<p>'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object  the request parameters converted to a format required by the remote service.</p>
-
-
+// Return:
+// 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object  the request parameters converted to a format required by the remote service.
 //
 ParameterMap    ComplexJavaScriptType
 
@@ -2681,31 +2607,17 @@ ParameterMap    ComplexJavaScriptType
     Example
 */
 //
-
-
-<h5>callbacks 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-</h5>
-
-<p>An object containing callbacks for notifying the data source of push notifications.</p>
-
-<h5>callbacks.pushCreate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-</h5>
-
-<p>Function that should be invoked to notify the data source about newly created data items that are pushed from the server. Accepts a single argument - the object pushed from the server which should follow the <code>schema.data</code> configuration.</p>
-
-<h5>callbacks.pushDestroy 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-</h5>
-
-<p>Function that should be invoked to notify the data source about destroyed data items that are pushed from the server. Accepts a single argument - the object pushed from the server
-which should follow the <code>schema.data</code> configuration.</p>
-
-<h5>callbacks.pushUpdate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-</h5>
-
-<p>Function that should be invoked to notify the data source about updated data items that are pushed from the server. Accepts a single argument - the object pushed from the server
-which should follow the <code>schema.data</code> configuration.</p>
-
-
+// Parameters:
+// callbacks 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+// An object containing callbacks for notifying the data source of push notifications.
+// callbacks.pushCreate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+// Function that should be invoked to notify the data source about newly created data items that are pushed from the server. Accepts a single argument - the object pushed from the server which should follow the schema.data configuration.
+// callbacks.pushDestroy 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+// Function that should be invoked to notify the data source about destroyed data items that are pushed from the server. Accepts a single argument - the object pushed from the server
+// which should follow the schema.data configuration.
+// callbacks.pushUpdate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+// Function that should be invoked to notify the data source about updated data items that are pushed from the server. Accepts a single argument - the object pushed from the server
+// which should follow the schema.data configuration.
 //
 Push    ComplexJavaScriptType
 
@@ -2853,26 +2765,14 @@ Signalr    Signalr
   Parameters
 */
 //
-
-
-<h5>e.data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-</h5>
-
-<p>An object containing the created (<code>e.data.created</code>), updated (<code>e.data.updated</code>), and destroyed (<code>e.data.destroyed</code>) items.</p>
-
-<h5>e.success 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-</h5>
-
-<p>A callback that should be called for each operation with two parameters - items and operation. See example below.</p>
-
-<h5>e.fail 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-</h5>
-
-<p>A callback that should be called in case of failure of any of the operations.</p>
-
-<h5>Example - declare transport submit function</h5>
-
-
+// Parameters:
+// e.data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+// An object containing the created (e.data.created), updated (e.data.updated), and destroyed (e.data.destroyed) items.
+// e.success 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+// A callback that should be called for each operation with two parameters - items and operation. See example below.
+// e.fail 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+// A callback that should be called in case of failure of any of the operations.
+// Example - declare transport submit function
 //
 Submit    ComplexJavaScriptType
 
@@ -4259,7 +4159,6 @@ func ( el Update ) getTemplate () string {
 {{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}
 `
 }
-
 
 
 
