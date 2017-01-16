@@ -1,38 +1,40 @@
 package kendo
 
-// The aggregates which are calculated when the data source populates with data.
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate.aggregate
 //
-// The supported aggregates are: "average", "count", "max", "min" or "sum"
+// The name of the aggregate function.
 //
-// The data source calculates aggregates client-side unless the 'serverAggregates' ( http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverAggregates ) option is set to 'true'.
+// The supported aggregates are:
 //
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
+// *  "average"
+// *  "count"
+// *  "max"
+// *  "min"
+// *  "sum"
+//
 /*
-    Example - specify aggregates
+    Example - specify aggregate function
     <script>
     var dataSource = new kendo.data.DataSource({
-     data: [
-      { name: "Jane Doe", age: 30 },
-      { name: "John Doe", age: 33 }
-     ],
-     aggregate: [
-      { field: "age", aggregate: "sum" },
-      { field: "age", aggregate: "min" },
-      { field: "age", aggregate: "max" }
-     ]
+      data: [
+        { name: "Jane Doe", age: 30 },
+        { name: "John Doe", age: 33 }
+      ],
+      aggregate: [
+        { field: "age", aggregate: "sum" }
+      ]
     });
     dataSource.fetch(function(){
-     var results = dataSource.aggregates().age;
-     console.log(results.sum, results.min, results.max); // displays "63 30 33"
+      var results = dataSource.aggregates().age;
+      console.log(results.sum); // displays "63"
     });
     </script>
-
-
 */
+//
 type AggregateEnum int
 
 const(
-  AGGREGATE_NULL AggregateEnum = iota
+  AGGREGATE_NIL AggregateEnum   = iota
   AGGREGATE_AVERAGE
   AGGREGATE_COUNT
   AGGREGATE_MAX
@@ -40,7 +42,7 @@ const(
   AGGREGATE_SUM
 )
 
-var AggregateEnums = [...]string{
+var AggregateEnums  = [...]string{
   "",
   "average",
   "count",
@@ -49,6 +51,7 @@ var AggregateEnums = [...]string{
   "sum",
 }
 
-func (el AggregateEnum) String() string {
+func (el AggregateEnum ) String() string {
   return AggregateEnums[ el ]
 }
+

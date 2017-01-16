@@ -1,11 +1,10 @@
 package kendo
 
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
-//
 // kendo.data.DataSource http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
-// Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
-// See the DataSource Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource and Basic Usage http://docs.telerik.com/kendo-ui/api/javascript/data/datasource for an introduction to the DataSource.
-// Configuration http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
+//
+// Overview
+// See the DataSource Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource and Basic Usage
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource for an introduction to the DataSource.
 //
 type Datasource struct{
 
@@ -749,3 +748,4 @@ func ( el Datasource ) getTemplate () string {
 {{if ne (string .Transport) "null"}}transport: {{string .Transport}},{{end}}
 `
 }
+
