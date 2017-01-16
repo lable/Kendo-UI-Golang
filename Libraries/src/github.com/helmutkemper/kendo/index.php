@@ -188,7 +188,7 @@ class classMaker
   
           $outputRef .= "type " . ucfirst( $structName ) . "Enum int\n\n";
           $outputRef .= "const(\n";
-          $outputRef .= "  " . strtoupper( $structName ) . "_NIL " . ucfirst( $structName ) . "Enum iota\n";
+          $outputRef .= "  " . strtoupper( $structName ) . "_NIL " . ucfirst( $structName ) . "Enum   = iota\n";
           foreach( $itemData[ "enum" ] as $enumValue ){
             $outputRef .= "  " . strtoupper( $structName ) . "_" . strtoupper( $enumValue ) . "\n";
           }
@@ -418,8 +418,13 @@ class classMaker
           if( $itemData[ "return" ] ) {
             $outputRef .= $itemData["return"] . "\n  // \n";
           }
-          
-          $outputRef .= "  " . ucfirst($itemName) . "    " . $type . "\n\n";
+  
+          if( count( $itemData[ "enum" ] ) && $type != "ComplexJavaScriptType" ){
+            $outputRef .= "  " . ucfirst($itemName) . "    " . $type . "Enum\n\n";
+          }
+          else{
+            $outputRef .= "  " . ucfirst($itemName) . "    " . $type . "\n\n";
+          }
         }
       }
       $outputRef .= "  Template    *Template\n";
