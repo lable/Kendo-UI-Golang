@@ -198,7 +198,7 @@ class classMaker
           foreach( $itemData[ "enum" ] as $enumValue ){
             $outputRef .= "  \"" . $enumValue . "\",\n";
           }
-          $outputRef  = substr( $outputRef, 0, -2 ) . "\n";
+          //$outputRef  = substr( $outputRef, 0, -2 ) . "\n";
           $outputRef .= "}\n\n";
           $outputRef .= "func (el " . ucfirst( $structName ) . "Enum ) String() string {\n";
           $outputRef .= "  return " . ucfirst( $structName ) . "Enums[ el ]\n";
