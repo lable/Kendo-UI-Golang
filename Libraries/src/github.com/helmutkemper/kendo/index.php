@@ -22,6 +22,7 @@ class classMaker
     
     $pageHtmlLArr = file ( $linkAStr );
     $pageHtmlLStr = implode ( "", $pageHtmlLArr );
+    $pageHtmlLStr = str_replace( "<h3 id=\"configuration-", "<end><h3 id=\"configuration-", $pageHtmlLStr );
     $pageHtmlLStr = preg_replace( "%(^.*?)(<h3 id=\"configuration-.*)%si", "$2", $pageHtmlLStr );
     
     
@@ -29,23 +30,27 @@ class classMaker
     preg_match_all( "%<div id=\"page-article\">(.*?)(?:<h3 id=\"configuration)%si", implode ( "", $pageHtmlLArr ), $matchesMethodsBlocks );
     preg_match_all( "%<h1.*?<a href=\"(.*?)\">(.*?)</a>\s*</h1>%si", $matchesMethodsBlocks[ 1 ][ 0 ], $matchesMainName );
     $matchesMainName = $matchesMainName[ 2 ][ 0 ];
-    $mainDescription = strip_tags( preg_replace( "%(<a href=\")(.*?)\">(.*?)(</a>)%si", "$3 {$linkAStr}", $matchesMethodsBlocks[ 1 ][ 0 ] ) );
+    $mainDescription = trim( strip_tags( preg_replace( "%(<a href=\")(.*?)\">(.*?)(</a>)%si", "$3 {$linkAStr}", $matchesMethodsBlocks[ 1 ][ 0 ] ) ) );
+    $mainDescription = preg_split( "%[\r\n]+%", $mainDescription );
+    foreach( $mainDescription as $mainDescriptionKey => $mainDescriptionLine ){
+      $mainDescription[$mainDescriptionKey] = "// " . $mainDescriptionLine;
+    }
+    $mainDescription = implode( "\n", $mainDescription );
     
+    preg_match_all( "%(<h3 id=\"configuration-.*?)(?:<end>)%si", $pageHtmlLStr, $matchesMethodsBlocks );
+    unset( $matchesMethodsBlocks[0] );
     
-    
-    
-    
-    preg_match_all( "%(<h3 id=\"configuration-.*?)(?:<h2 id=\"configuration)%si", $pageHtmlLStr, $matchesMethodsBlocks );
-    $matchesMethodsBlocks = $matchesMethodsBlocks[ 1 ][ 0 ] . "<h3 id=\"configuration-";
-    $matchesMethodsBlocks = preg_split( "%(<h3 id=\"configuration)%si", $matchesMethodsBlocks );
-    unset( $matchesMethodsBlocks[0], $matchesMethodsBlocks[count($matchesMethodsBlocks)] );
-    
-    foreach( $matchesMethodsBlocks as $methodsBlocksKey => $methodsBlocksLine ){
-      $configurationName[ $methodsBlocksKey ] = preg_replace( "%^-(.*?)(?:\">.*)%si", "$1", $methodsBlocksLine );
+    foreach( $matchesMethodsBlocks[1] as $methodsBlocksKey => $methodsBlocksLine ){
+      $configurationName[ $methodsBlocksKey ] = preg_replace( "%^<h3 id=\"configuration-(.*?)(?:\">.*)%si", "$1", $methodsBlocksLine );
       preg_match_all( "%<a href=\"(.*?)\"%si", $methodsBlocksLine, $matchesMethodsLinks );
       $configurationLink[ $methodsBlocksKey ] = $linkAStr . $matchesMethodsLinks[ 1 ][ 0 ];
+  
+      preg_match( "%^<h3 id=\"configuration-.*?\">.*?are:.*?<ul>(.*?)</ul>%si", $methodsBlocksLine, $matchesMethodsComplexTypes );
+      preg_match_all( "%<li><code>[\"']*(.*?)[\"']*</code></li>%si", $matchesMethodsComplexTypes[1], $matchesMethodsComplexTypes );
+  
+      $configurationEnumType[ $methodsBlocksKey ] = $matchesMethodsComplexTypes[ 1 ];
       
-      preg_match_all( "%^-.*?\">\s*<a href=\".*?\">.*?</a>(.*?)</h3>%si", $methodsBlocksLine, $matchesMethodsTypes );
+      preg_match_all( "%^<h3 id=\"configuration-.*?\">\s*<a href=\".*?\">.*?</a>(.*?)</h3>%si", $methodsBlocksLine, $matchesMethodsTypes );
       
       preg_match_all( "%<em>\s*\(\s*default:\s*\"*(.*?)\"*\s*\)\s*</em>%si", $matchesMethodsTypes[ 1 ][ 0 ], $matchesMethodsDefault );
       $configurationDefault[ $methodsBlocksKey ] = $matchesMethodsDefault[ 1 ][ 0 ];
@@ -122,6 +127,7 @@ class classMaker
           if( !isset( $structList[ basename( $linkAStr ) ][ $structsValue ] ) ) {
             $structList[basename($linkAStr)][$structsValue] = array(
               "type" => $configurationType[ $keyToGet ][ 1 ],
+              "enum" => $configurationEnumType[ $keyToGet ],
               "default" => $configurationDefault[ $keyToGet ],
               "specialType" => $configurationSpecialType[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
@@ -139,6 +145,7 @@ class classMaker
           if( !isset( $structList[ $structs[$structsKey - 1 ] ][ $structsValue ] ) ) {
             $structList[ $structs[$structsKey - 1 ] ][ $structsValue ] = array(
               "type" => $configurationType[ $keyToGet ][ 1 ],
+              "enum" => $configurationEnumType[ $keyToGet ],
               "default" => $configurationDefault[ $keyToGet ],
               "specialType" => $configurationSpecialType[ $keyToGet ],
               "typeLink" => $configurationType[ $keyToGet ][ 0 ],
@@ -160,17 +167,16 @@ class classMaker
     foreach( $structList as $structName => $structData ){
       $model = "";
       foreach( $structData as $itemName => $itemData ){
-        
-        if( !isset( $output[ $structName ] ) ) {
-          $output[ $structName ] = "";
-          $outputRef = &$output[ $structName ];
-          
+        if( count( $itemData[ "enum" ] ) && !isset( $output[ $structName ] ) && $itemData[ "main" ] == false ){
+          $output[ $structName . "Enum" ] = "";
+          $outputRef = &$output[ $structName . "Enum" ];
+  
           $outputRef .= "// " . $itemData[ "helpLink" ] . "\n// \n";
-          
+  
           $outputRef .= str_replace( "  //", "//", $itemData[ "description" ] ) . "\n// \n";
           $outputRef .= str_replace( "  //", "//", $itemData[ "spotlight" ] ) . "\n// \n";
           $outputRef .= str_replace( "\n  ", "\n", substr( $itemData[ "example" ], 2 ) ) . "\n// \n";
-          
+  
           if( $itemData[ "parameters" ] ) {
             $outputRef .= "  // Parameters:\n";
             $outputRef .= $itemData["parameters"] . "\n  // \n";
@@ -178,6 +184,49 @@ class classMaker
           if( $itemData[ "return" ] ) {
             $outputRef .= "  // Return:\n";
             $outputRef .= $itemData["return"] . "\n  // \n";
+          }
+  
+          $outputRef .= "type " . ucfirst( $structName ) . "Enum int\n\n";
+          $outputRef .= "const(\n";
+          $outputRef .= "  " . strtoupper( $structName ) . "_NIL " . ucfirst( $structName ) . "Enum iota\n";
+          foreach( $itemData[ "enum" ] as $enumValue ){
+            $outputRef .= "  " . strtoupper( $structName ) . "_" . strtoupper( $enumValue ) . "\n";
+          }
+          $outputRef .= ")\n\n";
+          $outputRef .= "var " . ucfirst( $structName ) . "Enums  = [...]string{\n";
+          $outputRef .= "  \"\",\n";
+          foreach( $itemData[ "enum" ] as $enumValue ){
+            $outputRef .= "  \"" . $enumValue . "\",\n";
+          }
+          $outputRef  = substr( $outputRef, 0, -2 ) . "\n";
+          $outputRef .= "}\n\n";
+          $outputRef .= "func (el " . ucfirst( $structName ) . "Enum ) String() string {\n";
+          $outputRef .= "  return " . ucfirst( $structName ) . "Enums[ el ]\n";
+          $outputRef .= "}\n\n";
+        }
+        
+        if( !isset( $output[ $structName ] ) ) {
+          $output[ $structName ] = "";
+          $outputRef = &$output[ $structName ];
+          
+          $outputRef .= "// " . $itemData[ "helpLink" ] . "\n// \n";
+          
+          if( $itemData[ "main" ] == false ) {
+            $outputRef .= str_replace("  //", "//", $itemData["description"]) . "\n// \n";
+            $outputRef .= str_replace("  //", "//", $itemData["spotlight"]) . "\n// \n";
+            $outputRef .= str_replace("\n  ", "\n", substr($itemData["example"], 2)) . "\n// \n";
+  
+            if ($itemData["parameters"]) {
+              $outputRef .= "  // Parameters:\n";
+              $outputRef .= $itemData["parameters"] . "\n  // \n";
+            }
+            if ($itemData["return"]) {
+              $outputRef .= "  // Return:\n";
+              $outputRef .= $itemData["return"] . "\n  // \n";
+            }
+          }
+          else{
+            $outputRef .= str_replace("  //", "//", $mainDescription) . "\n// \n";
           }
           $outputRef .= "type " . ucfirst( $structName ) . " struct{\n\n";
         }
@@ -188,7 +237,13 @@ class classMaker
             $type = ucfirst( $itemName );
             $nameUcFirst = ucfirst( $itemName );
             if( $itemData[ "type" ][ 0 ] == "Array" ){
-              $type = "[]{$type}Line";
+              if( count( $itemData[ "enum" ] ) ){
+                $type = "[]{$type}Enum";
+              }
+              else{
+                //todo line não implementado
+                $type = "[]{$type}Line";
+              }
               
               if( $itemData[ "specialType" ] ){
                 $testName = ucfirst( $itemData[ "specialType" ] );
