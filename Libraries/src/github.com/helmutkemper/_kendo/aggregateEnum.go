@@ -11,6 +11,7 @@ package kendo
 // *  "max"
 // *  "min"
 // *  "sum"
+//
 /*
     Example - specify aggregate function
     <script>
@@ -53,3 +54,4 @@ var AggregateEnums  = [...]string{
 func (el AggregateEnum ) String() string {
   return AggregateEnums[ el ]
 }
+

@@ -25,8 +25,6 @@ class classMaker
     $pageHtmlLStr = str_replace( "<h3 id=\"configuration-", "<end><h3 id=\"configuration-", $pageHtmlLStr );
     $pageHtmlLStr = preg_replace( "%(^.*?)(<h3 id=\"configuration-.*)%si", "$2", $pageHtmlLStr );
     
-    
-    
     preg_match_all( "%<div id=\"page-article\">(.*?)(?:<h3 id=\"configuration)%si", implode ( "", $pageHtmlLArr ), $matchesMethodsBlocks );
     preg_match_all( "%<h1.*?<a href=\"(.*?)\">(.*?)</a>\s*</h1>%si", $matchesMethodsBlocks[ 1 ][ 0 ], $matchesMainName );
     $matchesMainName = $matchesMainName[ 2 ][ 0 ];
@@ -370,7 +368,7 @@ class classMaker
               $model .= "{{if ne (string .{$nameUcFirst}) \"null\"}}{$itemName}: {{string .{$nameUcFirst}}},{{end}}\n";
             }
             else if( in_array( "Array", $itemData[ "type" ] ) && in_array( "Object", $itemData[ "type" ] ) ){
-              $type = ucfirst( $itemName );
+              $type = "[]" . ucfirst( $itemName ) . "Line";
               
               if( $itemData[ "specialType" ] ){
                 $testName = ucfirst( $itemData[ "specialType" ] );

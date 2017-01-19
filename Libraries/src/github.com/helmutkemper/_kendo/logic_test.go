@@ -17,11 +17,3 @@ func ExampleLogicEnum_String2() {
   // Output:
   // or
 }
-
-func ExampleLogicEnum_String3() {
-  var l LogicEnum = LOGIC_NIL
-  fmt.Print( l.String() )
-
-  // Output:
-  //
-}

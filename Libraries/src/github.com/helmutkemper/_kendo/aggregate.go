@@ -2,7 +2,7 @@ package kendo
 
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate.aggregate
 //
-// The aggregates which are calculated when the data source populates with data.
+// The name of the aggregate function.
 //
 // The supported aggregates are:
 //
@@ -11,6 +11,7 @@ package kendo
 // *  "max"
 // *  "min"
 // *  "sum"
+//
 /*
     Example - specify aggregate function
     <script>
@@ -30,7 +31,7 @@ package kendo
     </script>
 */
 //
-type AggregateLine struct{
+type Aggregate struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate.aggregate
   //
@@ -40,11 +41,13 @@ type AggregateLine struct{
   //
   // The supported aggregates are:
   //
+  //
   // *  "average"
   // *  "count"
   // *  "max"
   // *  "min"
   // *  "sum"
+  //
   /*
       Example - specify aggregate function
       <script>
@@ -64,13 +67,16 @@ type AggregateLine struct{
       </script>
   */
   //
-  AggregateEnum    AggregateEnum
+  Aggregate    AggregateEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate.field
   //
   // Type: String
   //
   // The data item field which will be used to calculate the aggregates.
+  //
+  //
+  //
   /*
       Example - specify aggregate field
       <script>
@@ -95,9 +101,8 @@ type AggregateLine struct{
   Template    *Template
 }
 
-func ( el AggregateLine ) getTemplate () string {
+func ( el Aggregate ) getTemplate () string {
   return `{{if ne (string .Aggregate) "null"}}aggregate: {{string .Aggregate}},{{end}}
 {{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
 `
 }
-

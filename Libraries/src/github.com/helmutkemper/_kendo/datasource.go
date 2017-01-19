@@ -1,13 +1,12 @@
 package kendo
 
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
-//
 // kendo.data.DataSource http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
-// Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
-// See the DataSource Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource and Basic Usage http://docs.telerik.com/kendo-ui/api/javascript/data/datasource for an introduction to the DataSource.
-// Configuration http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
 //
-type DataSource struct{
+// Overview
+// See the DataSource Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource and Basic Usage
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource for an introduction to the DataSource.
+//
+type Datasource struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
   //
@@ -17,11 +16,13 @@ type DataSource struct{
   //
   // The supported aggregates are:
   //
+  //
   // *  "average"
   // *  "count"
   // *  "max"
   // *  "min"
   // *  "sum"
+  //
   //
   //    The data source calculates aggregates client-side unless the 'serverAggregates' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverAggregates option is set to 'true'.
   //
@@ -54,6 +55,9 @@ type DataSource struct{
   // Defalt: false
   //
   // If set to 'true' the data source would automatically save any changed data items by calling the 'sync' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods-sync  method. By default, changes are not automatically saved.
+  //
+  //
+  //
   /*
       Example - enable auto sync
       <script>
@@ -130,6 +134,8 @@ type DataSource struct{
   // The array of data items which the data source contains. The data source will wrap those items as 'kendo.data.ObservableObject' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/observableobject  or 'kendo.data.Model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model  (if 'schema.model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema-model  is set).
   //
   // Can be set to a string value if the 'schema.type' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.type  option is set to "xml".
+  //
+  //
   //
   /*
       Example - set the data items of a data source
@@ -251,7 +257,7 @@ type DataSource struct{
       </script>
   */
   //
-  Filter    []FilterLine
+  Filter    Filter
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group
   //
@@ -319,13 +325,16 @@ type DataSource struct{
       </script>
   */
   //
-  Group    []GroupLine
+  Group    Group
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-offlineStorage
   //
   // Type: String
   //
   // The offline storage key or custom offline storage implementation.
+  //
+  //
+  //
   /*
       Example - set offline storage key
       <script>
@@ -433,6 +442,9 @@ type DataSource struct{
   // Type: Object
   //
   // The configuration used to parse the remote service response.
+  //
+  //
+  //
   /*
       Example - specify the schema of the remote service
       <script>
@@ -499,14 +511,23 @@ type DataSource struct{
   //
   // For example, the filter '{ logic: "and", filters: [ { field: "name", operator: "startswith", value: "Jane" } ] }' is sent as:
   //
+  //
   // 'filter[logic]: and'
+  //
   // 'filter[filters][0][field]: name'
+  //
   // 'filter[filters][0][operator]: startswith'
+  //
   // 'filter[filters][0][value]: Jane'
+  //
+  //
   //
   // Use the 'parameterMap' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.parameterMap  option to send the filter option in a different format.
   //
   // For more information and tips about client and server data operations, refer to the introductory article on the DataSource http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/framework/datasource/overview#mixed-data-operations-mode .
+  //
+  //
+  //
   /*
       Example - enable server filtering
       <script>
@@ -533,12 +554,19 @@ type DataSource struct{
   //
   // For example, the group '{ field: "category", dir: "desc" }' is sent as:
   //
+  //
   // 'group[0][field]: category'
+  //
   // 'group[0][dir]: desc'
+  //
+  //
   //
   // Use the 'parameterMap' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.parameterMap  option to send the group option in a different format.
   //
   // For more information and tips about client and server data operations, refer to the introductory article on the DataSource http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/framework/datasource/overview#mixed-data-operations-mode .
+  //
+  //
+  //
   /*
       Example - enable server grouping
       <script>
@@ -591,12 +619,17 @@ type DataSource struct{
   //
   // For example, the sort '{ field: "age", dir: "desc" }' is sent as:
   //
+  //
   // 'sort[0][field]: age'
   // 'sort[0][dir]: desc'
+  //
   //
   // Use the 'parameterMap' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.parameterMap  option to send the paging options in a different format.
   //
   // For more information and tips about client and server data operations, refer to the introductory article on the DataSource http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/framework/datasource/overview#mixed-data-operations-mode .
+  //
+  //
+  //
   /*
       Example - enable server sorting
       <script>
@@ -658,7 +691,7 @@ type DataSource struct{
       </script>
   */
   //
-  Sort    []SortLine
+  Sort    Sort
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport
   //
@@ -695,13 +728,13 @@ type DataSource struct{
   Template    *Template
 }
 
-func ( el DataSource ) getTemplate () string {
+func ( el Datasource ) getTemplate () string {
   return `{{if .ServerAggregates}}aggregate: [{{range $v := .Aggregate}}{{string $v}},{{end}}],{{end}}
 {{if .AutoSync}}autoSync: true,{{end}}
 {{if .Batch}}batch: true,{{end}}
 {{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
-{{if ne (string .Filter) "null" and .ServerFiltering}}{{$length := len .[]FilterLine}}{{if le $length 1}}filter: { {{string .Filter}} },{{else}}filter: [ {{string .Filter}} ],{{end}},{{end}}
-{{if ne (string .Group) "null" and .ServerGrouping}}{{$length := len .[]GroupLine}}{{if le $length 1}}group: { {{string .Group}} },{{else}}group: [ {{string .Group}} ],{{end}},{{end}}
+{{if ne (string .Filter) "null" and .ServerFiltering}}{{$length := len .Filter}}{{if le $length 1}}filter: { {{string .Filter}} },{{else}}filter: [ {{string .Filter}} ],{{end}},{{end}}
+{{if ne (string .Group) "null" and .ServerGrouping}}{{$length := len .Group}}{{if le $length 1}}group: { {{string .Group}} },{{else}}group: [ {{string .Group}} ],{{end}},{{end}}
 {{if ne (string .OfflineStorage) "null"}}offlineStorage: {{string .OfflineStorage}},{{end}}
 {{if .ServerPaging and .Page}}page: {{.Page}},{{end}}
 {{if .ServerPaging and .PageSize}}pageSize: {{.PageSize}},{{end}}
@@ -711,7 +744,8 @@ func ( el DataSource ) getTemplate () string {
 {{if .ServerGrouping}}serverGrouping: true,{{end}}
 {{if .ServerPaging}}serverPaging: true,{{end}}
 {{if .ServerSorting}}serverSorting: true,{{end}}
-{{if ne (string .Sort) "null"}}{{$length := len .[]SortLine}}{{if le $length 1}}sort: { {{string .Sort}} },{{else}}sort: [ {{string .Sort}} ],{{end}},{{end}}
+{{if ne (string .Sort) "null"}}{{$length := len .Sort}}{{if le $length 1}}sort: { {{string .Sort}} },{{else}}sort: [ {{string .Sort}} ],{{end}},{{end}}
 {{if ne (string .Transport) "null"}}transport: {{string .Transport}},{{end}}
 `
 }
+
