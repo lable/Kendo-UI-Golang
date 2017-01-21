@@ -1,50 +1,36 @@
 package kendo
 
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.aggregates
+// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group
 //
-// The aggregates which are calculated during grouping.
+// The grouping configuration of the data source. If set, the data items will be grouped when the data source is populated. By default, grouping is not applied.
 //
-// The supported aggregates are:
-//
-//
-// *  "average"
-// *  "count"
-// *  "max"
-// *  "min"
-// *  "sum"
-//
-//
-//
+//   The data source groups the data items client-side unless the 'serverGrouping' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping option is set to true.
 //
 /*
-    Example - set group aggregates
+    EXAMPLE - SET A GROUP AS AN OBJECT
     <script>
     var dataSource = new kendo.data.DataSource({
       data: [
-        { name: "Tea", category: "Beverages", price: 1 },
-        { name: "Coffee", category: "Beverages", price: 2 },
-        { name: "Ham", category: "Food", price: 3 },
+        { name: "Tea", category: "Beverages" },
+        { name: "Coffee", category: "Beverages" },
+        { name: "Ham", category: "Food" }
       ],
-      group: {
-        field: "category",
-        aggregates: [
-          { field: "price", aggregate: "max" },
-          { field: "price", aggregate: "min" }
-        ]
-      }
+      // group by the "category" field
+      group: { field: "category" }
     });
     dataSource.fetch(function(){
       var view = dataSource.view();
+      console.log(view.length); // displays "2"
       var beverages = view[0];
-      console.log(beverages.aggregates.price.max); // displays "2"
-      console.log(beverages.aggregates.price.min); // displays "1"
+      console.log(beverages.value); // displays "Beverages"
+      console.log(beverages.items[0].name); // displays "Tea"
+      console.log(beverages.items[1].name); // displays "Coffee"
       var food = view[1];
-      console.log(food.aggregates.price.max); // displays "3"
-      console.log(food.aggregates.price.min); // displays "3"
+      console.log(food.value); // displays "Food"
+      console.log(food.items[0].name); // displays "Ham"
     });
     </script>
 */
-//
 type GroupLine struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.aggregates
@@ -55,16 +41,11 @@ type GroupLine struct{
   //
   // The supported aggregates are:
   //
-  //
   // *  "average"
   // *  "count"
   // *  "max"
   // *  "min"
   // *  "sum"
-  //
-  //
-  //
-  //
   /*
       Example - set group aggregates
       <script>
@@ -94,7 +75,7 @@ type GroupLine struct{
       </script>
   */
   //
-  Aggregates    []AggregatesEnum
+  Aggregates    []AggregateEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.dir
   //
@@ -105,15 +86,10 @@ type GroupLine struct{
   //
   // The supported values are:
   //
-  //
   // "asc" (ascending order)
-  //
   // "desc" (descending order)
   //
-  //
   // The default sort order is ascending.
-  //
-  //
   //
   /*
       Example - sort the groups in descending order

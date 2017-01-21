@@ -44,7 +44,7 @@ class classMaker
       $configurationLink[ $methodsBlocksKey ] = $linkAStr . $matchesMethodsLinks[ 1 ][ 0 ];
   
       preg_match( "%^<h3 id=\"configuration-.*?\">.*?are:.*?<ul>(.*?)</ul>%si", $methodsBlocksLine, $matchesMethodsComplexTypes );
-      preg_match_all( "%<li><code>[\"']*(.*?)[\"']*</code></li>%si", $matchesMethodsComplexTypes[1], $matchesMethodsComplexTypes );
+      preg_match_all( "%<li>\s*<code>\s*[\"']*\s*(.*?)\s*[\"']*\s*</code>.*?</li>%si", $matchesMethodsComplexTypes[1], $matchesMethodsComplexTypes );
   
       $configurationEnumType[ $methodsBlocksKey ] = $matchesMethodsComplexTypes[ 1 ];
       
@@ -95,6 +95,7 @@ class classMaker
       
       $configurationSpotlight[ $methodsBlocksKey ] = preg_replace( "%<a href=\"(.*?)\"><code>(.*?)</code></a>%si", "'$2' {$linkAStr}$1", $matchesMethodsTypes[ 1 ][ 0 ] );
       $configurationSpotlight[ $methodsBlocksKey ] = "  //    " . trim( strip_tags( preg_replace( "%<code>(.*?)</code>%si", "'$1'", $configurationSpotlight[ $methodsBlocksKey ] ) ) );
+      $configurationSpotlight[ $methodsBlocksKey ] = preg_replace( "%([\n\r]+)%si", "\n  //    ", $configurationSpotlight[ $methodsBlocksKey ] );
       
       preg_match_all( "%<h4>(Example.*?)</h4>%si", $methodsBlocksLine, $matchesMethodsExamplesTitles );
       preg_match_all( "%(?(?=<pre><code>)<pre><code>|<script>)(.*?)(?(?=</code></pre>)</code></pre>|</script>)%si", $methodsBlocksLine, $matchesMethodsExamplesCode );
@@ -159,15 +160,16 @@ class classMaker
         }
       }
     }
-    
+  
+    $outputSecondary = array();
     $output = array();
     $outputRef = null;
     foreach( $structList as $structName => $structData ){
       $model = "";
       foreach( $structData as $itemName => $itemData ){
-        if( count( $itemData[ "enum" ] ) && !isset( $output[ $structName ] ) && $itemData[ "main" ] == false ){
-          $output[ $structName . "Enum" ] = "";
-          $outputRef = &$output[ $structName . "Enum" ];
+        if( count( $itemData[ "enum" ] ) && !isset( $outputSecondary[ $itemName . "Enum" ] ) && $itemData[ "main" ] == false ){
+          $outputSecondary[ $itemName . "Enum" ] = "";
+          $outputRef = &$outputSecondary[ $itemName . "Enum" ];
   
           $outputRef .= "// " . $itemData[ "helpLink" ] . "\n// \n";
   
@@ -184,24 +186,25 @@ class classMaker
             $outputRef .= $itemData["return"] . "\n  // \n";
           }
   
-          $outputRef .= "type " . ucfirst( $structName ) . "Enum int\n\n";
+          $outputRef .= "type " . ucfirst( $itemName ) . "Enum int\n\n";
           $outputRef .= "const(\n";
-          $outputRef .= "  " . strtoupper( $structName ) . "_NIL " . ucfirst( $structName ) . "Enum   = iota\n";
+          $outputRef .= "  " . strtoupper( $itemName ) . "_NIL " . ucfirst( $itemName ) . "Enum   = iota\n";
           foreach( $itemData[ "enum" ] as $enumValue ){
-            $outputRef .= "  " . strtoupper( $structName ) . "_" . strtoupper( $enumValue ) . "\n";
+            $outputRef .= "  " . strtoupper( $itemName ) . "_" . strtoupper( $enumValue ) . "\n";
           }
           $outputRef .= ")\n\n";
-          $outputRef .= "var " . ucfirst( $structName ) . "Enums  = [...]string{\n";
+          $outputRef .= "var " . ucfirst( $itemName ) . "Enums  = [...]string{\n";
           $outputRef .= "  \"\",\n";
           foreach( $itemData[ "enum" ] as $enumValue ){
             $outputRef .= "  \"" . $enumValue . "\",\n";
           }
           //$outputRef  = substr( $outputRef, 0, -2 ) . "\n";
           $outputRef .= "}\n\n";
-          $outputRef .= "func (el " . ucfirst( $structName ) . "Enum ) String() string {\n";
-          $outputRef .= "  return " . ucfirst( $structName ) . "Enums[ el ]\n";
+          $outputRef .= "func (el " . ucfirst( $itemName ) . "Enum ) String() string {\n";
+          $outputRef .= "  return " . ucfirst( $itemName ) . "Enums[ el ]\n";
           $outputRef .= "}\n\n";
         }
+        $outputRef = &$output[ $structName ];
         
         if( !isset( $output[ $structName ] ) ) {
           $output[ $structName ] = "";
@@ -231,11 +234,11 @@ class classMaker
         
         if( count( $itemData[ "type" ] ) == 1 ){
           
-          if( isset( $structList[ $itemName ] ) ){
+          if( isset( $structList[ $itemName ] ) && $itemData[ "type" ][ 0 ] != "String" ){
             $type = ucfirst( $itemName );
             $nameUcFirst = ucfirst( $itemName );
             if( $itemData[ "type" ][ 0 ] == "Array" ){
-              if( count( $itemData[ "enum" ] ) ){
+              if( count( $itemData[ "enum" ] ) && !isset( $structList[ $itemName ] ) ){
                 $type = "[]{$type}Enum";
               }
               else{
@@ -267,7 +270,12 @@ class classMaker
             $nameUcFirst = ucfirst( $itemName );
             switch ( $itemData[ "type" ][ 0 ] ){
               case "String":
-                $type = "string";
+                if( count( $itemData[ "enum" ] ) ){
+                  $type = ucfirst( $itemName ) . "Enum";
+                }
+                else{
+                  $type = "string";
+                }
                 
                 if( $itemData[ "specialType" ] ){
                   $testName = ucfirst( $itemData[ "specialType" ] );
@@ -293,7 +301,7 @@ class classMaker
                   $testName = $nameUcFirst;
                 }
                 
-                $model .= "{{if .{$testName} and .{$nameUcFirst}}}{$itemName}: {{.{$nameUcFirst}}},{{end}}\n";
+                $model .= "{{if .{$testName} }}{$itemName}: {{.{$nameUcFirst}}},{{end}}\n";
                 break;
               
               case "Function":
@@ -431,5 +439,6 @@ class classMaker
       $outputRef .= "\n\n\n\n\n\n\n\n\n\n\n\n";
     }
     print implode( "\n", $output );
+    print implode( "\n", $outputSecondary );
   }
 }
