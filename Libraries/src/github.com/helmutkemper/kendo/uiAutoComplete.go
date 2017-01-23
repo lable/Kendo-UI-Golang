@@ -16,9 +16,6 @@ type UIAutoComplete struct{
   // Configures the opening and closing animations of the suggestion popup. Setting the 'animation' option to 'false' will disable the opening and closing animations. As a result the suggestion popup will open and close instantly.
   //
   // 'animation:true' is not a valid configuration.
-  //
-  //
-  //
   /*
       Example - disable open and close animations
       <input id="autocomplete" />
@@ -46,7 +43,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   Animation Animation
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-autoWidth
@@ -69,7 +65,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   AutoWidth    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-dataSource
@@ -82,9 +77,6 @@ type UIAutoComplete struct{
   // If the 'dataSource' option is set to a JavaScript object or array the widget will initialize a new kendo.data.DataSource http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/data/datasource  instance using that value as data source configuration.
   //
   // If the 'dataSource' option is an existing kendo.data.DataSource http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/data/datasource  instance the widget will use that instance and will not initialize a new one.
-  //
-  //
-  //
   /*
       Example - set dataSource as a JavaScript object
       <input id="autocomplete" />
@@ -124,8 +116,7 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
-  DataSource    bool
+  DataSource    DataSource
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-clearButton
   //
@@ -133,9 +124,6 @@ type UIAutoComplete struct{
   // Default: true
   //
   // Unless this options is set to 'false', a button will appear when hovering the widget. Clicking that button will reset the widget's value and will trigger the change event.
-  //
-  //
-  //
   /*
       Example - disable the clear button
       <input id="autocomplete" />
@@ -145,7 +133,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   ClearButton    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-dataTextField
@@ -154,9 +141,6 @@ type UIAutoComplete struct{
   // Default: null
   //
   // The field of the data item used when searching for suggestions.  This is the text that will be displayed in the list of matched results.
-  //
-  //
-  //
   /*
       Example - set the dataTextField
       <input id="autocomplete" />
@@ -171,7 +155,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   DataTextField    string
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-delay
@@ -180,9 +163,6 @@ type UIAutoComplete struct{
   // Default: 200
   //
   // The delay in milliseconds between a keystroke and when the widget displays the suggestion popup.
-  //
-  //
-  //
   /*
       Example - set the delay
       <input id="autocomplete" />
@@ -192,7 +172,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   Delay    int64
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-enable
@@ -201,9 +180,6 @@ type UIAutoComplete struct{
   // Default: true
   //
   // If set to 'false' the widget will be disabled and will not allow user input. The widget is enabled by default and allows user input.
-  //
-  //
-  //
   /*
       Example - disable the widget
       <input id="autocomplete" />
@@ -213,7 +189,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   Enable    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-enforceMinLength
@@ -222,9 +197,6 @@ type UIAutoComplete struct{
   // Default: false
   //
   // If set to 'true' the widget will not show all items when the text of the search input cleared. By default the widget shows all items when the text of the search input is cleared. Works in conjunction with minLength http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-minLength .
-  //
-  //
-  //
   /*
       Example - enforce minLength
       <input id="autocomplete" />
@@ -245,7 +217,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   EnforceMinLength    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-filter
@@ -255,9 +226,6 @@ type UIAutoComplete struct{
   //
   // The filtering method used to determine the suggestions for the current value. The default filter is "startswith" -
   // all data items which begin with the current widget value are displayed in the suggestion popup. The supported 'filter' values are 'startswith', 'endswith' and 'contains'.
-  //
-  //
-  //
   /*
       Example - set the filter
       <input id="autocomplete" />
@@ -267,19 +235,13 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
-  Filter    string
+  Filter    AutoCompleteFilterEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-fixedGroupTemplate
   //
   // Type: String
   //
   // The template http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/kendo#methods-template  used to render the fixed header group. By default the widget displays only the value of the current group.
-  //
-  //
-  //
-
-  //
   FixedGroupTemplate    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-footerTemplate
@@ -287,9 +249,6 @@ type UIAutoComplete struct{
   // Type: String
   //
   // The template http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/kendo#methods-template  used to render the footer template. The footer template receives the widget itself as a part of the data argument. Use the widget fields directly in the template.
-  //
-  //
-  //
   /*
       Example - specify footerTemplate as a string
       <input id="autocomplete" />
@@ -304,10 +263,8 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   // instance 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
   // The widget instance.
-  //
   FooterTemplate    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-groupTemplate
@@ -315,11 +272,6 @@ type UIAutoComplete struct{
   // Type: String
   //
   // The template http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/kendo#methods-template  used to render the groups. By default the widget displays only the value of the group.
-  //
-  //
-  //
-
-  //
   GroupTemplate    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-height
@@ -328,9 +280,6 @@ type UIAutoComplete struct{
   // Default: 200
   //
   // The height of the suggestion popup in pixels. The default value is 200 pixels.
-  //
-  //
-  //
   /*
       Example - set the height
       <input id="autocomplete" />
@@ -340,7 +289,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   Height    int64
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-highlightFirst
@@ -349,9 +297,6 @@ type UIAutoComplete struct{
   // Default: true
   //
   // If set to 'true' the first suggestion will be automatically highlighted.
-  //
-  //
-  //
   /*
       Example - set highlightFirst
       <input id="autocomplete" />
@@ -370,9 +315,6 @@ type UIAutoComplete struct{
   // Default: true
   //
   // If set to 'false' case-sensitive search will be performed to find suggestions. The widget performs case-insensitive searching by default.
-  //
-  //
-  //
   /*
       Example - disable case-insensitive suggestions
       <input id="autocomplete" />
@@ -382,7 +324,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   IgnoreCase    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-minLength
@@ -403,7 +344,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   MinLength    int64
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-noDataTemplate
@@ -415,7 +355,6 @@ type UIAutoComplete struct{
   // The noData template receives the widget itself as a part of the data argument. The template will be evaluated on every widget data bound.
   //
   //    Important The popup will open when 'noDataTemplate' is defined
-  //
   /*
       Example - specify headerTemplate as a string
       <input id="autocomplete" />
@@ -438,9 +377,6 @@ type UIAutoComplete struct{
   // Type: String
   //
   // The hint displayed by the widget when it is empty. Not set by default.
-  //
-  //
-  //
   /*
       Example - specify placeholder
       <input id="autocomplete" />
@@ -457,7 +393,6 @@ type UIAutoComplete struct{
       $("#autocomplete").kendoAutoComplete();
       </script>
   */
-  //
   Placeholder    string
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-popup
@@ -466,9 +401,6 @@ type UIAutoComplete struct{
   //
   // The options that will be used for the popup initialization. For more details about the available options
   // refer to Popup http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/ui/popup  documentation.
-  //
-  //
-  //
   /*
       Example - append the popup to a specific element
       <div id="container">
@@ -488,7 +420,8 @@ type UIAutoComplete struct{
       </script>
   */
   //
-  Popup    Popup
+  //todo http://docs.telerik.com/kendo-ui/api/javascript/ui/popup
+  //Popup    Popup
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-separator
   //
@@ -516,7 +449,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   Separator    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-suggest
@@ -525,9 +457,6 @@ type UIAutoComplete struct{
   // Default: false
   //
   // If set to 'true' the widget will automatically use the first suggestion as its value.
-  //
-  //
-  //
   /*
       Example - enable automatic suggestion
       <input id="autocomplete" />
@@ -571,9 +500,6 @@ type UIAutoComplete struct{
   // Type: String
   //
   // The template http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/kendo#methods-template  used to render the suggestions. By default the widget displays only the text of the suggestion (configured via 'dataTextField').
-  //
-  //
-  //
   /*
       Example - specify template as a function
       <input id="autocomplete" />
@@ -608,7 +534,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   Template    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-value
@@ -616,9 +541,6 @@ type UIAutoComplete struct{
   // Type: String
   //
   // The value of the widget.
-  //
-  //
-  //
   /*
       Example - specify value of the widget
       <input id="autocomplete" />
@@ -633,7 +555,6 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  //
   Value    string
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-valuePrimitive
@@ -642,9 +563,6 @@ type UIAutoComplete struct{
   // Default: false
   //
   // Specifies the value binding http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/framework/mvvm/bindings/value  behavior for the widget when the initial model value is null. If set to true, the View-Model field will be updated with the selected item text field. If set to false, the View-Model field will be updated with the selected item.
-  //
-  //
-  //
   /*
       Example - specify that the View-Model field should be updated with the selected item text
       <input id="autocomplete" data-bind="value: productName, source: products" />
@@ -666,7 +584,6 @@ type UIAutoComplete struct{
       kendo.bind($("#autocomplete"), viewModel);
       </script>
   */
-  //
   ValuePrimitive    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-virtual
@@ -677,9 +594,6 @@ type UIAutoComplete struct{
   // Enables the virtualization feature of the widget. The configuration can be set on an object, which contains two properties - 'itemHeight' and 'valueMapper'.
   //
   // For detailed information, refer to the article on virtualization http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/controls/editors/combobox/virtualization .
-  //
-  //
-  //
   /*
       Example - AutoComplete with a virtualized list
       <input id="orders" style="width: 400px" />
@@ -812,4 +726,3 @@ func ( el UIAutoComplete ) getTemplate () string {
 {{if .ValuePrimitive}}valuePrimitive: true,{{end}}
 `
 }
-
