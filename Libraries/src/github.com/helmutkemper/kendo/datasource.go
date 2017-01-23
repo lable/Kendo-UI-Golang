@@ -6,7 +6,6 @@ package kendo
 // Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
 // See the DataSource Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource and Basic Usage http://docs.telerik.com/kendo-ui/api/javascript/data/datasource for an introduction to the DataSource.
 // Configuration http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
-//
 type DataSource struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
@@ -45,13 +44,12 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Aggregate    []AggregateEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-autoSync
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true' the data source would automatically save any changed data items by calling the 'sync' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods-sync  method. By default, changes are not automatically saved.
   /*
@@ -79,13 +77,12 @@ type DataSource struct{
       });
       </script>
   */
-  //
   AutoSync    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-batch
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will batch CRUD operation requests. For example, updating two data items would cause one HTTP request instead of two. By default, the data source
   // makes a HTTP request for every CRUD operation.
@@ -120,7 +117,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Batch    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-data
@@ -174,7 +170,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Data    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter
@@ -250,7 +245,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Filter    []FilterLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group
@@ -318,7 +312,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Group    []GroupLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-offlineStorage
@@ -362,7 +355,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   OfflineStorage    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-page
@@ -393,7 +385,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Page    int64
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-pageSize
@@ -425,7 +416,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   PageSize    int64
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema
@@ -456,13 +446,12 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Schema    Schema
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverAggregates
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the aggregate calculation to the remote service. By default, the data source calculates aggregates client-side.
   //
@@ -485,13 +474,12 @@ type DataSource struct{
       });
       </script>
   */
-  //
   ServerAggregates    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the filtering implementation to the remote service. By default, the data source performs filtering client-side.
   //
@@ -519,13 +507,12 @@ type DataSource struct{
       });
       </script>
   */
-  //
   ServerFiltering    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the grouping implementation to the remote service. By default, the data source performs grouping client-side.
   //
@@ -551,13 +538,12 @@ type DataSource struct{
       });
       </script>
   */
-  //
   ServerGrouping    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the data item paging implementation to the remote service. By default, the data source performs paging client-side.
   //
@@ -577,13 +563,12 @@ type DataSource struct{
       });
       </script>
   */
-  //
   ServerPaging    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverSorting
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the data item sorting implementation to the remote service. By default, the data source performs sorting client-side.
   //
@@ -609,7 +594,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   ServerSorting    bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-sort
@@ -657,7 +641,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Sort    []SortLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport
@@ -669,9 +652,6 @@ type DataSource struct{
   // Remote data sources load and save data items from and to a remote end-point (also known as remote service or server). The 'transport' option describes the remote service configuration - URL, HTTP verb, HTTP headers, and others. The 'transport' option can also be used to implement custom data loading and saving.
   //
   // Local data sources are bound to a JavaScript array via the 'data' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-data  option.
-  //
-  //
-  //
   /*
       Example - specify the remote service configuration
       <script>
@@ -689,7 +669,6 @@ type DataSource struct{
       });
       </script>
   */
-  //
   Transport    Transport
 
   Template    *Template

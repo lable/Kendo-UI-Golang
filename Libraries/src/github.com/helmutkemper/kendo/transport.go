@@ -1,30 +1,5 @@
 package kendo
 
-// http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport
-//
-// The configuration used to load and save the data items. A data source is remote or local based on the way of it retrieves data items.
-//
-// Remote data sources load and save data items from and to a remote end-point (also known as remote service or server). The transport option describes the remote service configuration - URL, HTTP verb, HTTP headers, and others. The transport option can also be used to implement custom data loading and saving.
-//
-// Local data sources are bound to a JavaScript array via the 'data' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-data option.
-/*
-    EXAMPLE - SPECIFY THE REMOTE SERVICE CONFIGURATION
-    <script>
-    var dataSource = new kendo.data.DataSource({
-      transport: {
-        read: {
-          url: "http://demos.telerik.com/kendo-ui/service/products",
-          dataType: "jsonp" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-        }
-      }
-    });
-    dataSource.fetch(function() {
-      var products = dataSource.data();
-      console.log(products[0].ProductName); // displays "Chai"
-    });
-    </script>
-*/
-//
 type Transport struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.create
@@ -100,7 +75,6 @@ type Transport struct{
       dataSource.sync();
       </script>
   */
-  //
   Create    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.destroy
@@ -192,7 +166,6 @@ type Transport struct{
       });
       </script>
   */
-  //
   Destroy    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.parameterMap
@@ -202,7 +175,6 @@ type Transport struct{
   // The function which converts the request parameters to a format suitable for the remote service. By default, the data source sends the parameters using jQuery's conventions http://docs.telerik.com/kendo-ui/api/javascript/data/datasourcehttp://api.jquery.com/jQuery.param/ .
   //
   //    The 'parameterMap' method is often used to encode the parameters in JSON format.
-  //
   //    The 'parameterMap' function will not be called when using custom functions for the read, update, create, and destroy operations.
   //
   /*
@@ -261,21 +233,23 @@ type Transport struct{
   */
   //
   // Parameters:
-  // data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-  // The parameters which will be sent to the remote service. The value specified in the data field of the transport settings (create, read, update or destroy) is included as well. If 'Array' #batch-boolean-default">batch is set to false, the fields of the changed data items are also included.
-  // data.aggregate aggregate option. Available if the serverAggregates option is set to true and the data source makes a "read" request.
-  // data.group group option. Available if the serverGrouping option is set to true and the data source makes a "read" request.
-  // data.filter filter option. Available if the serverFiltering option is set to true and the data source makes a "read" request.
-  // data.models batch option is set to true.
-  // data.page serverPaging option is set to true and the data source makes a "read" request.
-  // data.pageSize pageSize option. Available if the serverPaging option is set to true and the data source makes a "read" request.
-  // data.skip serverPaging option is set to true and the data source makes a "read" request.
-  // data.sort sort option. Available if the serverSorting option is set to true and the data source makes a "read" request.
-  // data.take serverPaging option is set to true and the data source makes a "read" request.
-  // type
+  //
+  //   data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+  //   The parameters which will be sent to the remote service. The value specified in the data field of the transport settings (create, read, update or destroy) is included as well. If 'Array' #batch-boolean-default">batch is set to false, the fields of the changed data items are also included.
+  //   data.aggregate aggregate option. Available if the serverAggregates option is set to true and the data source makes a "read" request.
+  //   data.group group option. Available if the serverGrouping option is set to true and the data source makes a "read" request.
+  //   data.filter filter option. Available if the serverFiltering option is set to true and the data source makes a "read" request.
+  //   data.models batch option is set to true.
+  //   data.page serverPaging option is set to true and the data source makes a "read" request.
+  //   data.pageSize pageSize option. Available if the serverPaging option is set to true and the data source makes a "read" request.
+  //   data.skip serverPaging option is set to true and the data source makes a "read" request.
+  //   data.sort sort option. Available if the serverSorting option is set to true and the data source makes a "read" request.
+  //   data.take serverPaging option is set to true and the data source makes a "read" request.
+  //   type
   //
   // Return:
-  // 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object  the request parameters converted to a format required by the remote service.
+  //
+  //   'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object  the request parameters converted to a format required by the remote service.
   //
   ParameterMap    ComplexJavaScriptType
 
@@ -325,17 +299,16 @@ type Transport struct{
   //
   // Parameters:
   //
-  // callbacks 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-  // An object containing callbacks for notifying the data source of push notifications.
-  // callbacks.pushCreate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-  // Function that should be invoked to notify the data source about newly created data items that are pushed from the server. Accepts a single argument - the object pushed from the server which should follow the schema.data configuration.
-  // callbacks.pushDestroy 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-  // Function that should be invoked to notify the data source about destroyed data items that are pushed from the server. Accepts a single argument - the object pushed from the server
-  // which should follow the schema.data configuration.
-  // callbacks.pushUpdate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-  // Function that should be invoked to notify the data source about updated data items that are pushed from the server. Accepts a single argument - the object pushed from the server
-  // which should follow the schema.data configuration.
-  //
+  //   callbacks 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+  //   An object containing callbacks for notifying the data source of push notifications.
+  //   callbacks.pushCreate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+  //   Function that should be invoked to notify the data source about newly created data items that are pushed from the server. Accepts a single argument - the object pushed from the server which should follow the schema.data configuration.
+  //   callbacks.pushDestroy 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+  //   Function that should be invoked to notify the data source about destroyed data items that are pushed from the server. Accepts a single argument - the object pushed from the server
+  //   which should follow the schema.data configuration.
+  //   callbacks.pushUpdate 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+  //   Function that should be invoked to notify the data source about updated data items that are pushed from the server. Accepts a single argument - the object pushed from the server
+  //   which should follow the schema.data configuration.
   Push    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.read
@@ -408,7 +381,6 @@ type Transport struct{
       });
       </script>
   */
-  //
   Read    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.signalr
@@ -462,7 +434,6 @@ type Transport struct{
           });
       </script>
   */
-  //
   Signalr    Signalr
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.submit
@@ -475,51 +446,49 @@ type Transport struct{
   //
   //    This function will only be invoked when the DataSource is in batch mode.
   //
-  /*
-      Example - declare transport submit function
-      <script>
-          var dataSource = new kendo.data.DataSource({
-              batch: true,
-              transport: {
-                submit: function(e) {
-                  // Check out the network tab on "Save Changes"
-                  $.ajaxBatch({
-                    url: "<your service URL>",
-                    data: e.data
-                  })
-                  .done(function() {
-                    e.success(e.data.created, "create");
-                    e.success([], "update");
-                    e.success([], "destroy");
-                  })
-                  .fail(function() {
-                    e.error();
-                  });
-                },
-                read: function(e) {
-                  $.ajax({
-                    url: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers",
-                    dataType: "jsonp",
-                    data: data,
-                    jsonp: "$callback"
-                  })
-                  .done(e.success)
-                  .fail(e.error);
-                }
-              }
-            });
-      </script>
-   */
   // Parameters:
   //
-  // e.data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-  // An object containing the created (e.data.created), updated (e.data.updated), and destroyed (e.data.destroyed) items.
-  // e.success 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-  // A callback that should be called for each operation with two parameters - items and operation. See example below.
-  // e.fail 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
-  // A callback that should be called in case of failure of any of the operations.
-  // Example - declare transport submit function
-  //
+  //   e.data 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+  //   An object containing the created (e.data.created), updated (e.data.updated), and destroyed (e.data.destroyed) items.
+  //   e.success 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+  //   A callback that should be called for each operation with two parameters - items and operation. See example below.
+  //   e.fail 'Function' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+  //   A callback that should be called in case of failure of any of the operations.
+  /*
+        <h5>Example - declare transport submit function</h5>
+        <script>
+            var dataSource = new kendo.data.DataSource({
+                batch: true,
+                transport: {
+                  submit: function(e) {
+                    // Check out the network tab on "Save Changes"
+                    $.ajaxBatch({
+                      url: "<your service URL>",
+                      data: e.data
+                    })
+                    .done(function() {
+                      e.success(e.data.created, "create");
+                      e.success([], "update");
+                      e.success([], "destroy");
+                    })
+                    .fail(function() {
+                      e.error();
+                    });
+                  },
+                  read: function(e) {
+                    $.ajax({
+                      url: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers",
+                      dataType: "jsonp",
+                      data: data,
+                      jsonp: "$callback"
+                    })
+                    .done(e.success)
+                    .fail(e.error);
+                  }
+                }
+              });
+        </script>
+   */
   Submit    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update
@@ -595,7 +564,6 @@ type Transport struct{
       });
       </script>
   */
-  //
   Update    ComplexJavaScriptType
 
   Template    *Template

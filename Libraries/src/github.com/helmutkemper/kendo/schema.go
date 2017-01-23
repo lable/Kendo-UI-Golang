@@ -36,7 +36,6 @@ package kendo
     });
     </script>
 */
-//
 type Schema struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.aggregates
@@ -77,7 +76,6 @@ type Schema struct{
       });
       </script>
   */
-  //
   Aggregates    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data
@@ -85,9 +83,6 @@ type Schema struct{
   // Type: Function
   //
   // The field from the server response which contains the data items. Can be set to a function which is called to return the data items for the response.
-  //
-  //
-  //
   /*
       Example - specify the field which contains the data items as a string
       <script>
@@ -134,18 +129,14 @@ type Schema struct{
   */
   //
   // 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.
-  //
   Data    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.errors
   //
   // Type: Function
-  // Defalt: errors
+  // Default: errors
   //
   // The field from the server response which contains server-side errors. Can be set to a function which is called to return the errors for response. If there are any errors, the 'error' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#events-error  event will be fired.
-  //
-  //
-  //
   /*
       Example - specify the error field as a string
       <script>
@@ -190,7 +181,6 @@ type Schema struct{
       dataSource.fetch();
       </script>
   */
-  //
   Errors    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.groups
@@ -248,7 +238,6 @@ type Schema struct{
       });
       </script>
   */
-  //
   Groups    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.model
@@ -260,9 +249,6 @@ type Schema struct{
   // If set to an object, the 'Model.define' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model#model.define  method will be used to initialize the data source model.
   //
   // If set to an existing 'kendo.data.Model' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource/kendo-ui/api/javascript/data/model  instance, the data source will use that instance and will not initialize a new one.
-  //
-  //
-  //
   /*
       Example - set the model as a JavaScript object
       <script>
@@ -327,16 +313,14 @@ type Schema struct{
       </script>
   */
   //
-  Model    Model
+  // todo http://docs.telerik.com/kendo-ui/api/javascript/data/model
+  //Model    Model
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.parse
   //
   // Type: Function
   //
   // Executed before the server response is used. Use it to preprocess or parse the server response.
-  //
-  //
-  //
   /*
       Example - data projection
       <script>
@@ -370,11 +354,11 @@ type Schema struct{
   */
   //
   // Parameters:
-  // response 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-  // The initially parsed server response that may need additional modifications.
+  //   response 'Object' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+  //   The initially parsed server response that may need additional modifications.
   //
   // Return:
-  // 'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.
+  //   'Array' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array  The data items from the response.
   //
   Parse    ComplexJavaScriptType
 
@@ -387,7 +371,6 @@ type Schema struct{
   //    The 'schema.total' setting may be omitted when the Grid is bound to a plain 'Array' (that is, the data items' collection is not a value of a field in the server response). In this case, the 'length' of the response 'Array' will be used.
   //
   // The 'schema.total' must be set if the 'serverPaging' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging option is set to 'true' or the 'schema.data' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.data option is used.
-  //
   /*
       Example - set the total as a string
       <script>
@@ -418,29 +401,22 @@ type Schema struct{
       });
       </script>
   */
-  //
   // 'Number' https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number  The total number of data items.
-  //
   Total    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.type
   //
   // Type: String
-  // Defalt: json
+  // Default: json
   //
   // The type of the response.
   //
   // The supported values are:
   //
-  //
   // *  "xml"
   // *  "json"
   //
-  //
   // By default, the schema interprets the server response as JSON.
-  //
-  //
-  //
   /*
       Example - use XML data
       <script>
@@ -470,7 +446,7 @@ type Schema struct{
       </script>
   */
   //
-  Type    string
+  Type    TypeDataEnum
 
   Template    *Template
 }
@@ -486,4 +462,3 @@ func ( el Schema ) getTemplate () string {
 {{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
 `
 }
-

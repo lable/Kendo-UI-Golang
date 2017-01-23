@@ -32,19 +32,14 @@ type Signalr struct{
   //
 
   //
-  Hub    Hub
+  Hub    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.signalr.promise
   //
   // Type: Object
   //
   // The promise returned by the 'start' method of the SignalR connection. The 'promise' option is mandatory.
-  //
-  //
-  //
-
-  //
-  Promise    Promise
+  Promise    ComplexJavaScriptType
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.signalr.server
   //

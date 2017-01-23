@@ -3,8 +3,9 @@
 error_reporting(1);
 
 // This class use dir ""./class/output/" to make files
-//$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete" );
-$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/data/datasource" );
+$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete" );
+//$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/data/datasource" );
+//$o = new classMaker( "http://docs.telerik.com/kendo-ui/api/javascript/data/model" );
 
 class classMaker
 {
@@ -23,6 +24,9 @@ class classMaker
     $pageHtmlLArr = file ( $linkAStr );
     $pageHtmlLStr = implode ( "", $pageHtmlLArr );
     $pageHtmlLStr = str_replace( "<h3 id=\"configuration-", "<end><h3 id=\"configuration-", $pageHtmlLStr );
+    
+    $pageHtmlLStr = str_replace( "<h2 id=\"methods\">", "<end><h2 id=\"methods\">", $pageHtmlLStr );
+    
     $pageHtmlLStr = preg_replace( "%(^.*?)(<h3 id=\"configuration-.*)%si", "$2", $pageHtmlLStr );
     
     preg_match_all( "%<div id=\"page-article\">(.*?)(?:<h3 id=\"configuration)%si", implode ( "", $pageHtmlLArr ), $matchesMethodsBlocks );
@@ -76,7 +80,7 @@ class classMaker
         $configurationReturns[$methodsBlocksKey] = implode("\n", $configurationReturns[$methodsBlocksKey]);
       }
       
-      preg_match_all( "%</h3>(.*?)(?:<blockquote>|<h4>|<endLine>)%si", $methodsBlocksLine . "<endLine>", $matchesMethodsTypes );
+      preg_match_all( "%</h3>(.*?)(?:<blockquote>|<h4>|<endLine>|<h4>Example|<h3 id=\"configuration-|<pre>)%si", $methodsBlocksLine . "<endLine>", $matchesMethodsTypes );
       $configurationDescription[ $methodsBlocksKey ] = $matchesMethodsTypes[ 1 ][ 0 ];
       $configurationDescription[ $methodsBlocksKey ] = trim( $configurationDescription[ $methodsBlocksKey ] );
       $configurationDescription[ $methodsBlocksKey ] = preg_replace( "%(<code>)([^\"].*?)(</code>)%si", "'$2'", $configurationDescription[ $methodsBlocksKey ] );
@@ -119,8 +123,12 @@ class classMaker
     }
     
     $structList = [];
+    $structsKeyToGet = 0;
     foreach( $configurationName as $keyToGet => $nameToStruct ){
       $structs = explode( ".", $nameToStruct );
+      if( count( $structs ) == 1 ){
+        $structsKeyToGet = $keyToGet;
+      }
       foreach( $structs as $structsKey => $structsValue ){
         if( $structsKey == 0 ){
           if( !isset( $structList[ basename( $linkAStr ) ][ $structsValue ] ) ) {
@@ -136,7 +144,8 @@ class classMaker
               "description" => $configurationDescription[ $keyToGet ],
               "spotlight" => $configurationSpotlight[ $keyToGet ],
               "example" => $configurationExample[ $keyToGet ],
-              "main" => true
+              "main" => true,
+              "key" => $structsKeyToGet
             );
           }
         }
@@ -154,7 +163,8 @@ class classMaker
               "description" => $configurationDescription[ $keyToGet ],
               "spotlight" => $configurationSpotlight[ $keyToGet ],
               "example" => $configurationExample[ $keyToGet ],
-              "main" => false
+              "main" => false,
+              "key" => $structsKeyToGet
             );
           }
         }
@@ -173,7 +183,7 @@ class classMaker
   
           $outputRef .= "// " . $itemData[ "helpLink" ] . "\n// \n";
   
-          $outputRef .= str_replace( "  //", "//", $itemData[ "description" ] ) . "\n// \n";
+          $outputRef .= str_replace( "  //", "//", $configurationDescription[ "description" ] ) . "\n// \n";
           $outputRef .= str_replace( "  //", "//", $itemData[ "spotlight" ] ) . "\n// \n";
           $outputRef .= str_replace( "\n  ", "\n", substr( $itemData[ "example" ], 2 ) ) . "\n// \n";
   
@@ -338,7 +348,7 @@ class classMaker
           $outputRef .= "  // Type: " . $itemData[ "type" ][ 0 ] . "\n";
           
           if( $itemData[ "default" ] ){
-            $outputRef .= "  // Defalt: " . $itemData[ "default" ] . "\n  // \n";
+            $outputRef .= "  // Default: " . $itemData[ "default" ] . "\n  // \n";
           }
           else{
             $outputRef .= "  // \n";
@@ -408,7 +418,7 @@ class classMaker
           $outputRef .= "  // Type: " . $itemData[ "type" ][ 0 ] . "\n";
           
           if( $itemData[ "default" ] ){
-            $outputRef .= "  // Defalt: " . $itemData[ "default" ] . "\n  // \n";
+            $outputRef .= "  // Default: " . $itemData[ "default" ] . "\n  // \n";
           }
           else{
             $outputRef .= "  // \n";

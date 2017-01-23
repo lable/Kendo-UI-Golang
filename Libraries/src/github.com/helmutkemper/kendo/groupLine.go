@@ -74,13 +74,12 @@ type GroupLine struct{
       });
       </script>
   */
-  //
   Aggregates    []AggregateEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.dir
   //
   // Type: String
-  // Defalt: asc
+  // Default: asc
   //
   // The sort order of the group.
   //
@@ -90,7 +89,6 @@ type GroupLine struct{
   // "desc" (descending order)
   //
   // The default sort order is ascending.
-  //
   /*
       Example - sort the groups in descending order
       <script>
@@ -111,17 +109,13 @@ type GroupLine struct{
       });
       </script>
   */
-  //
-  Dir    string
+  Dir    DirEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.field
   //
   // Type: String
   //
   // The data item field to group by.
-  //
-  //
-  //
   /*
       Example - set the field
       <script>
@@ -156,4 +150,3 @@ func ( el GroupLine ) getTemplate () string {
 {{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
 `
 }
-

@@ -52,7 +52,7 @@ type Datasource struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-autoSync
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true' the data source would automatically save any changed data items by calling the 'sync' http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#methods-sync  method. By default, changes are not automatically saved.
   //
@@ -89,7 +89,7 @@ type Datasource struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-batch
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will batch CRUD operation requests. For example, updating two data items would cause one HTTP request instead of two. By default, the data source
   // makes a HTTP request for every CRUD operation.
@@ -474,7 +474,7 @@ type Datasource struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverAggregates
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the aggregate calculation to the remote service. By default, the data source calculates aggregates client-side.
   //
@@ -503,7 +503,7 @@ type Datasource struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverFiltering
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the filtering implementation to the remote service. By default, the data source performs filtering client-side.
   //
@@ -546,7 +546,7 @@ type Datasource struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverGrouping
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the grouping implementation to the remote service. By default, the data source performs grouping client-side.
   //
@@ -585,7 +585,7 @@ type Datasource struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverPaging
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the data item paging implementation to the remote service. By default, the data source performs paging client-side.
   //
@@ -611,7 +611,7 @@ type Datasource struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-serverSorting
   //
   // Type: Boolean
-  // Defalt: false
+  // Default: false
   //
   // If set to 'true', the data source will leave the data item sorting implementation to the remote service. By default, the data source performs sorting client-side.
   //

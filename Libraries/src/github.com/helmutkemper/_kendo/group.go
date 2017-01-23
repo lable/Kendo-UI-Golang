@@ -95,7 +95,7 @@ type Group struct{
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.dir
   //
   // Type: String
-  // Defalt: asc
+  // Default: asc
   //
   // The sort order of the group.
   //
@@ -127,7 +127,7 @@ type Group struct{
       </script>
   */
   //
-  Dir    string
+  Dir    DirEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.field
   //

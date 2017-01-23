@@ -20,7 +20,6 @@ package kendo
     });
     </script>
 */
-//
 type FiltersLine struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.field
@@ -45,7 +44,6 @@ type FiltersLine struct{
       });
       </script>
   */
-  //
   Field    string
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.logic
@@ -58,7 +56,6 @@ type FiltersLine struct{
   //
   // *  "and"
   // *  "or"
-  //
   /*
       Example - set the filter logic
       <script>
@@ -85,8 +82,7 @@ type FiltersLine struct{
       });
       </script>
   */
-  //
-  Logic    string
+  Logic    LogicEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.operator
   //
@@ -129,7 +125,7 @@ type FiltersLine struct{
       });
       </script>
   */
-  Operator    ComplexJavaScriptType
+  Operator    OperatorEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.value
   //
@@ -156,7 +152,6 @@ type FiltersLine struct{
       });
       </script>
   */
-  //
   Value    ComplexJavaScriptType
 
   Template    *Template
@@ -170,5 +165,3 @@ func ( el FiltersLine ) getTemplate () string {
 {{if ne (string .Value) "null"}}value: {{string .Value}},{{end}}
 `
 }
-
-

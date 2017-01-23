@@ -21,7 +21,6 @@ package kendo
     });
     </script>
 */
-//
 type FilterLine struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.field
@@ -46,7 +45,6 @@ type FilterLine struct{
       });
       </script>
   */
-  //
   Field    string
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.filters
@@ -80,8 +78,7 @@ type FilterLine struct{
       });
       </script>
   */
-  //
-  Filters    Filters
+  Filters    FiltersLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.logic
   //
@@ -91,13 +88,8 @@ type FilterLine struct{
   //
   // The supported values are:
   //
-  //
   // *  "and"
   // *  "or"
-  //
-  //
-  //
-  //
   /*
       Example - set the filter logic
       <script>
@@ -125,7 +117,7 @@ type FilterLine struct{
       </script>
   */
   //
-  Logic    string
+  Logic    LogicEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.operator
   //
@@ -135,37 +127,22 @@ type FilterLine struct{
   //
   // The supported operators are:
   //
-  //
-  //
-  // "eq" (equal to)
-  //
-  // "neq" (not equal to)
-  //
-  // "isnull" (is equal to null)
-  //
-  // "isnotnull" (is not equal to null)
-  //
-  // "lt" (less than)
-  //
-  // "lte" (less than or equal to)
-  //
-  // "gt" (greater than)
-  //
-  // "gte" (greater than or equal to)
+  // *  "eq" (equal to)
+  // *  "neq" (not equal to)
+  // *  "isnull" (is equal to null)
+  // *  "isnotnull" (is not equal to null)
+  // *  "lt" (less than)
+  // *  "lte" (less than or equal to)
+  // *  "gt" (greater than)
+  // *  "gte" (greater than or equal to)
   // *  "startswith"
   // *  "endswith"
   // *  "contains"
   // *  "doesnotcontain"
   // *  "isempty"
-  //
-  // "isnotempty"
+  // *  "isnotempty"
   //
   // The last five are supported only for string fields.
-  //
-  //
-  //
-  //
-  //
   /*
       Example - set the filter operator
       <script>
@@ -184,7 +161,7 @@ type FilterLine struct{
       </script>
   */
   //
-  Operator    ComplexJavaScriptType
+  Operator    OperatorEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.value
   //
@@ -211,8 +188,7 @@ type FilterLine struct{
       });
       </script>
   */
-  //
-  Value    Value
+  Value    ComplexJavaScriptType
 
   Template    *Template
 }
