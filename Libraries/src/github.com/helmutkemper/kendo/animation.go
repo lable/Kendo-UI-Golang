@@ -7,9 +7,6 @@ type Animation struct{
   // Type: Object
   //
   // The animation played when the suggestion popup is closed.
-  //
-  //
-  //
   /*
       Example - configure the close animation
       <input id="autocomplete" />
@@ -24,7 +21,6 @@ type Animation struct{
       });
       </script>
   */
-  //
   Close    Close
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-animation.open
@@ -32,9 +28,6 @@ type Animation struct{
   // Type: Object
   //
   // The animation played when the suggestion popup is opened.
-  //
-  //
-  //
   /*
       Example - configure the open animation
       <input id="autocomplete" />
@@ -49,7 +42,6 @@ type Animation struct{
       });
       </script>
   */
-  //
   Open    Open
 
   Template    *Template
