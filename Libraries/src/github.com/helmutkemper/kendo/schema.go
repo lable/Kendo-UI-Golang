@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-schema.aggregates
 //
 // The field from the response which contains the aggregate results. Can be set to a function which is called to return the aggregate results from the response.
@@ -461,4 +463,23 @@ func ( el Schema ) getTemplate () string {
 {{if ne (string .Total) "null"}}total: {{string .Total}},{{end}}
 {{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
 `
+}
+
+func ( el Schema ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Schema ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

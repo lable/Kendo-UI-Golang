@@ -11,7 +11,7 @@ type UIAutoComplete struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-animation
   //
-  // Type: Boolean
+  // Type: Object
   //
   // Configures the opening and closing animations of the suggestion popup. Setting the 'animation' option to 'false' will disable the opening and closing animations. As a result the suggestion popup will open and close instantly.
   //
@@ -44,6 +44,14 @@ type UIAutoComplete struct{
       </script>
   */
   Animation Animation
+
+  // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-animation
+  //
+  // Type: bool
+  //
+  // Configures the opening and closing animations of the suggestion popup. Setting the 'animation' option to 'false' will disable the opening and closing animations. As a result the suggestion popup will open and close instantly.
+  //
+  AnimationDisable bool
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-autoWidth
   //
@@ -697,11 +705,14 @@ type UIAutoComplete struct{
   //
   Virtual    bool
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el UIAutoComplete ) getTemplate () string {
-  return `{{if .AutoWidth}}autoWidth: true,{{end}}
+  return `{
+{{if eq AnimationDisable true}}animation: false,{{else}}
+{{if ne (string .Animation) "null"}}animation: {{string .Animation}},{{end}}{{end}}
+{{if .AutoWidth}}autoWidth: true,{{end}}
 {{if .ClearButton}}clearButton: true,{{end}}
 {{if ne (string .DataTextField) "null"}}dataTextField: {{string .DataTextField}},{{end}}
 {{if .Delay }}delay: {{.Delay}},{{end}}
@@ -724,5 +735,6 @@ func ( el UIAutoComplete ) getTemplate () string {
 {{if ne (string .Template) "null"}}template: {{string .Template}},{{end}}
 {{if ne (string .Value) "null"}}value: {{string .Value}},{{end}}
 {{if .ValuePrimitive}}valuePrimitive: true,{{end}}
+}
 `
 }

@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter
 //
 // The filters which are applied over the data items. By default, no filter is applied.
@@ -202,3 +204,21 @@ func ( el FilterLine ) getTemplate () string {
 `
 }
 
+func ( el FilterLine ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el FilterLine ) String() string {
+  out := el.Buffer()
+  return out.String()
+}

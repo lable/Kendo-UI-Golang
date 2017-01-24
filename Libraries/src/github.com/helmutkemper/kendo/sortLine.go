@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-sort
 //
 // The sort order which will be applied over the data items. By default the data items are not sorted.
@@ -130,4 +132,23 @@ func ( el SortLine ) getTemplate () string {
 {{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
 {{if ne (string .Compare) "null"}}compare: {{string .Compare}},{{end}}
 `
+}
+
+func ( el SortLine ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el SortLine ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

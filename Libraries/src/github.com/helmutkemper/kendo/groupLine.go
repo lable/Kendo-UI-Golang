@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group
 //
 // The grouping configuration of the data source. If set, the data items will be grouped when the data source is populated. By default, grouping is not applied.
@@ -149,4 +151,23 @@ func ( el GroupLine ) getTemplate () string {
 {{if ne (string .Dir) "null"}}dir: {{string .Dir}},{{end}}
 {{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
 `
+}
+
+func ( el GroupLine ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el GroupLine ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

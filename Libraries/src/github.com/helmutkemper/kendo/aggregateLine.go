@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate.aggregate
 //
 // The aggregates which are calculated when the data source populates with data.
@@ -101,3 +103,21 @@ func ( el AggregateLine ) getTemplate () string {
 `
 }
 
+func ( el AggregateLine ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.Template == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.Template.ParserString( el.getTemplate() )
+  el.Template.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el AggregateLine ) String() string {
+  out := el.Buffer()
+  return out.String()
+}

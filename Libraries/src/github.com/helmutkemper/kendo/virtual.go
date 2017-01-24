@@ -9,9 +9,6 @@ type Virtual struct{
   //
   // Specifies the height of the virtual item. All items in the virtualized list must have the same height.
   // If the developer does not specify one, the framework will automatically set 'itemHeight' based on the current theme and font size.
-  //
-  //
-  //
   /*
       Example - AutoComplete with a virtualized list
       <input id="orders" style="width: 400px" />
@@ -59,19 +56,12 @@ type Virtual struct{
   // The changes introduced with the Kendo UI R3 2016 release enable you to determine if the 'valueMapper' must resolve a value to an 'index' or a value to a 'dataItem'. This is configured through the 'mapValueTo' option that accepts two possible values - "index" or "dataItem". By default, the 'mapValueTo' is set to "index", which does not affect the current behavior of the virtualization process.
   //
   // For more information, refer to the article on virtualization http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/controls/editors/combobox/virtualization#value-mapping .
-  //
-  //
-  //
-
-  //
   MapValueTo    string
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-virtual.valueMapper
   //
   // Type: Function
   // Default: null
-  //
-  //
   //
   //    Important
   //    As of the Kendo UI R3 2016 release, the implementation of the 'valueMapper' function is not necessary.

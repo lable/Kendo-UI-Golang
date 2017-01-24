@@ -6,16 +6,16 @@ import (
   "bytes"
 )
 
-type Template struct{
+type GoTemplate struct{
   Name      string
   template *template.Template
   isInit    bool
 }
 
-func ( TemplateAStt *Template ) Init (){
-  TemplateAStt.isInit = true
+func ( GoTemplateAStt *GoTemplate ) Init (){
+  GoTemplateAStt.isInit = true
 
-  TemplateAStt.template = template.New( TemplateAStt.Name ).
+  GoTemplateAStt.template = template.New( GoTemplateAStt.Name ).
     Funcs(
     template.FuncMap{
       "htmlSafe": func(html string) template.HTML {
@@ -37,8 +37,8 @@ func ( TemplateAStt *Template ) Init (){
         case OperatorEnum: return el.( OperatorEnum ).String()
         case FilterLine: return el.( FilterLine ).String()
         case Schema: return el.( Schema ).String()
-        case Filter: return el.( Filter ).String()
-        case Group: return el.( Group ).String()
+        case FilterLine: return el.( FilterLine ).String()
+        case GroupLine: return el.( GroupLine ).String()
         case SortLine: return el.( SortLine ).String()
         }
 
@@ -48,14 +48,14 @@ func ( TemplateAStt *Template ) Init (){
   )
 }
 
-func ( TemplateAStt *Template ) ParserString ( content string ){
+func ( GoTemplateAStt *GoTemplate ) ParserString ( content string ){
   var err error
 
-  if TemplateAStt.isInit == false {
-    TemplateAStt.Init()
+  if GoTemplateAStt.isInit == false {
+    GoTemplateAStt.Init()
   }
 
-  TemplateAStt.template, err = TemplateAStt.template.Parse( content )
+  GoTemplateAStt.template, err = GoTemplateAStt.template.Parse( content )
 
   if err != nil {
     panic( err )
@@ -63,47 +63,47 @@ func ( TemplateAStt *Template ) ParserString ( content string ){
 }
 
 
-func ( TemplateAStt *Template ) ParserFile ( file string ) {
+func ( GoTemplateAStt *GoTemplate ) ParserFile ( file string ) {
   content, err := ioutil.ReadFile( file )
 
   if err != nil {
     panic( err )
   }
 
-  TemplateAStt.ParserString( string( content ) )
+  GoTemplateAStt.ParserString( string( content ) )
 }
 
-func ( TemplateAStt *Template ) ParserFiles ( file ...string ) {
+func ( GoTemplateAStt *GoTemplate ) ParserFiles ( file ...string ) {
   var err error
 
-  if TemplateAStt.isInit == false {
-    TemplateAStt.Init()
+  if GoTemplateAStt.isInit == false {
+    GoTemplateAStt.Init()
   }
 
-  TemplateAStt.template, err = TemplateAStt.template.ParseFiles( file... )
+  GoTemplateAStt.template, err = GoTemplateAStt.template.ParseFiles( file... )
 
   if err != nil {
     panic( err )
   }
 }
 
-func ( TemplateAStt *Template ) Execute( data interface{} ) {
-  if TemplateAStt.isInit == false {
-    TemplateAStt.Init()
+func ( GoTemplateAStt *GoTemplate ) Execute( data interface{} ) {
+  if GoTemplateAStt.isInit == false {
+    GoTemplateAStt.Init()
   }
 
-  /*err := TemplateAStt.template.Execute( TemplateAStt.Out, data )
+  /*err := GoTemplateAStt.template.Execute( GoTemplateAStt.Out, data )
   if err != nil {
     panic( err )
   }*/
 }
 
-func ( TemplateAStt *Template ) ExecuteTemplate ( out *bytes.Buffer, name string, data interface{} ) {
-  if TemplateAStt.isInit == false {
-    TemplateAStt.Init()
+func ( GoTemplateAStt *GoTemplate ) ExecuteTemplate ( out *bytes.Buffer, name string, data interface{} ) {
+  if GoTemplateAStt.isInit == false {
+    GoTemplateAStt.Init()
   }
 
-  err := TemplateAStt.template.ExecuteTemplate( out, name, data )
+  err := GoTemplateAStt.template.ExecuteTemplate( out, name, data )
   if err != nil {
     panic( err )
   }
