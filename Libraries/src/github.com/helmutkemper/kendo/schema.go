@@ -450,7 +450,7 @@ type Schema struct{
   //
   Type    TypeDataEnum
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Schema ) getTemplate () string {
@@ -468,13 +468,13 @@ func ( el Schema ) getTemplate () string {
 func ( el Schema ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
-  if el.Template == nil {
+  if el.GoTemplate == nil {
     buffer.WriteString( "null" )
     return buffer
   }
 
-  el.Template.ParserString( el.getTemplate() )
-  el.Template.ExecuteTemplate( &buffer, "", el )
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
 
   return buffer
 }

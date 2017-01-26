@@ -37,9 +37,13 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
         case OperatorEnum: return el.( OperatorEnum ).String()
         case FilterLine: return el.( FilterLine ).String()
         case Schema: return el.( Schema ).String()
-        case FilterLine: return el.( FilterLine ).String()
         case GroupLine: return el.( GroupLine ).String()
         case SortLine: return el.( SortLine ).String()
+        case EffectEnum: return el.( EffectEnum ).String()
+        case Open: return el.( Open ).String()
+        case Close: return el.( Close ).String()
+        case Transport: return el.( Transport ).String()
+
         }
 
         return " - error: falta criar o tipo no template - ";

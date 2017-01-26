@@ -175,7 +175,7 @@ type Virtual struct{
   //
   ValueMapper    ComplexJavaScriptType
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Virtual ) getTemplate () string {

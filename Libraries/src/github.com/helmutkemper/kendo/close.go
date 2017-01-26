@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 type Close struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-animation.close.duration
@@ -17,13 +19,32 @@ type Close struct{
   // The effect(s) to use when playing the close animation. Multiple effects should be separated with a space.
   //
   // Complete list of available animations http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/api/javascript/effects/common
-  Effects    EffectEnum
+  EffectEnum    EffectEnum
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Close ) getTemplate () string {
   return `{{if .Duration }}duration: {{.Duration}},{{end}}
-{{if ne (string .Effects) "null"}}effects: {{string .Effects}},{{end}}
+{{if ne (string .EffectEnum) ""}}effects: '{{string .EffectEnum}}',{{end}}
 `
+}
+
+func ( el Close ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Close ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

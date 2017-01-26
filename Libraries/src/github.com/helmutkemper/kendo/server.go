@@ -30,7 +30,7 @@ type Server struct{
   // Specifies the name of the server-side method of the SignalR hub responsible for updating data items.
   Update    string
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Server ) getTemplate () string {

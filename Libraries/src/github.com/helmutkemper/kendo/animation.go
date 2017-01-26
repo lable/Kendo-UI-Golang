@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 type Animation struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-animation.close
@@ -44,11 +46,30 @@ type Animation struct{
   */
   Open    Open
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Animation ) getTemplate () string {
-  return `{{if ne (string .Close) "null"}}close: {{string .Close}},{{end}}
-{{if ne (string .Open) "null"}}open: {{string .Open}},{{end}}
+  return `{{if ne (string .Open) "null"}}open: { {{string .Open}} },{{end}}
+{{if ne (string .Close) "null"}}close: { {{string .Close}} },{{end}}
 `
+}
+
+func ( el Animation ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Animation ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

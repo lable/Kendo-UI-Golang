@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-animation
 //
 // kendo.ui.AutoComplete http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete
@@ -243,7 +245,7 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  Filter    AutoCompleteFilterEnum
+  AutoCompleteFilterEnum    AutoCompleteFilterEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-fixedGroupTemplate
   //
@@ -718,7 +720,7 @@ func ( el UIAutoComplete ) getTemplate () string {
 {{if .Delay }}delay: {{.Delay}},{{end}}
 {{if .Enable}}enable: true,{{end}}
 {{if .EnforceMinLength}}enforceMinLength: true,{{end}}
-{{if ne (string .Filter) "null"}}filter: {{string .Filter}},{{end}}
+{{if ne (string .AutoCompleteFilterEnum) "null"}}filter: {{string .AutoCompleteFilterEnum}},{{end}}
 {{if ne (string .FixedGroupTemplate) "null"}}fixedGroupTemplate: {{string .FixedGroupTemplate}},{{end}}
 {{if ne (string .FooterTemplate) "null"}}footerTemplate: {{string .FooterTemplate}},{{end}}
 {{if ne (string .GroupTemplate) "null"}}groupTemplate: {{string .GroupTemplate}},{{end}}
@@ -737,4 +739,23 @@ func ( el UIAutoComplete ) getTemplate () string {
 {{if .ValuePrimitive}}valuePrimitive: true,{{end}}
 }
 `
+}
+
+func ( el UIAutoComplete ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el UIAutoComplete ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

@@ -1,5 +1,9 @@
 package kendo
 
-func ExampleUIAutoComplete_String1(){
+import "fmt"
 
+func ExampleUIAutoComplete_String1() {
+  e := UIAutoComplete{}
+
+  fmt.Printf( "%v", e.String() )
 }

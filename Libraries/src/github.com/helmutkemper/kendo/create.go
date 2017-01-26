@@ -195,7 +195,7 @@ type Create struct{
   //
   Url    ComplexJavaScriptType
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Create ) getTemplate () string {

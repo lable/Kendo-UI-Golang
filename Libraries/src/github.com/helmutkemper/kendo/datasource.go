@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
 //
 // kendo.data.DataSource http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
@@ -44,7 +46,7 @@ type DataSource struct{
       });
       </script>
   */
-  Aggregate    []AggregateEnum
+  AggregateLine    []AggregateLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-autoSync
   //
@@ -245,7 +247,7 @@ type DataSource struct{
       });
       </script>
   */
-  Filter    []FilterLine
+  FilterLine    []FilterLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group
   //
@@ -312,7 +314,7 @@ type DataSource struct{
       });
       </script>
   */
-  Group    []GroupLine
+  GroupLine    []GroupLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-offlineStorage
   //
@@ -641,7 +643,7 @@ type DataSource struct{
       });
       </script>
   */
-  Sort    []SortLine
+  SortLine    []SortLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport
   //
@@ -671,26 +673,45 @@ type DataSource struct{
   */
   Transport    Transport
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el DataSource ) getTemplate () string {
-  return `{{if .ServerAggregates}}aggregate: [{{range $v := .Aggregate}}{{string $v}},{{end}}],{{end}}
+  return `{{if .ServerAggregates}}aggregate: [ {{range $v := .AggregateLine}}{{string $v}},{{end}} ],{{end}}
 {{if .AutoSync}}autoSync: true,{{end}}
 {{if .Batch}}batch: true,{{end}}
 {{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
-{{if ne (string .Filter) "null" and .ServerFiltering}}{{$length := len .[]FilterLine}}{{if le $length 1}}filter: { {{string .Filter}} },{{else}}filter: [ {{string .Filter}} ],{{end}},{{end}}
-{{if ne (string .Group) "null" and .ServerGrouping}}{{$length := len .[]GroupLine}}{{if le $length 1}}group: { {{string .Group}} },{{else}}group: [ {{string .Group}} ],{{end}},{{end}}
+{{if ne (string .FilterLine) ""}}{{string .FilterLine}}{{end}}
+{{if (ne (string .GroupLine) "null") and .ServerGrouping}}{{$length := len .GroupLine}}{{if le $length 1}}group: { {{range $v := .GroupLine}}{{string $v}}{{end}}group: [ {{range $v := .GroupLine}}{{string $v}},{{end}} ],{{end}},{{end}}
 {{if ne (string .OfflineStorage) "null"}}offlineStorage: {{string .OfflineStorage}},{{end}}
-{{if .ServerPaging and .Page}}page: {{.Page}},{{end}}
-{{if .ServerPaging and .PageSize}}pageSize: {{.PageSize}},{{end}}
+{{if .ServerPaging}}page: {{.Page}},{{end}}
+{{if .ServerPaging}}pageSize: {{.PageSize}},{{end}}
 {{if ne (string .Schema) "null"}}schema: {{string .Schema}},{{end}}
 {{if .ServerAggregates}}serverAggregates: true,{{end}}
 {{if .ServerFiltering}}serverFiltering: true,{{end}}
 {{if .ServerGrouping}}serverGrouping: true,{{end}}
 {{if .ServerPaging}}serverPaging: true,{{end}}
 {{if .ServerSorting}}serverSorting: true,{{end}}
-{{if ne (string .Sort) "null"}}{{$length := len .[]SortLine}}{{if le $length 1}}sort: { {{string .Sort}} },{{else}}sort: [ {{string .Sort}} ],{{end}},{{end}}
+{{if ne (string .SortLine) "null"}}{{$length := len .SortLine}}{{if le $length 1}}sort: { {{range $v := .SortLine}}{{string $v}}{{end}} },{{else}}sort: [ {{range $v := .SortLine}}{{string $v}},{{end}} ],{{end}},{{end}}
 {{if ne (string .Transport) "null"}}transport: {{string .Transport}},{{end}}
 `
+}
+
+func ( el DataSource ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el DataSource ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

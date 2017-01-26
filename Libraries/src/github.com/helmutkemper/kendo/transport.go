@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 type Transport struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.create
@@ -566,7 +568,7 @@ type Transport struct{
   */
   Update    ComplexJavaScriptType
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Transport ) getTemplate () string {
@@ -579,4 +581,23 @@ func ( el Transport ) getTemplate () string {
 {{if ne (string .Submit) "null"}}submit: {{string .Submit}},{{end}}
 {{if ne (string .Update) "null"}}update: {{string .Update}},{{end}}
 `
+}
+
+func ( el Transport ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Transport ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

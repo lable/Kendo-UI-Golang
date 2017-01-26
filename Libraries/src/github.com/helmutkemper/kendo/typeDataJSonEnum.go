@@ -23,9 +23,9 @@ package kendo
 type TypeDataJSonEnum int
 
 const(
-  TYPE_DATA_NIL TypeDataJSonEnum   = iota
-  TYPE_DATA_JSONP
-  TYPE_DATA_JSON
+  TYPE_DATA_JSON_NIL TypeDataJSonEnum   = iota
+  TYPE_DATA_JSON_JSONP
+  TYPE_DATA_JSON_JSON
 )
 
 var TypeDataJSonEnums  = [...]string{

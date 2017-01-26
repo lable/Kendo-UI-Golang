@@ -53,7 +53,7 @@ type Signalr struct{
   //
   Server    Server
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Signalr ) getTemplate () string {

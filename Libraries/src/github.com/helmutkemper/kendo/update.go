@@ -202,7 +202,7 @@ type Update struct{
   //
   Url    ComplexJavaScriptType
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Update ) getTemplate () string {

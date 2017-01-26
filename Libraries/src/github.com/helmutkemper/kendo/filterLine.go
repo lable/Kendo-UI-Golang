@@ -192,7 +192,7 @@ type FilterLine struct{
   */
   Value    ComplexJavaScriptType
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el FilterLine ) getTemplate () string {
@@ -207,13 +207,13 @@ func ( el FilterLine ) getTemplate () string {
 func ( el FilterLine ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
-  if el.Template == nil {
+  if el.GoTemplate == nil {
     buffer.WriteString( "null" )
     return buffer
   }
 
-  el.Template.ParserString( el.getTemplate() )
-  el.Template.ExecuteTemplate( &buffer, "", el )
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
 
   return buffer
 }

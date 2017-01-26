@@ -30,7 +30,7 @@ type Client struct{
   // Specifies the name of the client-side method of the SignalR hub responsible for updating data items.
   Update    string
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el Client ) getTemplate () string {

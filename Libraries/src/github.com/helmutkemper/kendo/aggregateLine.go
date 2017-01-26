@@ -94,7 +94,7 @@ type AggregateLine struct{
   //
   Field    string
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el AggregateLine ) getTemplate () string {
@@ -106,13 +106,13 @@ func ( el AggregateLine ) getTemplate () string {
 func ( el AggregateLine ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
-  if el.Template == nil {
+  if el.GoTemplate == nil {
     buffer.WriteString( "null" )
     return buffer
   }
 
-  el.Template.ParserString( el.getTemplate() )
-  el.Template.ExecuteTemplate( &buffer, "", el )
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
 
   return buffer
 }

@@ -154,7 +154,7 @@ type FiltersLine struct{
   */
   Value    ComplexJavaScriptType
 
-  Template    *Template
+  GoTemplate    *GoTemplate
 }
 
 func ( el FiltersLine ) getTemplate () string {
