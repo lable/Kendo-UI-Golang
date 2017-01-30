@@ -8,7 +8,7 @@ import "bytes"
 // Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
 // See the DataSource Overview http://docs.telerik.com/kendo-ui/api/javascript/data/datasource and Basic Usage http://docs.telerik.com/kendo-ui/api/javascript/data/datasource for an introduction to the DataSource.
 // Configuration http://docs.telerik.com/kendo-ui/api/javascript/data/datasource
-type DataSource struct{
+type DataSource struct {
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-aggregate
   //
@@ -677,22 +677,21 @@ type DataSource struct{
 }
 
 func ( el DataSource ) getTemplate () string {
-  return `{{if .ServerAggregates}}aggregate: [ {{range $v := .AggregateLine}}{{string $v}},{{end}} ],{{end}}
+  return `{{if .ServerAggregates}}aggregate: [ {{range $v := .AggregateLine}}{{string $v}},{{end}} ],{{end}} {{if .ServerAggregates}}serverAggregates: true,{{end}}
 {{if .AutoSync}}autoSync: true,{{end}}
 {{if .Batch}}batch: true,{{end}}
 {{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
 {{if ne (string .FilterLine) ""}}{{string .FilterLine}}{{end}}
-{{if (ne (string .GroupLine) "null") and .ServerGrouping}}{{$length := len .GroupLine}}{{if le $length 1}}group: { {{range $v := .GroupLine}}{{string $v}}{{end}}group: [ {{range $v := .GroupLine}}{{string $v}},{{end}} ],{{end}},{{end}}
+{{if (ne (string .GroupLine) "") and .ServerGrouping}}{{$length := len .GroupLine}}{{if le $length 1}}group: { {{range $v := .GroupLine}}{{string $v}}{{end}}group: [ {{range $v := .GroupLine}}{{string $v}},{{end}} ],{{end}},{{end}}
 {{if ne (string .OfflineStorage) "null"}}offlineStorage: {{string .OfflineStorage}},{{end}}
 {{if .ServerPaging}}page: {{.Page}},{{end}}
 {{if .ServerPaging}}pageSize: {{.PageSize}},{{end}}
 {{if ne (string .Schema) "null"}}schema: {{string .Schema}},{{end}}
-{{if .ServerAggregates}}serverAggregates: true,{{end}}
 {{if .ServerFiltering}}serverFiltering: true,{{end}}
 {{if .ServerGrouping}}serverGrouping: true,{{end}}
 {{if .ServerPaging}}serverPaging: true,{{end}}
 {{if .ServerSorting}}serverSorting: true,{{end}}
-{{if ne (string .SortLine) "null"}}{{$length := len .SortLine}}{{if le $length 1}}sort: { {{range $v := .SortLine}}{{string $v}}{{end}} },{{else}}sort: [ {{range $v := .SortLine}}{{string $v}},{{end}} ],{{end}},{{end}}
+{{if ne (string .SortLine) ""}}{{$length := len .SortLine}}{{if le $length 1}}sort: { {{range $v := .SortLine}}{{string $v}}{{end}} },{{else}}sort: [ {{range $v := .SortLine}}{{string $v}},{{end}} ],{{end}},{{end}}
 {{if ne (string .Transport) "null"}}transport: {{string .Transport}},{{end}}
 `
 }

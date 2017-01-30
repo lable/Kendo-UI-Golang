@@ -80,7 +80,7 @@ type FilterLine struct{
       });
       </script>
   */
-  Filters    FiltersLine
+  Filters    []FiltersLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-filter.logic
   //
@@ -196,10 +196,10 @@ type FilterLine struct{
 }
 
 func ( el FilterLine ) getTemplate () string {
-  return `{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+  return `{{if ne (string .Field) "null"}}field: "{{string .Field}}",{{end}}
 {{if ne (string .Filters) "null"}}filters: {{string .Filters}},{{end}}
-{{if ne (string .Logic) "null"}}logic: {{string .Logic}},{{end}}
-{{if ne (string .Operator) "null"}}operator: {{string .Operator}},{{end}}
+{{if ne (string .Logic) ""}}logic: "{{string .Logic}}",{{end}}
+{{if ne (string .Operator) "null"}}operator: "{{string .Operator}}",{{end}}
 {{if ne (string .Value) "null"}}value: {{string .Value}},{{end}}
 `
 }

@@ -4,6 +4,8 @@ import (
   "html/template"
   "io/ioutil"
   "bytes"
+  "fmt"
+  "reflect"
 )
 
 type GoTemplate struct{
@@ -32,6 +34,7 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
       },
       "string": func( el interface{} ) string {
         switch el.( type ) {
+        case string: return el.( string )
         case AggregateLine: return el.( AggregateLine ).String()
         case ComplexJavaScriptType: return el.( ComplexJavaScriptType ).String()
         case OperatorEnum: return el.( OperatorEnum ).String()
@@ -43,10 +46,44 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
         case Open: return el.( Open ).String()
         case Close: return el.( Close ).String()
         case Transport: return el.( Transport ).String()
+        case AggregateEnum: return el.( AggregateEnum ).String()
+        case FiltersLine: return el.( FiltersLine ).String()
+        case LogicEnum: return el.( LogicEnum ).String()
+
+        case []FilterLine:
+          var buffer bytes.Buffer
+          for _, v := range el.( []FilterLine ){
+            buffer.WriteString( v.String() )
+          }
+          return buffer.String()
+
+        case []FiltersLine:
+          var buffer bytes.Buffer
+          for _, v := range el.( []FiltersLine ){
+            buffer.WriteString( v.String() )
+          }
+          return buffer.String()
+
+        case []SortLine:
+          var buffer bytes.Buffer
+          for _, v := range el.( []SortLine ){
+            buffer.WriteString( v.String() )
+          }
+          return buffer.String()
+
+        case []GroupLine:
+          var buffer bytes.Buffer
+          for _, v := range el.( []GroupLine ){
+            buffer.WriteString( v.String() )
+          }
+          return buffer.String()
+
+
 
         }
 
-        return " - error: falta criar o tipo no template - ";
+        fmt.Printf( "type error: %v\n", reflect.TypeOf( el ) )
+        return "";
       },
     },
   )
