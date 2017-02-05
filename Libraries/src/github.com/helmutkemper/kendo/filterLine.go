@@ -196,10 +196,10 @@ type FilterLine struct{
 }
 
 func ( el FilterLine ) getTemplate () string {
-  return `{{if ne (string .Field) "null"}}field: "{{string .Field}}",{{end}}
-{{if ne (string .Filters) "null"}}filters: {{string .Filters}},{{end}}
-{{if ne (string .Logic) ""}}logic: "{{string .Logic}}",{{end}}
-{{if ne (string .Operator) "null"}}operator: "{{string .Operator}}",{{end}}
+  return `{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+{{if .Filters}}filters: [ {{range $v := .Filters}}{ {{string $v}} },{{end}} ],{{end}}
+{{if ne (string .Logic) ""}}logic: {{string .Logic}},{{end}}
+{{if ne (string .Operator) "null"}}operator: {{string .Operator}},{{end}}
 {{if ne (string .Value) "null"}}value: {{string .Value}},{{end}}
 `
 }

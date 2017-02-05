@@ -26,7 +26,7 @@ type Close struct{
 
 func ( el Close ) getTemplate () string {
   return `{{if .Duration }}duration: {{.Duration}},{{end}}
-{{if ne (string .EffectEnum) ""}}effects: '{{string .EffectEnum}}',{{end}}
+{{if ne (string .EffectEnum) "''"}}effects: {{string .EffectEnum}},{{end}}
 `
 }
 

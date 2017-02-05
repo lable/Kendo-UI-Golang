@@ -16,7 +16,7 @@ func ExampleAnimation_String1() {
 
   // Output:
   // close: { duration: 300,
-  // effects: &#39;zoom::in&#39;,
+  // effects: 'zoom::in',
   //  },
 }
 
@@ -34,7 +34,7 @@ func ExampleAnimation_String2() {
 
   // Output:
   // open: { duration: 300,
-  // effects: &#39;zoom::in&#39;,
+  // effects: 'zoom::in',
   //  },
 }
 
@@ -57,9 +57,9 @@ func ExampleAnimation_String3() {
 
   // Output:
   // open: { duration: 300,
-  // effects: &#39;zoom::in&#39;,
+  // effects: 'zoom::in',
   //  },
   // close: { duration: 300,
-  // effects: &#39;zoom::in&#39;,
+  // effects: 'zoom::in',
   //  },
 }

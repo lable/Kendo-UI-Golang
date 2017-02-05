@@ -34,10 +34,10 @@ const(
 
 var MethodEnums  = [...]string{
   "",
-  "delete",
-  "put",
-  "get",
-  "post",
+  "DELETE",
+  "PUT",
+  "GET",
+  "POST",
 }
 
 func (el MethodEnum ) String() string {

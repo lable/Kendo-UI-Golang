@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-  var t kendo.Template = kendo.Template{}
+  var t kendo.GoTemplate = kendo.GoTemplate{}
 
   type dataToJSon struct{
     Nome string

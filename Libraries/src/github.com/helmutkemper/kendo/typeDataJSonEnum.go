@@ -30,7 +30,7 @@ const(
 
 var TypeDataJSonEnums  = [...]string{
   "",
-  "xml",
+  "jsonp",
   "json",
 }
 

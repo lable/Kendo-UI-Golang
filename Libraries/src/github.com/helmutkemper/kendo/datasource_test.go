@@ -23,7 +23,7 @@ func ExampleDataSource_String1() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // aggregate: [  { aggregate: &#39;count&#39;,field: &#39;field_1&#39;, } , { aggregate: &#39;count&#39;,field: &#39;field_1&#39;, } , ], serverAggregates: true,
+  // aggregate: [  { aggregate: 'count',field: 'field_1', } , { aggregate: 'count',field: 'field_1', } , ], serverAggregates: true,
 }
 
 func ExampleDataSource_String2() {

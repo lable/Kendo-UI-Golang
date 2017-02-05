@@ -32,58 +32,60 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
       "nl": func() template.HTML {
         return template.HTML("\n")
       },
-      "string": func( el interface{} ) string {
+      "string": func( el interface{} ) template.HTML {
         switch el.( type ) {
-        case string: return el.( string )
-        case AggregateLine: return el.( AggregateLine ).String()
-        case ComplexJavaScriptType: return el.( ComplexJavaScriptType ).String()
-        case OperatorEnum: return el.( OperatorEnum ).String()
-        case FilterLine: return el.( FilterLine ).String()
-        case Schema: return el.( Schema ).String()
-        case GroupLine: return el.( GroupLine ).String()
-        case SortLine: return el.( SortLine ).String()
-        case EffectEnum: return el.( EffectEnum ).String()
-        case Open: return el.( Open ).String()
-        case Close: return el.( Close ).String()
-        case Transport: return el.( Transport ).String()
-        case AggregateEnum: return el.( AggregateEnum ).String()
-        case FiltersLine: return el.( FiltersLine ).String()
-        case LogicEnum: return el.( LogicEnum ).String()
+        case string: return template.HTML( `'`+el.( string )+`'` )
+        case AggregateLine: return template.HTML( el.( AggregateLine ).String() )
+        case ComplexJavaScriptType: return template.HTML( el.( ComplexJavaScriptType ).String() )
+        case OperatorEnum: return template.HTML( `'`+el.( OperatorEnum ).String()+`'` )
+        case FilterLine: return template.HTML( el.( FilterLine ).String() )
+        case Schema: return template.HTML( el.( Schema ).String() )
+        case GroupLine: return template.HTML( el.( GroupLine ).String() )
+        case SortLine: return template.HTML( el.( SortLine ).String() )
+        case EffectEnum: return template.HTML( `'`+el.( EffectEnum ).String()+`'` )
+        case Open: return template.HTML( el.( Open ).String() )
+        case Close: return template.HTML( el.( Close ).String() )
+        case Transport: return template.HTML( el.( Transport ).String() )
+        case AggregateEnum: return template.HTML( `'`+el.( AggregateEnum ).String()+`'` )
+        case FiltersLine: return template.HTML( el.( FiltersLine ).String() )
+        case LogicEnum: return template.HTML( `'`+el.( LogicEnum ).String()+`'` )
+        case MethodEnum: return template.HTML( `'`+el.( MethodEnum ).String()+`'` )
+        case TypeDataJSonEnum: return template.HTML( `'`+el.( TypeDataJSonEnum ).String()+`'` )
 
         case []FilterLine:
           var buffer bytes.Buffer
           for _, v := range el.( []FilterLine ){
             buffer.WriteString( v.String() )
           }
-          return buffer.String()
+          return template.HTML( buffer.String() )
 
         case []FiltersLine:
           var buffer bytes.Buffer
           for _, v := range el.( []FiltersLine ){
             buffer.WriteString( v.String() )
           }
-          return buffer.String()
+          return template.HTML( buffer.String() )
 
         case []SortLine:
           var buffer bytes.Buffer
           for _, v := range el.( []SortLine ){
             buffer.WriteString( v.String() )
           }
-          return buffer.String()
+          return template.HTML( buffer.String() )
 
         case []GroupLine:
           var buffer bytes.Buffer
           for _, v := range el.( []GroupLine ){
             buffer.WriteString( v.String() )
           }
-          return buffer.String()
+          return template.HTML( buffer.String() )
 
 
 
         }
 
-        fmt.Printf( "type error: %v\n", reflect.TypeOf( el ) )
-        return "";
+        fmt.Printf( "type conversion error: %v\n", reflect.TypeOf( el ) )
+        return template.HTML( "" );
       },
     },
   )
