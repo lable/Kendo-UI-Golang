@@ -98,7 +98,9 @@ type AggregateLine struct{
 }
 
 func ( el AggregateLine ) getTemplate () string {
-  return `{{if (ne (string .AggregateEnum) "") and (ne (string .Field) "")}} { {{end}}{{if ne (string .AggregateEnum) ""}}aggregate: {{string .AggregateEnum}},{{end}}{{if ne (string .Field) ""}}field: {{string .Field}},{{end}}{{if (ne (string .AggregateEnum) "") and (ne (string .Field) "")}} } {{end}}`
+  return `{{if ne (string .AggregateEnum) "''"}}aggregate: {{string .AggregateEnum}},{{end}}
+{{if ne (string .Field) "''"}}field: {{string .Field}},{{end}}
+`
 }
 
 func ( el AggregateLine ) Buffer() bytes.Buffer {
