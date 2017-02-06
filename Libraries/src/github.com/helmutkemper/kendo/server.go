@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 type Server struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.signalr.server.create
@@ -34,9 +36,28 @@ type Server struct{
 }
 
 func ( el Server ) getTemplate () string {
-  return `{{if ne (string .Create) "null"}}create: {{string .Create}},{{end}}
-{{if ne (string .Destroy) "null"}}destroy: {{string .Destroy}},{{end}}
-{{if ne (string .Read) "null"}}read: {{string .Read}},{{end}}
-{{if ne (string .Update) "null"}}update: {{string .Update}},{{end}}
+  return `{{if ne (string .Create) "''"}}create: {{string .Create}},{{end}}
+{{if ne (string .Destroy) "''"}}destroy: {{string .Destroy}},{{end}}
+{{if ne (string .Read) "''"}}read: {{string .Read}},{{end}}
+{{if ne (string .Update) "''"}}update: {{string .Update}},{{end}}
 `
+}
+
+func ( el Server ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Server ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

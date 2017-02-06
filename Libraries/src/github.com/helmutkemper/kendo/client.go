@@ -36,10 +36,10 @@ type Client struct{
 }
 
 func ( el Client ) getTemplate () string {
-  return `{{if ne (string .Create) "null"}}create: {{string .Create}},{{end}}
-{{if ne (string .Destroy) "null"}}destroy: {{string .Destroy}},{{end}}
-{{if ne (string .Read) "null"}}read: {{string .Read}},{{end}}
-{{if ne (string .Update) "null"}}update: {{string .Update}},{{end}}
+  return `{{if ne (string .Create) "''"}}create: {{string .Create}},{{end}}
+{{if ne (string .Destroy) "''"}}destroy: {{string .Destroy}},{{end}}
+{{if ne (string .Read) "''"}}read: {{string .Read}},{{end}}
+{{if ne (string .Update) "''"}}update: {{string .Update}},{{end}}
 `
 }
 

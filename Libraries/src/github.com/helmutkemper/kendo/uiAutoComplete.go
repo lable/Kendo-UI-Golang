@@ -712,7 +712,7 @@ type UIAutoComplete struct{
 
 func ( el UIAutoComplete ) getTemplate () string {
   return `{
-{{if eq AnimationDisable true}}animation: false,{{else}}
+{{if eq .AnimationDisable true}}animation: false,{{else}}
 {{if ne (string .Animation) "null"}}animation: {{string .Animation}},{{end}}{{end}}
 {{if .AutoWidth}}autoWidth: true,{{end}}
 {{if .ClearButton}}clearButton: true,{{end}}
@@ -730,7 +730,6 @@ func ( el UIAutoComplete ) getTemplate () string {
 {{if .MinLength }}minLength: {{.MinLength}},{{end}}
 {{if ne (string .NoDataTemplate) "null"}}noDataTemplate: {{string .NoDataTemplate}},{{end}}
 {{if ne (string .Placeholder) "null"}}placeholder: {{string .Placeholder}},{{end}}
-{{if ne (string .Popup) "null"}}popup: {{string .Popup}},{{end}}
 {{if ne (string .Separator) "null"}}separator: {{string .Separator}},{{end}}
 {{if .Suggest}}suggest: true,{{end}}
 {{if ne (string .HeaderTemplate) "null"}}headerTemplate: {{string .HeaderTemplate}},{{end}}
@@ -744,10 +743,10 @@ func ( el UIAutoComplete ) getTemplate () string {
 func ( el UIAutoComplete ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
-  if el.GoTemplate == nil {
+  /*if el.GoTemplate == nil {
     buffer.WriteString( "null" )
     return buffer
-  }
+  }*/
 
   el.GoTemplate.ParserString( el.getTemplate() )
   el.GoTemplate.ExecuteTemplate( &buffer, "", el )

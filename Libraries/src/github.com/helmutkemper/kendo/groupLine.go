@@ -76,7 +76,7 @@ type GroupLine struct{
       });
       </script>
   */
-  Aggregates    []AggregateEnum
+  Aggregates    []AggregateLine
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-group.dir
   //
@@ -147,9 +147,9 @@ type GroupLine struct{
 }
 
 func ( el GroupLine ) getTemplate () string {
-  return `{{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{{string $v}},{{end}}],{{end}}
-{{if ne (string .Dir) "null"}}dir: {{string .Dir}},{{end}}
-{{if ne (string .Field) "null"}}field: {{string .Field}},{{end}}
+  return `{{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{ {{string $v}} },{{end}}],{{end}}
+{{if ne (string .Dir) "''"}}dir: {{string .Dir}},{{end}}
+{{if ne (string .Field) "''"}}field: {{string .Field}},{{end}}
 `
 }
 

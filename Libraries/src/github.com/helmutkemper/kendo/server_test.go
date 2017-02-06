@@ -2,8 +2,8 @@ package kendo
 
 import "fmt"
 
-func ExampleClient_String1() {
-  e := Client{
+func ExampleServer_String1() {
+  e := Server{
     Create: "create",
     GoTemplate: &t,
   }
@@ -14,8 +14,8 @@ func ExampleClient_String1() {
   // create: 'create',
 }
 
-func ExampleClient_String2() {
-  e := Client{
+func ExampleServer_String2() {
+  e := Server{
     Read: "read",
     GoTemplate: &t,
   }
@@ -26,8 +26,8 @@ func ExampleClient_String2() {
   // read: 'read',
 }
 
-func ExampleClient_String3() {
-  e := Client{
+func ExampleServer_String3() {
+  e := Server{
     Destroy: "destroy",
     GoTemplate: &t,
   }
@@ -38,8 +38,8 @@ func ExampleClient_String3() {
   // destroy: 'destroy',
 }
 
-func ExampleClient_String4() {
-  e := Client{
+func ExampleServer_String4() {
+  e := Server{
     Update: "update",
     GoTemplate: &t,
   }
@@ -50,8 +50,8 @@ func ExampleClient_String4() {
   // update: 'update',
 }
 
-func ExampleClient_String5() {
-  e := Client{
+func ExampleServer_String5() {
+  e := Server{
     Create: "create",
     Read: "read",
     Destroy: "destroy",

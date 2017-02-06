@@ -51,6 +51,9 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
         case LogicEnum: return template.HTML( `'`+el.( LogicEnum ).String()+`'` )
         case MethodEnum: return template.HTML( `'`+el.( MethodEnum ).String()+`'` )
         case TypeDataJSonEnum: return template.HTML( `'`+el.( TypeDataJSonEnum ).String()+`'` )
+        case Animation: return template.HTML( `'`+el.( Animation ).String()+`'` )
+        case AutoCompleteFilterEnum: return template.HTML( `'`+el.( AutoCompleteFilterEnum ).String()+`'` )
+        case DirEnum: return template.HTML( `'`+el.( DirEnum ).String()+`'` )
 
         case []FilterLine:
           var buffer bytes.Buffer
