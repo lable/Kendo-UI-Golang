@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 type Update struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update.cache
@@ -111,7 +113,7 @@ type Update struct{
       });
       </script>
   */
-  DataJSonType    TypeDataJSonEnum
+  DataType    TypeDataJSonEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update.type
   //
@@ -134,8 +136,7 @@ type Update struct{
       });
       </script>
   */
-  //
-  Type    MethodEnum
+  Method    MethodEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.update.url
   //
@@ -207,10 +208,29 @@ type Update struct{
 
 func ( el Update ) getTemplate () string {
   return `{{if .Cache}}cache: true,{{end}}
-{{if ne (string .ContentType) "null"}}contentType: {{string .ContentType}},{{end}}
+{{if ne (string .ContentType) "''"}}contentType: {{string .ContentType}},{{end}}
 {{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
-{{if ne (string .DataJSonType) "null"}}dataJSonType: {{string .DataJSonType}},{{end}}
-{{if ne (string .Type) "null"}}type: {{string .Type}},{{end}}
+{{if ne (string .DataType) "''"}}dataType: {{string .DataType}},{{end}}
+{{if ne (string .Method) "''"}}type: {{string .Method}},{{end}}
 {{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}
 `
+}
+
+func ( el Update ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Update ) String() string {
+  out := el.Buffer()
+  return out.String()
 }
