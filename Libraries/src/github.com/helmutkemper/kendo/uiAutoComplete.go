@@ -743,11 +743,6 @@ func ( el UIAutoComplete ) getTemplate () string {
 func ( el UIAutoComplete ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
-  /*if el.GoTemplate == nil {
-    buffer.WriteString( "null" )
-    return buffer
-  }*/
-
   el.GoTemplate.ParserString( el.getTemplate() )
   el.GoTemplate.ExecuteTemplate( &buffer, "", el )
 

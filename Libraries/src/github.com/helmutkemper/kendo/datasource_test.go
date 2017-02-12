@@ -2,6 +2,17 @@ package kendo
 
 import "fmt"
 
+func ExampleDataSource_String() {
+  e := DataSource{
+    GoTemplate: &t,
+  }
+
+  fmt.Printf( "%v", e.String() )
+
+  // Output:
+  //
+}
+
 func ExampleDataSource_String1() {
   e := DataSource{
     AggregateLine: []AggregateLine{
@@ -23,7 +34,11 @@ func ExampleDataSource_String1() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // aggregate: [  { aggregate: 'count',field: 'field_1', } , { aggregate: 'count',field: 'field_1', } , ], serverAggregates: true,
+  // aggregate: [ aggregate: 'count',
+  // field: 'field_1',
+  // ,aggregate: 'count',
+  // field: 'field_1',
+  // , ], serverAggregates: true,
 }
 
 func ExampleDataSource_String2() {
@@ -96,6 +111,7 @@ func ExampleDataSource_String6() {
             Field: "field_2",
             Logic: LOGIC_AND,
             Operator: OPERATOR_EQ,
+            GoTemplate: &t,
           },
         },
         Operator: OPERATOR_CONTAINS,

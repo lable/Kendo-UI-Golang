@@ -2,6 +2,17 @@ package kendo
 
 import "fmt"
 
+func ExampleAnimation_String() {
+  e := Animation{
+    GoTemplate: &t,
+  }
+
+  fmt.Printf( "%v", e.String() )
+
+  // Output:
+  //
+}
+
 func ExampleAnimation_String1() {
   e := Animation{
     Close: Close{

@@ -138,7 +138,7 @@ func ( el SortLine ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
   if el.GoTemplate == nil {
-    buffer.WriteString( "null" )
+    buffer.WriteString( "" )
     return buffer
   }
 

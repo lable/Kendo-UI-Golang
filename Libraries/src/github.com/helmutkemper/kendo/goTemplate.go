@@ -57,6 +57,11 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
         case MapValueToEnum: return template.HTML( `'`+el.( MapValueToEnum ).String()+`'` )
         case Client: return template.HTML( `'`+el.( Client ).String()+`'` )
         case Server: return template.HTML( `'`+el.( Server ).String()+`'` )
+        case Create: return template.HTML( `'`+el.( Create ).String()+`'` )
+        case Destroy: return template.HTML( `'`+el.( Destroy ).String()+`'` )
+        case Read: return template.HTML( `'`+el.( Read ).String()+`'` )
+        case Signalr: return template.HTML( `'`+el.( Signalr ).String()+`'` )
+        case Update: return template.HTML( `'`+el.( Update ).String()+`'` )
 
         case []FilterLine:
           var buffer bytes.Buffer

@@ -77,7 +77,7 @@ type Transport struct{
       dataSource.sync();
       </script>
   */
-  Create    ComplexJavaScriptType
+  Create    Create
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.destroy
   //
@@ -168,7 +168,7 @@ type Transport struct{
       });
       </script>
   */
-  Destroy    ComplexJavaScriptType
+  Destroy    Destroy
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.parameterMap
   //
@@ -383,7 +383,7 @@ type Transport struct{
       });
       </script>
   */
-  Read    ComplexJavaScriptType
+  Read    Read
 
   // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.signalr
   //
@@ -566,7 +566,7 @@ type Transport struct{
       });
       </script>
   */
-  Update    ComplexJavaScriptType
+  Update    Update
 
   GoTemplate    *GoTemplate
 }
@@ -587,7 +587,7 @@ func ( el Transport ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
   if el.GoTemplate == nil {
-    buffer.WriteString( "null" )
+    buffer.WriteString( "" )
     return buffer
   }
 

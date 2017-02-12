@@ -50,8 +50,8 @@ type Animation struct{
 }
 
 func ( el Animation ) getTemplate () string {
-  return `{{if ne (string .Open) "null"}}open: { {{string .Open}} },{{end}}
-{{if ne (string .Close) "null"}}close: { {{string .Close}} },{{end}}
+  return `{{if ne (string .Open) ""}}open: { {{string .Open}} },{{end}}
+{{if ne (string .Close) ""}}close: { {{string .Close}} },{{end}}
 `
 }
 
@@ -59,7 +59,7 @@ func ( el Animation ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
   if el.GoTemplate == nil {
-    buffer.WriteString( "null" )
+    buffer.WriteString( "" )
     return buffer
   }
 

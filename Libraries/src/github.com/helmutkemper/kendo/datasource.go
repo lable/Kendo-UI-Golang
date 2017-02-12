@@ -686,13 +686,13 @@ func ( el DataSource ) getTemplate () string {
 {{if ne (string .OfflineStorage) "null"}}offlineStorage: {{string .OfflineStorage}},{{end}}
 {{if .ServerPaging}}page: {{.Page}},{{end}}
 {{if .ServerPaging}}pageSize: {{.PageSize}},{{end}}
-{{if ne (string .Schema) "null"}}schema: {{string .Schema}},{{end}}
+{{if ne (string .Schema) ""}}schema: {{string .Schema}},{{end}}
 {{if .ServerFiltering}}serverFiltering: true,{{end}}
 {{if .ServerGrouping}}serverGrouping: true,{{end}}
 {{if .ServerPaging}}serverPaging: true,{{end}}
 {{if .ServerSorting}}serverSorting: true,{{end}}
 {{if ne (string .SortLine) ""}}{{$length := len .SortLine}}{{if le $length 1}}sort: { {{range $v := .SortLine}}{{string $v}}{{end}} },{{else}}sort: [ {{range $v := .SortLine}}{{string $v}},{{end}} ],{{end}},{{end}}
-{{if ne (string .Transport) "null"}}transport: {{string .Transport}},{{end}}
+{{if ne (string .Transport) ""}}transport: {{string .Transport}},{{end}}
 `
 }
 
@@ -700,7 +700,7 @@ func ( el DataSource ) Buffer() bytes.Buffer {
   var buffer bytes.Buffer
 
   if el.GoTemplate == nil {
-    buffer.WriteString( "null" )
+    buffer.WriteString( "" )
     return buffer
   }
 
