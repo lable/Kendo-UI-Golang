@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 // http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#configuration-transport.signalr.client
 //
 // Specifies the client-side CRUD methods of the SignalR hub.
@@ -57,9 +59,28 @@ type Signalr struct{
 }
 
 func ( el Signalr ) getTemplate () string {
-  return `{{if ne (string .Client) "null"}}client: {{string .Client}},{{end}}
+  return `{{if ne (string .Client) "''"}}client: { {{string .Client}} },{{end}}
 {{if ne (string .Hub) "null"}}hub: {{string .Hub}},{{end}}
-{{if ne (string .Promise) "null"}}promise: {{string .Promise}},{{end}}
-{{if ne (string .Server) "null"}}server: {{string .Server}},{{end}}
+{{if ne (string .Promise) "null"}}promise: { {{string .Promise}} },{{end}}
+{{if ne (string .Server) "''"}}server: { {{string .Server}} },{{end}}
 `
+}
+
+func ( el Signalr ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Signalr ) String() string {
+  out := el.Buffer()
+  return out.String()
 }

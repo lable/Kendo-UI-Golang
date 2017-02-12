@@ -1,5 +1,7 @@
 package kendo
 
+import "bytes"
+
 type Virtual struct{
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-virtual.itemHeight
@@ -56,7 +58,7 @@ type Virtual struct{
   // The changes introduced with the Kendo UI R3 2016 release enable you to determine if the 'valueMapper' must resolve a value to an 'index' or a value to a 'dataItem'. This is configured through the 'mapValueTo' option that accepts two possible values - "index" or "dataItem". By default, the 'mapValueTo' is set to "index", which does not affect the current behavior of the virtualization process.
   //
   // For more information, refer to the article on virtualization http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete/kendo-ui/controls/editors/combobox/virtualization#value-mapping .
-  MapValueTo    string
+  MapValueTo    MapValueToEnum
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-virtual.valueMapper
   //
@@ -180,8 +182,26 @@ type Virtual struct{
 
 func ( el Virtual ) getTemplate () string {
   return `{{if .ItemHeight }}itemHeight: {{.ItemHeight}},{{end}}
-{{if ne (string .MapValueTo) "null"}}mapValueTo: {{string .MapValueTo}},{{end}}
+{{if ne (string .MapValueTo) "''"}}mapValueTo: {{string .MapValueTo}},{{end}}
 {{if ne (string .ValueMapper) "null"}}valueMapper: {{string .ValueMapper}},{{end}}
 `
 }
 
+func ( el Virtual ) Buffer() bytes.Buffer {
+  var buffer bytes.Buffer
+
+  if el.GoTemplate == nil {
+    buffer.WriteString( "null" )
+    return buffer
+  }
+
+  el.GoTemplate.ParserString( el.getTemplate() )
+  el.GoTemplate.ExecuteTemplate( &buffer, "", el )
+
+  return buffer
+}
+
+func ( el Virtual ) String() string {
+  out := el.Buffer()
+  return out.String()
+}

@@ -2,24 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fba84870-efb2-435f-aae2-363e89bda916" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy_test.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum_test.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine_test.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMap_test.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read_test.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/dir_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/dirEnum_test.go" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/logic_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/logicEnum_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/mapValueToEnum.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/mapValueToEnum_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr_test.go" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual_test.go" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMap.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMapEnum.go" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMap_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMapEnum_test.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,22 +29,22 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="client.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client.go">
+    <leaf>
+      <file leaf-file-name="transport.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="63" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="84">
+              <caret line="6" column="92" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="92" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client_test.go">
+      <file leaf-file-name="goTemplate.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="6" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="58" column="58" lean-forward="false" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -57,11 +53,9 @@
       <file leaf-file-name="server.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-              <folding>
-                <element signature="e#15#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="328">
+              <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,28 +63,108 @@
       <file leaf-file-name="server_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+            <state relative-caret-position="174">
+              <caret line="65" column="14" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="70" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signalr.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go">
+      <file leaf-file-name="read.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-610">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="356">
+              <caret line="232" column="14" lean-forward="false" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sortLine.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/sortLine.go">
+      <file leaf-file-name="read_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1856">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="328">
+              <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/create.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="181" column="46" lean-forward="true" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/create_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/update.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="518">
+              <caret line="236" column="0" lean-forward="true" selection-start-line="217" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/update_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1050">
+              <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="destroy.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="213" column="27" lean-forward="false" selection-start-line="213" selection-start-column="27" selection-end-line="213" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="destroy_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameterMapEnum.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMapEnum.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="88" column="22" lean-forward="false" selection-start-line="84" selection-start-column="2" selection-end-line="88" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameterMapEnum_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMapEnum_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,8 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>e create</find>
-      <find>Dir</find>
       <find>type client</find>
       <find>type hub</find>
       <find>type server</find>
@@ -136,8 +208,10 @@
       <find>Popup</find>
       <find>ExampleCreate</find>
       <find>e := Create{</find>
-      <find>Create</find>
       <find>Client</find>
+      <find>Create</find>
+      <find>AggregateEnum</find>
+      <find>MapValueTo</find>
     </findStrings>
     <replaceStrings>
       <replace>http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#</replace>
@@ -159,6 +233,8 @@
       <replace>e := Destroy{</replace>
       <replace>Read</replace>
       <replace>Server</replace>
+      <replace>Update</replace>
+      <replace>MapValueToEnum</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -168,14 +244,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/UI/autoComplete.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/_kendo/_apagar.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/autoCompleteFilterEnum.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/template.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/update.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/schema.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/sortLine.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/init.go" />
@@ -209,16 +277,24 @@
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum_test.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMap_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read_test.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client_test.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/update_test.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/update.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/mapValueToEnum.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/mapValueToEnum_test.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual_test.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr_test.go" />
       </list>
     </option>
   </component>
@@ -260,6 +336,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,8 +408,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -358,50 +434,50 @@
       <recent name="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.ExampleServer_String1 in server_test.go">
-    <configuration default="false" name="ExampleServer_String1 in server_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+  <component name="RunManager" selected="Go Test.ExampleSignalr_String5 in signalr_test.go">
+    <configuration default="false" name="ExampleSignalr_String1 in signalr_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="Kendo-UI" />
       <working_directory value="$PROJECT_DIR$/" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/helmutkemper/kendo" />
-      <pattern value="^ExampleServer_String1$" />
+      <pattern value="^ExampleSignalr_String1$" />
       <method />
     </configuration>
-    <configuration default="false" name="ExampleServer_String5 in server_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration default="false" name="ExampleSignalr_String2 in signalr_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="Kendo-UI" />
       <working_directory value="$PROJECT_DIR$/" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/helmutkemper/kendo" />
-      <pattern value="^ExampleServer_String5$" />
+      <pattern value="^ExampleSignalr_String2$" />
       <method />
     </configuration>
-    <configuration default="false" name="ExampleServer_String4 in server_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration default="false" name="ExampleSignalr_String3 in signalr_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="Kendo-UI" />
       <working_directory value="$PROJECT_DIR$/" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/helmutkemper/kendo" />
-      <pattern value="^ExampleServer_String4$" />
+      <pattern value="^ExampleSignalr_String3$" />
       <method />
     </configuration>
-    <configuration default="false" name="ExampleServer_String3 in server_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration default="false" name="ExampleSignalr_String4 in signalr_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="Kendo-UI" />
       <working_directory value="$PROJECT_DIR$/" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/helmutkemper/kendo" />
-      <pattern value="^ExampleServer_String3$" />
+      <pattern value="^ExampleSignalr_String4$" />
       <method />
     </configuration>
-    <configuration default="false" name="ExampleServer_String2 in server_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration default="false" name="ExampleSignalr_String5 in signalr_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="Kendo-UI" />
       <working_directory value="$PROJECT_DIR$/" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/helmutkemper/kendo" />
-      <pattern value="^ExampleServer_String2$" />
+      <pattern value="^ExampleSignalr_String5$" />
       <method />
     </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
@@ -518,19 +594,19 @@
       <item index="0" class="java.lang.String" itemvalue="Go Application.Go build and run" />
       <item index="1" class="java.lang.String" itemvalue="Go Test.Test All" />
       <item index="2" class="java.lang.String" itemvalue="PHP Web Application.PHP debug bugado" />
-      <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleServer_String1 in server_test.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleServer_String5 in server_test.go" />
-      <item index="5" class="java.lang.String" itemvalue="Go Test.ExampleServer_String4 in server_test.go" />
-      <item index="6" class="java.lang.String" itemvalue="Go Test.ExampleServer_String3 in server_test.go" />
-      <item index="7" class="java.lang.String" itemvalue="Go Test.ExampleServer_String2 in server_test.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String1 in signalr_test.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String2 in signalr_test.go" />
+      <item index="5" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String3 in signalr_test.go" />
+      <item index="6" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String4 in signalr_test.go" />
+      <item index="7" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String5 in signalr_test.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Test.ExampleServer_String1 in server_test.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Test.ExampleServer_String2 in server_test.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Test.ExampleServer_String3 in server_test.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleServer_String4 in server_test.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleServer_String5 in server_test.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String5 in signalr_test.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String4 in signalr_test.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String3 in signalr_test.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String2 in signalr_test.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleSignalr_String1 in signalr_test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -577,7 +653,9 @@
       <workItem from="1486160772786" duration="1263000" />
       <workItem from="1486298617164" duration="13206000" />
       <workItem from="1486340386085" duration="610000" />
-      <workItem from="1486342825987" duration="4110000" />
+      <workItem from="1486342825987" duration="4701000" />
+      <workItem from="1486418020746" duration="1215000" />
+      <workItem from="1486908643658" duration="6639000" />
     </task>
     <task id="LOCAL-00001" summary="trabalhando">
       <created>1483642391239</created>
@@ -698,43 +776,57 @@
       <option name="project" value="LOCAL" />
       <updated>1486313076554</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="trabalhando">
+      <created>1486346947229</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1486346947229</updated>
+    </task>
+    <task id="LOCAL-00019" summary="trabalhando">
+      <created>1486347439153</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1486347439153</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleClient_String1_in_client_test_go - 2017.02.06 at 00h 05m 50s.xml">
-      <configuration name="ExampleClient_String1 in client_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String2_in_signalr_test_go - 2017.02.12 at 14h 11m 09s.xml">
+      <configuration name="ExampleSignalr_String2 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleClient_String2_in_client_test_go - 2017.02.06 at 00h 05m 46s.xml">
-      <configuration name="ExampleClient_String2 in client_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String3_in_signalr_test_go - 2017.02.12 at 14h 13m 09s.xml">
+      <configuration name="ExampleSignalr_String3 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleClient_String3_in_client_test_go - 2017.02.06 at 00h 05m 44s.xml">
-      <configuration name="ExampleClient_String3 in client_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String3_in_signalr_test_go - 2017.02.12 at 14h 13m 48s.xml">
+      <configuration name="ExampleSignalr_String3 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleClient_String4_in_client_test_go - 2017.02.06 at 00h 05m 40s.xml">
-      <configuration name="ExampleClient_String4 in client_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String3_in_signalr_test_go - 2017.02.12 at 14h 14m 07s.xml">
+      <configuration name="ExampleSignalr_String3 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleServer_String1_in_server_test_go - 2017.02.06 at 00h 07m 19s.xml">
-      <configuration name="ExampleServer_String1 in server_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String3_in_signalr_test_go - 2017.02.12 at 14h 14m 22s.xml">
+      <configuration name="ExampleSignalr_String3 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleServer_String1_in_server_test_go - 2017.02.06 at 00h 07m 59s.xml">
-      <configuration name="ExampleServer_String1 in server_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String4_in_signalr_test_go - 2017.02.12 at 14h 16m 17s.xml">
+      <configuration name="ExampleSignalr_String4 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleServer_String2_in_server_test_go - 2017.02.06 at 00h 07m 55s.xml">
-      <configuration name="ExampleServer_String2 in server_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String4_in_signalr_test_go - 2017.02.12 at 14h 17m 12s.xml">
+      <configuration name="ExampleSignalr_String4 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleServer_String3_in_server_test_go - 2017.02.06 at 00h 07m 51s.xml">
-      <configuration name="ExampleServer_String3 in server_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String4_in_signalr_test_go - 2017.02.12 at 14h 17m 31s.xml">
+      <configuration name="ExampleSignalr_String4 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleServer_String4_in_server_test_go - 2017.02.06 at 00h 07m 47s.xml">
-      <configuration name="ExampleServer_String4 in server_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String5_in_signalr_test_go - 2017.02.12 at 14h 18m 49s.xml">
+      <configuration name="ExampleSignalr_String5 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleServer_String5_in_server_test_go - 2017.02.06 at 00h 07m 42s.xml">
-      <configuration name="ExampleServer_String5 in server_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleSignalr_String5_in_signalr_test_go - 2017.02.12 at 14h 19m 51s.xml">
+      <configuration name="ExampleSignalr_String5 in signalr_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130488000" />
+    <option name="totallyTimeSpent" value="138933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="18" width="1317" height="750" extended-state="6" />
@@ -744,6 +836,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2825397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34603176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -758,7 +851,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -818,62 +910,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filtersLine.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filterLine.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="202" column="32" lean-forward="false" selection-start-line="202" selection-start-column="32" selection-end-line="202" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/operadorEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/operadorEnum.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/open.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filtersLine_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/filterLine_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/open_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -958,20 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateEnum.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="40" column="15" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="40" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/animation.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
@@ -983,7 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -991,7 +1012,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8811">
           <caret line="732" column="0" lean-forward="false" selection-start-line="732" selection-start-column="0" selection-end-line="732" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -999,15 +1019,159 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
           <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="154" column="14" lean-forward="false" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/dirEnum_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-826">
+          <caret line="25" column="99" lean-forward="false" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/close.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateLine_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="31" column="8" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="33" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="164" column="7" lean-forward="false" selection-start-line="164" selection-start-column="7" selection-end-line="164" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/logicEnum_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/schema.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4136">
+          <caret line="476" column="7" lean-forward="false" selection-start-line="476" selection-start-column="7" selection-end-line="476" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/sortLine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1856">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/mapValueToEnum.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateEnum.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/mapValueToEnum_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+          <folding>
+            <element signature="e#15#27#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateEnum_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="50" column="2" lean-forward="false" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+          <folding>
+            <element signature="e#15#27#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/virtual.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="184" column="32" lean-forward="false" selection-start-line="184" selection-start-column="32" selection-end-line="184" selection-end-column="32" />
           <folding>
             <element signature="e#15#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/create.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="181" column="46" lean-forward="true" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/create_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/destroy_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
+        <state relative-caret-position="14">
           <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
           <folding />
         </state>
@@ -1017,128 +1181,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="213" column="27" lean-forward="false" selection-start-line="213" selection-start-column="27" selection-end-line="213" selection-end-column="27" />
-          <folding>
-            <element signature="e#15#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="154" column="14" lean-forward="false" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
-          <folding>
-            <element signature="e#15#27#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/dirEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-826">
-          <caret line="25" column="99" lean-forward="false" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/close.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="33" column="12" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateLine_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="31" column="8" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="33" selection-end-column="3" />
-          <folding>
-            <element signature="e#15#27#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="55" column="60" lean-forward="false" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-190">
-          <caret line="45" column="4" lean-forward="false" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-          <folding>
-            <element signature="e#15#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/groupLine.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="164" column="7" lean-forward="false" selection-start-line="164" selection-start-column="7" selection-end-line="164" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMap_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMap.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="88" column="22" lean-forward="true" selection-start-line="84" selection-start-column="2" selection-end-line="88" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/logicEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/create_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="99" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/create.go">
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMapEnum_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
-          <caret line="230" column="0" lean-forward="true" selection-start-line="211" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/parameterMapEnum.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="88" column="22" lean-forward="false" selection-start-line="84" selection-start-column="2" selection-end-line="88" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1147,9 +1205,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="232" column="14" lean-forward="false" selection-start-line="232" selection-start-column="14" selection-end-line="232" selection-end-column="14" />
-          <folding>
-            <element signature="e#15#29#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1157,66 +1213,90 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#27#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/schema.go">
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/update_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4136">
-          <caret line="476" column="7" lean-forward="false" selection-start-line="476" selection-start-column="7" selection-end-line="476" selection-end-column="7" />
+        <state relative-caret-position="1050">
+          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/update.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="236" column="0" lean-forward="true" selection-start-line="217" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="58" column="58" lean-forward="false" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/client.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="188">
+          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server.go">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="65" column="14" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="70" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr_test.go">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <caret line="84" column="5" lean-forward="false" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding>
+            <element signature="e#15#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="868">
+          <caret line="62" column="50" lean-forward="false" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
           <folding>
             <element signature="e#15#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/server_test.go">
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-610">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/sortLine.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1856">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="6" column="92" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="92" />
           <folding />
         </state>
       </provider>

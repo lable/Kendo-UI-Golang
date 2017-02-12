@@ -2,6 +2,17 @@ package kendo
 
 import "fmt"
 
+func ExampleClient_String() {
+  e := Client{
+    GoTemplate: &t,
+  }
+
+  fmt.Printf( "%v", e.String() )
+
+  // Output:
+  //
+}
+
 func ExampleClient_String1() {
   e := Client{
     Create: "create",

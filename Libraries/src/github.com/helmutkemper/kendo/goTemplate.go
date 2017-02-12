@@ -54,6 +54,9 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
         case Animation: return template.HTML( `'`+el.( Animation ).String()+`'` )
         case AutoCompleteFilterEnum: return template.HTML( `'`+el.( AutoCompleteFilterEnum ).String()+`'` )
         case DirEnum: return template.HTML( `'`+el.( DirEnum ).String()+`'` )
+        case MapValueToEnum: return template.HTML( `'`+el.( MapValueToEnum ).String()+`'` )
+        case Client: return template.HTML( `'`+el.( Client ).String()+`'` )
+        case Server: return template.HTML( `'`+el.( Server ).String()+`'` )
 
         case []FilterLine:
           var buffer bytes.Buffer
