@@ -714,7 +714,7 @@ func ( el UIAutoComplete ) getTemplate () string {
   return `{{if eq .AnimationDisable true}}animation: false,
 {{else}}{{if ne (string .Animation) ""}}animation: {{string .Animation}},{{end}}
 {{end}}{{if .AutoWidth}}autoWidth: true,
-{{end}}{{if ne (string .DataSource) ""}}dataSource: {{string .DataSource}},
+{{end}}{{if ne (string .DataSource) ""}}dataSource: { {{string .DataSource}} },
 {{end}}{{if .ClearButton}}clearButton: true,
 {{end}}{{if ne (string .DataTextField) "''"}}dataTextField: {{string .DataTextField}},
 {{end}}{{if .Delay }}delay: {{.Delay}},
