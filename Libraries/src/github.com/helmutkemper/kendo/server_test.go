@@ -73,8 +73,5 @@ func ExampleServer_String5() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // create: 'create',
-  // destroy: 'destroy',
-  // read: 'read',
-  // update: 'update',
+  // create: 'create',destroy: 'destroy',read: 'read',update: 'update',
 }

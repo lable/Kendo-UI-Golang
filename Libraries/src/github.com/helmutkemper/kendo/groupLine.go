@@ -147,10 +147,7 @@ type GroupLine struct{
 }
 
 func ( el GroupLine ) getTemplate () string {
-  return `{{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{ {{string $v}} },{{end}}],{{end}}
-{{if ne (string .Dir) "''"}}dir: {{string .Dir}},{{end}}
-{{if ne (string .Field) "''"}}field: {{string .Field}},{{end}}
-`
+  return `{{if .Aggregates}}aggregates: [{{range $v := .Aggregates}}{ {{string $v}} },{{end}}],{{end}}{{if ne (string .Dir) "''"}}dir: {{string .Dir}},{{end}}{{if ne (string .Field) "''"}}field: {{string .Field}},{{end}}`
 }
 
 func ( el GroupLine ) Buffer() bytes.Buffer {

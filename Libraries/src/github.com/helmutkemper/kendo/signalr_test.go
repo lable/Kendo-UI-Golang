@@ -28,11 +28,7 @@ func ExampleSignalr_String2() {
   fmt.Print( e.String() )
 
   // Output:
-  // client: { 'create: 'create',
-  // destroy: 'destroy',
-  // read: 'read',
-  // update: 'update',
-  // ' },
+  // client: { create: 'create',destroy: 'destroy',read: 'read',update: 'update', },
 }
 
 func ExampleSignalr_String3() {
@@ -78,9 +74,5 @@ func ExampleSignalr_String5() {
   fmt.Print( e.String() )
 
   // Output:
-  // server: { 'create: 'create',
-  // destroy: 'destroy',
-  // read: 'read',
-  // update: 'update',
-  // ' },
+  // server: { create: 'create',destroy: 'destroy',read: 'read',update: 'update', },
 }

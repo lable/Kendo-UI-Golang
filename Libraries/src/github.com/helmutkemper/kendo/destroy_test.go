@@ -108,10 +108,5 @@ func ExampleDestroy_String8() {
   fmt.Print( e.String() )
 
   // Output:
-  // cache: true,
-  // contentType: 'application/json',
-  // data: function() { return { name: 'Jane Doe', age: 30 } },
-  // dataType: 'json',
-  // type: 'PUT',
-  // url: function(options) { return 'http://demos.telerik.com/kendo-ui/service/products/create' },
+  // cache: true,contentType: 'application/json',data: function() { return { name: 'Jane Doe', age: 30 } },dataType: 'json',type: 'PUT',url: function(options) { return 'http://demos.telerik.com/kendo-ui/service/products/create' },
 }

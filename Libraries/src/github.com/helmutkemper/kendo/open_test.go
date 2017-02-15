@@ -11,7 +11,7 @@ func ExampleOpen_String1() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // duration: 300,
+  // duration: 300
 }
 
 func ExampleOpen_String2() {
@@ -23,7 +23,7 @@ func ExampleOpen_String2() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // effects: 'zoom::in',
+  // effects: 'zoom::in'
 }
 
 func ExampleOpen_String3() {
@@ -36,6 +36,5 @@ func ExampleOpen_String3() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // duration: 300,
-  // effects: 'zoom::in',
+  // duration: 300,effects: 'zoom::in'
 }

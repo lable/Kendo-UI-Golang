@@ -34,11 +34,7 @@ func ExampleDataSource_String1() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // aggregate: [ aggregate: 'count',
-  // field: 'field_1',
-  // ,aggregate: 'count',
-  // field: 'field_1',
-  // , ], serverAggregates: true,
+  // aggregate: [ aggregate: 'count',field: 'field_1',aggregate: 'count',field: 'field_1', ], serverAggregates: true,
 }
 
 func ExampleDataSource_String2() {
@@ -104,7 +100,6 @@ func ExampleDataSource_String6() {
     FilterLine: []FilterLine{
       {
         Field: "field_1",
-
         Logic: LOGIC_AND,
         Filters: []FiltersLine{
           {
@@ -127,5 +122,5 @@ func ExampleDataSource_String6() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // data: function ( e ){ trace.log( e ); },
+  // field: 'field_1',filters: [ { field: 'field_2',logic: 'and',operator: 'eq', }, ],logic: 'and',operator: 'contains',value: new Date(1980, 1, 1),
 }

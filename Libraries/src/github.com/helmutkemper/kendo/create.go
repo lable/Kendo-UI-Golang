@@ -201,13 +201,7 @@ type Create struct{
 }
 
 func ( el Create ) getTemplate () string {
-  return `{{if .Cache}}cache: true,{{end}}
-{{if ne (string .ContentType) "''"}}contentType: {{string .ContentType}},{{end}}
-{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}
-{{if ne (string .DataType) "''"}}dataType: {{string .DataType}},{{end}}
-{{if ne (string .Method) "''"}}type: {{string .Method}},{{end}}
-{{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}
-`
+  return `{{if .Cache}}cache: true,{{end}}{{if ne (string .ContentType) "''"}}contentType: {{string .ContentType}},{{end}}{{if ne (string .Data) "null"}}data: {{string .Data}},{{end}}{{if ne (string .DataType) "''"}}dataType: {{string .DataType}},{{end}}{{if ne (string .Method) "''"}}type: {{string .Method}},{{end}}{{if ne (string .Url) "null"}}url: {{string .Url}},{{end}}`
 }
 
 func ( el Create ) Buffer() bytes.Buffer {

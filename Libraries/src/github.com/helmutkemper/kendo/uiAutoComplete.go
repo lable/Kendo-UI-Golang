@@ -711,33 +711,32 @@ type UIAutoComplete struct{
 }
 
 func ( el UIAutoComplete ) getTemplate () string {
-  return `{
-{{if eq .AnimationDisable true}}animation: false,{{else}}
-{{if ne (string .Animation) "null"}}animation: {{string .Animation}},{{end}}{{end}}
-{{if .AutoWidth}}autoWidth: true,{{end}}
-{{if .ClearButton}}clearButton: true,{{end}}
-{{if ne (string .DataTextField) "null"}}dataTextField: {{string .DataTextField}},{{end}}
-{{if .Delay }}delay: {{.Delay}},{{end}}
-{{if .Enable}}enable: true,{{end}}
-{{if .EnforceMinLength}}enforceMinLength: true,{{end}}
-{{if ne (string .AutoCompleteFilterEnum) "null"}}filter: {{string .AutoCompleteFilterEnum}},{{end}}
-{{if ne (string .FixedGroupTemplate) "null"}}fixedGroupTemplate: {{string .FixedGroupTemplate}},{{end}}
-{{if ne (string .FooterTemplate) "null"}}footerTemplate: {{string .FooterTemplate}},{{end}}
-{{if ne (string .GroupTemplate) "null"}}groupTemplate: {{string .GroupTemplate}},{{end}}
-{{if .Height }}height: {{.Height}},{{end}}
-{{if .HighlightFirst}}highlightFirst: true,{{end}}
-{{if .IgnoreCase}}ignoreCase: true,{{end}}
-{{if .MinLength }}minLength: {{.MinLength}},{{end}}
-{{if ne (string .NoDataTemplate) "null"}}noDataTemplate: {{string .NoDataTemplate}},{{end}}
-{{if ne (string .Placeholder) "null"}}placeholder: {{string .Placeholder}},{{end}}
-{{if ne (string .Separator) "null"}}separator: {{string .Separator}},{{end}}
-{{if .Suggest}}suggest: true,{{end}}
-{{if ne (string .HeaderTemplate) "null"}}headerTemplate: {{string .HeaderTemplate}},{{end}}
-{{if ne (string .Template) "null"}}template: {{string .Template}},{{end}}
-{{if ne (string .Value) "null"}}value: {{string .Value}},{{end}}
-{{if .ValuePrimitive}}valuePrimitive: true,{{end}}
-}
-`
+  return `{{if eq .AnimationDisable true}}animation: false,
+{{else}}{{if ne (string .Animation) ""}}animation: {{string .Animation}},{{end}}
+{{end}}{{if .AutoWidth}}autoWidth: true,
+{{end}}{{if ne (string .DataSource) ""}}dataSource: {{string .DataSource}},
+{{end}}{{if .ClearButton}}clearButton: true,
+{{end}}{{if ne (string .DataTextField) "''"}}dataTextField: {{string .DataTextField}},
+{{end}}{{if .Delay }}delay: {{.Delay}},
+{{end}}{{if .Enable}}enable: true,
+{{end}}{{if .EnforceMinLength}}enforceMinLength: true,
+{{end}}{{if ne (string .AutoCompleteFilterEnum) "''"}}filter: {{string .AutoCompleteFilterEnum}},
+{{end}}{{if ne (string .FixedGroupTemplate) "null"}}fixedGroupTemplate: {{string .FixedGroupTemplate}},
+{{end}}{{if ne (string .FooterTemplate) "null"}}footerTemplate: {{string .FooterTemplate}},
+{{end}}{{if ne (string .GroupTemplate) "null"}}groupTemplate: {{string .GroupTemplate}},
+{{end}}{{if .Height }}height: {{.Height}},
+{{end}}{{if .HighlightFirst}}highlightFirst: true,
+{{end}}{{if .IgnoreCase}}ignoreCase: true,
+{{end}}{{if .MinLength }}minLength: {{.MinLength}},
+{{end}}{{if ne (string .NoDataTemplate) "null"}}noDataTemplate: {{string .NoDataTemplate}},
+{{end}}{{if ne (string .Placeholder) "''"}}placeholder: {{string .Placeholder}},
+{{end}}{{if ne (string .Separator) "null"}}separator: {{string .Separator}},
+{{end}}{{if .Suggest}}suggest: true,
+{{end}}{{if ne (string .HeaderTemplate) "null"}}headerTemplate: {{string .HeaderTemplate}},
+{{end}}{{if ne (string .Template) "null"}}template: {{string .Template}},
+{{end}}{{if ne (string .Value) "''"}}value: {{string .Value}},
+{{end}}{{if .ValuePrimitive}}valuePrimitive: true,
+{{end}}`
 }
 
 func ( el UIAutoComplete ) Buffer() bytes.Buffer {
@@ -752,4 +751,9 @@ func ( el UIAutoComplete ) Buffer() bytes.Buffer {
 func ( el UIAutoComplete ) String() string {
   out := el.Buffer()
   return out.String()
+}
+
+func ( el UIAutoComplete ) JavaScript( id string ) string {
+  out := el.Buffer()
+  return `$('` + id + `').kendoAutoComplete(` + out.String() + `);`
 }

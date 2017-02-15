@@ -51,17 +51,18 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
         case LogicEnum: return template.HTML( `'`+el.( LogicEnum ).String()+`'` )
         case MethodEnum: return template.HTML( `'`+el.( MethodEnum ).String()+`'` )
         case TypeDataJSonEnum: return template.HTML( `'`+el.( TypeDataJSonEnum ).String()+`'` )
-        case Animation: return template.HTML( `'`+el.( Animation ).String()+`'` )
+        case Animation: return template.HTML( el.( Animation ).String() )
+        case DataSource: return template.HTML( el.( DataSource ).String() )
         case AutoCompleteFilterEnum: return template.HTML( `'`+el.( AutoCompleteFilterEnum ).String()+`'` )
         case DirEnum: return template.HTML( `'`+el.( DirEnum ).String()+`'` )
         case MapValueToEnum: return template.HTML( `'`+el.( MapValueToEnum ).String()+`'` )
-        case Client: return template.HTML( `'`+el.( Client ).String()+`'` )
-        case Server: return template.HTML( `'`+el.( Server ).String()+`'` )
-        case Create: return template.HTML( `'`+el.( Create ).String()+`'` )
-        case Destroy: return template.HTML( `'`+el.( Destroy ).String()+`'` )
-        case Read: return template.HTML( `'`+el.( Read ).String()+`'` )
-        case Signalr: return template.HTML( `'`+el.( Signalr ).String()+`'` )
-        case Update: return template.HTML( `'`+el.( Update ).String()+`'` )
+        case Client: return template.HTML( el.( Client ).String() )
+        case Server: return template.HTML( el.( Server ).String() )
+        case Create: return template.HTML( el.( Create ).String() )
+        case Destroy: return template.HTML( el.( Destroy ).String() )
+        case Read: return template.HTML( el.( Read ).String() )
+        case Signalr: return template.HTML( el.( Signalr ).String() )
+        case Update: return template.HTML( el.( Update ).String() )
 
         case []FilterLine:
           var buffer bytes.Buffer
@@ -90,9 +91,6 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
             buffer.WriteString( v.String() )
           }
           return template.HTML( buffer.String() )
-
-
-
         }
 
         fmt.Printf( "type conversion error: %v\n", reflect.TypeOf( el ) )

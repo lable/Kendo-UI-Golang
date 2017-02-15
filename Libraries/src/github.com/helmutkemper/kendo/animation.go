@@ -1,6 +1,8 @@
 package kendo
 
-import "bytes"
+import (
+  "bytes"
+)
 
 type Animation struct{
 
@@ -50,9 +52,7 @@ type Animation struct{
 }
 
 func ( el Animation ) getTemplate () string {
-  return `{{if ne (string .Open) ""}}open: { {{string .Open}} },{{end}}
-{{if ne (string .Close) ""}}close: { {{string .Close}} },{{end}}
-`
+  return `{{if ne (string .Open) ""}}open: { {{string .Open}} },{{end}}{{if ne (string .Close) ""}}close: { {{string .Close}} }{{end}}`
 }
 
 func ( el Animation ) Buffer() bytes.Buffer {

@@ -572,14 +572,14 @@ type Transport struct{
 }
 
 func ( el Transport ) getTemplate () string {
-  return `{{if ne (string .Create) "null"}}create: {{string .Create}},{{end}}
-{{if ne (string .Destroy) "null"}}destroy: {{string .Destroy}},{{end}}
+  return `{{if ne (string .Create) ""}}create: {{string .Create}},{{end}}
+{{if ne (string .Destroy) ""}}destroy: {{string .Destroy}},{{end}}
 {{if ne (string .ParameterMap) "null"}}parameterMap: {{string .ParameterMap}},{{end}}
 {{if ne (string .Push) "null"}}push: {{string .Push}},{{end}}
-{{if ne (string .Read) "null"}}read: {{string .Read}},{{end}}
-{{if ne (string .Signalr) "null"}}signalr: {{string .Signalr}},{{end}}
+{{if ne (string .Read) ""}}read: {{string .Read}},{{end}}
+{{if ne (string .Signalr) ""}}signalr: {{string .Signalr}},{{end}}
 {{if ne (string .Submit) "null"}}submit: {{string .Submit}},{{end}}
-{{if ne (string .Update) "null"}}update: {{string .Update}},{{end}}
+{{if ne (string .Update) ""}}update: {{string .Update}},{{end}}
 `
 }
 

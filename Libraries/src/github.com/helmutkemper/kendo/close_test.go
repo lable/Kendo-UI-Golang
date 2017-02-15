@@ -36,6 +36,5 @@ func ExampleClose_String3() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // duration: 300,
-  // effects: 'zoom::in',
+  // duration: 300,effects: 'zoom::in',
 }

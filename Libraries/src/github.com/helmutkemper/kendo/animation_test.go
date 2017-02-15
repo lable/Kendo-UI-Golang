@@ -26,9 +26,7 @@ func ExampleAnimation_String1() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // close: { duration: 300,
-  // effects: 'zoom::in',
-  //  },
+  // close: { duration: 300,effects: 'zoom::in', }
 }
 
 func ExampleAnimation_String2() {
@@ -44,9 +42,7 @@ func ExampleAnimation_String2() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // open: { duration: 300,
-  // effects: 'zoom::in',
-  //  },
+  // open: { duration: 300,effects: 'zoom::in' },
 }
 
 func ExampleAnimation_String3() {
@@ -67,10 +63,5 @@ func ExampleAnimation_String3() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // open: { duration: 300,
-  // effects: 'zoom::in',
-  //  },
-  // close: { duration: 300,
-  // effects: 'zoom::in',
-  //  },
+  // open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', }
 }

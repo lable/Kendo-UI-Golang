@@ -36,11 +36,7 @@ type Server struct{
 }
 
 func ( el Server ) getTemplate () string {
-  return `{{if ne (string .Create) "''"}}create: {{string .Create}},{{end}}
-{{if ne (string .Destroy) "''"}}destroy: {{string .Destroy}},{{end}}
-{{if ne (string .Read) "''"}}read: {{string .Read}},{{end}}
-{{if ne (string .Update) "''"}}update: {{string .Update}},{{end}}
-`
+  return `{{if ne (string .Create) "''"}}create: {{string .Create}},{{end}}{{if ne (string .Destroy) "''"}}destroy: {{string .Destroy}},{{end}}{{if ne (string .Read) "''"}}read: {{string .Read}},{{end}}{{if ne (string .Update) "''"}}update: {{string .Update}},{{end}}`
 }
 
 func ( el Server ) Buffer() bytes.Buffer {

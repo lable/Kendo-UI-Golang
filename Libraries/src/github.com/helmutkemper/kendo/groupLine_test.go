@@ -22,11 +22,7 @@ func ExampleGroupLine_String1() {
   fmt.Print( e.String() )
 
   // Output:
-  // aggregates: [{ aggregate: 'average',
-  // field: 'field_1',
-  //  },{ aggregate: 'count',
-  // field: 'field_2',
-  //  },],
+  // aggregates: [{ aggregate: 'average',field: 'field_1' },{ aggregate: 'count',field: 'field_2' },],
 }
 
 func ExampleGroupLine_String2() {
@@ -76,11 +72,5 @@ func ExampleGroupLine_String4() {
   fmt.Print( e.String() )
 
   // Output:
-  // aggregates: [{ aggregate: 'average',
-  // field: 'field_1',
-  //  },{ aggregate: 'count',
-  // field: 'field_2',
-  //  },],
-  // dir: 'asc',
-  // field: 'field_1',
+  // aggregates: [{ aggregate: 'average',field: 'field_1' },{ aggregate: 'count',field: 'field_2' },],dir: 'asc',field: 'field_1',
 }

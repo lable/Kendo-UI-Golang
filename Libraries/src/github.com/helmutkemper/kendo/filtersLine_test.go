@@ -13,7 +13,5 @@ func ExampleFiltersLine_String1() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // field: 'field_2',
-  // logic: 'and',
-  // operator: 'eq',
+  // field: 'field_2',logic: 'and',operator: 'eq',
 }

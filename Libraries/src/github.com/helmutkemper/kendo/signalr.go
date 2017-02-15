@@ -59,11 +59,7 @@ type Signalr struct{
 }
 
 func ( el Signalr ) getTemplate () string {
-  return `{{if ne (string .Client) "''"}}client: { {{string .Client}} },{{end}}
-{{if ne (string .Hub) "null"}}hub: {{string .Hub}},{{end}}
-{{if ne (string .Promise) "null"}}promise: { {{string .Promise}} },{{end}}
-{{if ne (string .Server) "''"}}server: { {{string .Server}} },{{end}}
-`
+  return `{{if ne (string .Client) ""}}client: { {{string .Client}} },{{end}}{{if ne (string .Hub) "null"}}hub: {{string .Hub}},{{end}}{{if ne (string .Promise) "null"}}promise: { {{string .Promise}} },{{end}}{{if ne (string .Server) ""}}server: { {{string .Server}} },{{end}}`
 }
 
 func ( el Signalr ) Buffer() bytes.Buffer {

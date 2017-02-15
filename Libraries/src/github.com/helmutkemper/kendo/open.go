@@ -25,9 +25,7 @@ type Open struct{
 }
 
 func ( el Open ) getTemplate () string {
-  return `{{if .Duration }}duration: {{.Duration}},{{end}}
-{{if ne (string .EffectEnum) "''"}}effects: {{string .EffectEnum}},{{end}}
-`
+  return `{{if .Duration }}duration: {{.Duration}},{{end}}{{if ne (string .EffectEnum) "''"}}effects: {{string .EffectEnum}},{{end}}`
 }
 
 func ( el Open ) Buffer() bytes.Buffer {
@@ -46,5 +44,10 @@ func ( el Open ) Buffer() bytes.Buffer {
 
 func ( el Open ) String() string {
   out := el.Buffer()
-  return out.String()
+  str := out.String()
+  if len( str ) > 1 {
+    return str[ 0 : len(str) - 1 ]
+  } else {
+    return str
+  }
 }

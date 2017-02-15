@@ -25,9 +25,7 @@ type Close struct{
 }
 
 func ( el Close ) getTemplate () string {
-  return `{{if .Duration }}duration: {{.Duration}},{{end}}
-{{if ne (string .EffectEnum) "''"}}effects: {{string .EffectEnum}},{{end}}
-`
+  return `{{if .Duration }}duration: {{.Duration}},{{end}}{{if ne (string .EffectEnum) "''"}}effects: {{string .EffectEnum}},{{end}}`
 }
 
 func ( el Close ) Buffer() bytes.Buffer {

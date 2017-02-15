@@ -23,7 +23,7 @@ func ExampleAggregateLine_String2() {
   fmt.Print( e.String() )
 
   // Output:
-  // field: 'field_1',
+  // field: 'field_1'
 }
 
 func ExampleAggregateLine_String3() {
@@ -36,6 +36,5 @@ func ExampleAggregateLine_String3() {
   fmt.Print( e.String() )
 
   // Output:
-  // aggregate: 'average',
-  // field: 'field_1',
+  // aggregate: 'average',field: 'field_1'
 }

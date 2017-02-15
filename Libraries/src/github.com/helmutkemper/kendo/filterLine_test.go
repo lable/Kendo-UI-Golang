@@ -24,13 +24,5 @@ func ExampleFilterLine_String1() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // field: 'field_1',
-  // filters: [ { field: 'field_2',
-  // logic: 'and',
-  // operator: 'eq',
-  //
-  //  }, ],
-  // logic: 'and',
-  // operator: 'contains',
-  // value: new Date(1980, 1, 1),
+  // field: 'field_1',filters: [ { field: 'field_2',logic: 'and',operator: 'eq', }, ],logic: 'and',operator: 'contains',value: new Date(1980, 1, 1),
 }
