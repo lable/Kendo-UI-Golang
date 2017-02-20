@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fba84870-efb2-435f-aae2-363e89bda916" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,17 +20,17 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="uiAutoComplete.go" pinned="false" current-in-tab="true">
+          <file leaf-file-name="uiAutoComplete.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="42">
-                  <caret line="713" column="10" lean-forward="false" selection-start-line="713" selection-start-column="10" selection-end-line="713" selection-end-column="10" />
+                <state relative-caret-position="85">
+                  <caret line="714" column="76" lean-forward="false" selection-start-line="714" selection-start-column="76" selection-end-line="714" selection-end-column="76" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="uiAutoComplete_test.go" pinned="false" current-in-tab="false">
+          <file leaf-file-name="uiAutoComplete_test.go" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-2394">
@@ -55,8 +47,18 @@
           <file leaf-file-name="uiAutoComplete_test.go" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="705">
-                  <caret line="358" column="5" lean-forward="false" selection-start-line="358" selection-start-column="5" selection-end-line="358" selection-end-column="5" />
+                <state relative-caret-position="285">
+                  <caret line="368" column="5" lean-forward="false" selection-start-line="368" selection-start-column="5" selection-end-line="368" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="datasource.go" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="153">
+                  <caret line="174" column="31" lean-forward="false" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -86,7 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Popup</find>
       <find>ExampleCreate</find>
       <find>e := Create{</find>
       <find>Client</find>
@@ -115,6 +116,7 @@
       <find>Placeholder</find>
       <find>Separator</find>
       <find>headerTemplate</find>
+      <find>type</find>
       <find>Virtual</find>
     </findStrings>
     <replaceStrings>
@@ -339,16 +341,7 @@
       <recent name="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go">
-    <configuration default="false" name="ExampleUIAutoComplete_String19 in uiAutoComplete_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
-      <module name="Kendo-UI" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/helmutkemper/kendo" />
-      <pattern value="^ExampleUIAutoComplete_String19$" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Go Test.ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go">
     <configuration default="false" name="ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="Kendo-UI" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -383,6 +376,15 @@
       <kind value="PACKAGE" />
       <package value="github.com/helmutkemper/kendo" />
       <pattern value="^ExampleUIAutoComplete_String_Completo$" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+      <module name="Kendo-UI" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/helmutkemper/kendo" />
+      <pattern value="^ExampleUIAutoComplete_JavaScript$" />
       <method />
     </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
@@ -499,19 +501,19 @@
       <item index="0" class="java.lang.String" itemvalue="Go Application.Go build and run" />
       <item index="1" class="java.lang.String" itemvalue="Go Test.Test All" />
       <item index="2" class="java.lang.String" itemvalue="PHP Web Application.PHP debug bugado" />
-      <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String19 in uiAutoComplete_test.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" />
-      <item index="5" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String21 in uiAutoComplete_test.go" />
-      <item index="6" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" />
-      <item index="7" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String21 in uiAutoComplete_test.go" />
+      <item index="5" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" />
+      <item index="6" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" />
+      <item index="7" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String21 in uiAutoComplete_test.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String19 in uiAutoComplete_test.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String21 in uiAutoComplete_test.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -563,7 +565,7 @@
       <workItem from="1486908643658" duration="10891000" />
       <workItem from="1487108968866" duration="9687000" />
       <workItem from="1487285829257" duration="702000" />
-      <workItem from="1487544196627" duration="5394000" />
+      <workItem from="1487544196627" duration="7193000" />
     </task>
     <task id="LOCAL-00001" summary="trabalhando">
       <created>1483642391239</created>
@@ -733,18 +735,41 @@
       <option name="project" value="LOCAL" />
       <updated>1487118514044</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="trabalhando">
+      <created>1487550376641</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1487550376641</updated>
+    </task>
+    <task id="LOCAL-00026" summary="funcional">
+      <created>1487552172278</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1487552172278</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleUIAutoComplete_String22_in_uiAutoComplete_test_go - 2017.02.19 at 21h 18m 44s.xml">
-      <configuration name="ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 27m 58s.xml">
+      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String22_in_uiAutoComplete_test_go - 2017.02.19 at 21h 23m 54s.xml">
-      <configuration name="ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 28m 18s.xml">
+      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String22_in_uiAutoComplete_test_go - 2017.02.19 at 21h 24m 15s.xml">
-      <configuration name="ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 31m 04s.xml">
+      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 49m 54s.xml">
+      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 54m 41s.xml">
+      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 57m 07s.xml">
+      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
     <history-entry file="ExampleUIAutoComplete_String22_in_uiAutoComplete_test_go - 2017.02.19 at 21h 24m 48s.xml">
       <configuration name="ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
@@ -752,30 +777,21 @@
     <history-entry file="ExampleUIAutoComplete_String22_in_uiAutoComplete_test_go - 2017.02.19 at 21h 24m 58s.xml">
       <configuration name="ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 20m 46s.xml">
-      <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 22m 32s.xml">
-      <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 23m 18s.xml">
-      <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 23m 41s.xml">
-      <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 25m 22s.xml">
+      <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 27m 44s.xml">
       <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158968000" />
+    <option name="totallyTimeSpent" value="160767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="18" width="1317" height="750" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24941176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24941176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -829,7 +845,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="trabalhando" />
-    <option name="LAST_COMMIT_MESSAGE" value="trabalhando" />
+    <MESSAGE value="funcional" />
+    <option name="LAST_COMMIT_MESSAGE" value="funcional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1167,14 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="679" column="1313" lean-forward="false" selection-start-line="679" selection-start-column="1313" selection-end-line="679" selection-end-column="1313" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -1209,16 +1218,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="713" column="10" lean-forward="false" selection-start-line="713" selection-start-column="10" selection-end-line="713" selection-end-column="10" />
+        <state relative-caret-position="85">
+          <caret line="714" column="76" lean-forward="false" selection-start-line="714" selection-start-column="76" selection-end-line="714" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="174" column="31" lean-forward="false" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="358" column="5" lean-forward="false" selection-start-line="358" selection-start-column="5" selection-end-line="358" selection-end-column="5" />
+        <state relative-caret-position="285">
+          <caret line="368" column="5" lean-forward="false" selection-start-line="368" selection-start-column="5" selection-end-line="368" selection-end-column="5" />
           <folding />
         </state>
       </provider>

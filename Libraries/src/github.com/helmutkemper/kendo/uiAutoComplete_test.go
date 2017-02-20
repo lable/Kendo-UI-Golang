@@ -359,8 +359,12 @@ func ExampleUIAutoComplete_JavaScript() {
   fmt.Printf( "%v", e.JavaScript( "#autocomplete" ) )
 
   // Output:
-  // animation: open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', },
+  // $('#autocomplete').kendoAutoComplete({animation: { open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', } },
   // autoWidth: true,
   // dataSource: {  transport: { read: { dataType: 'jsonp',url: "http://demos.telerik.com/kendo-ui/service/products" }, }, },
   // clearButton: true,
+  // dataTextField: 'ProductName',
+  // filter: 'contains',
+  // minLength: 3,
+  // });
 }
