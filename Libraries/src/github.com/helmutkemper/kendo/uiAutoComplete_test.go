@@ -320,7 +320,7 @@ func ExampleUIAutoComplete_String22() {
   // virtual: true,
 }
 
-func ExampleUIAutoComplete_String_Completo() {
+func ExampleUIAutoComplete_JavaScript() {
   e := UIAutoComplete{
     Animation: Animation{
       Open: Open{
@@ -335,6 +335,9 @@ func ExampleUIAutoComplete_String_Completo() {
       },
       GoTemplate: &t,
     },
+    DataTextField: "ProductName",
+    AutoCompleteFilterEnum: AUTOCOMPLETE_FILTER_CONTAINS,
+    MinLength: 3,
     AutoWidth: true,
     DataSource: DataSource{
       Transport: Transport{
@@ -353,7 +356,7 @@ func ExampleUIAutoComplete_String_Completo() {
     GoTemplate: &t,
   }
 
-  fmt.Printf( "%v", e.String() )
+  fmt.Printf( "%v", e.JavaScript( "#autocomplete" ) )
 
   // Output:
   // animation: open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', },

@@ -712,7 +712,7 @@ type UIAutoComplete struct{
 
 func ( el UIAutoComplete ) getTemplate () string {
   return `{{if eq .AnimationDisable true}}animation: false,
-{{else}}{{if ne (string .Animation) ""}}animation: {{string .Animation}},{{end}}
+{{else}}{{if ne (string .Animation) ""}}animation: { {{string .Animation}} },{{end}}
 {{end}}{{if .AutoWidth}}autoWidth: true,
 {{end}}{{if ne (string .DataSource) ""}}dataSource: { {{string .DataSource}} },
 {{end}}{{if .ClearButton}}clearButton: true,
@@ -756,5 +756,5 @@ func ( el UIAutoComplete ) String() string {
 
 func ( el UIAutoComplete ) JavaScript( id string ) string {
   out := el.Buffer()
-  return `$('` + id + `').kendoAutoComplete(` + out.String() + `);`
+  return `$('` + id + `').kendoAutoComplete({` + out.String() + `});`
 }
