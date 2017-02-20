@@ -91,6 +91,13 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
             buffer.WriteString( v.String() )
           }
           return template.HTML( buffer.String() )
+
+        case []string:
+          var buffer bytes.Buffer
+          for _, v := range el.( []string ){
+            buffer.WriteString( `'` + v + `',` )
+          }
+          return template.HTML( buffer.String() )
         }
 
         fmt.Printf( "type conversion error: %v\n", reflect.TypeOf( el ) )

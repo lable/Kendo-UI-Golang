@@ -124,3 +124,24 @@ func ExampleDataSource_String6() {
   // Output:
   // field: 'field_1',filters: [ { field: 'field_2',logic: 'and',operator: 'eq', }, ],logic: 'and',operator: 'contains',value: new Date(1980, 1, 1),
 }
+
+func ExampleDataSource_String7() {
+  e := DataSource{
+    Transport: Transport{
+      Read: Read{
+        Url: ComplexJavaScriptType{
+          AsString: "http://demos.telerik.com/kendo-ui/service/products",
+        },
+        DataType: TYPE_DATA_JSON_JSONP, // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+        GoTemplate: &t,
+      },
+      GoTemplate: &t,
+    },
+    GoTemplate: &t,
+  }
+
+  fmt.Printf( "%v", e.String() )
+
+  // Output:
+  // transport: { read: { dataType: 'jsonp',url: "http://demos.telerik.com/kendo-ui/service/products" }, },
+}

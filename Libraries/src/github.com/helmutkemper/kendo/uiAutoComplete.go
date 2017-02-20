@@ -459,7 +459,7 @@ type UIAutoComplete struct{
       });
       </script>
   */
-  Separator    ComplexJavaScriptType
+  Separator    []string
 
   // http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-suggest
   //
@@ -730,12 +730,13 @@ func ( el UIAutoComplete ) getTemplate () string {
 {{end}}{{if .MinLength }}minLength: {{.MinLength}},
 {{end}}{{if ne (string .NoDataTemplate) "null"}}noDataTemplate: {{string .NoDataTemplate}},
 {{end}}{{if ne (string .Placeholder) "''"}}placeholder: {{string .Placeholder}},
-{{end}}{{if ne (string .Separator) "null"}}separator: {{string .Separator}},
+{{end}}{{if ne (string .Separator) ""}}separator: {{string .Separator}}
 {{end}}{{if .Suggest}}suggest: true,
 {{end}}{{if ne (string .HeaderTemplate) "null"}}headerTemplate: {{string .HeaderTemplate}},
 {{end}}{{if ne (string .Template) "null"}}template: {{string .Template}},
 {{end}}{{if ne (string .Value) "''"}}value: {{string .Value}},
 {{end}}{{if .ValuePrimitive}}valuePrimitive: true,
+{{end}}{{if .Virtual}}virtual: true,
 {{end}}`
 }
 
