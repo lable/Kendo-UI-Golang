@@ -320,6 +320,8 @@ func ExampleUIAutoComplete_String22() {
   // virtual: true,
 }
 
+// http://demos.telerik.com/kendo-ui/autocomplete/serverfiltering
+// Please, use "edit this example" function.
 func ExampleUIAutoComplete_JavaScript() {
   e := UIAutoComplete{
     Animation: Animation{
@@ -356,7 +358,7 @@ func ExampleUIAutoComplete_JavaScript() {
     GoTemplate: &t,
   }
 
-  fmt.Printf( "%v", e.JavaScript( "#autocomplete" ) )
+  fmt.Printf( "%v", e.JavaScript( "#products" ) )
 
   // Output:
   // $('#autocomplete').kendoAutoComplete({animation: { open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', } },
