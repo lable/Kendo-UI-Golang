@@ -1,11 +1,7 @@
 package main
 
-import (
-  "github.com/helmutkemper/kendo"
-  "fmt"
-)
-
 func main() {
+  /*
   var t kendo.GoTemplate = kendo.GoTemplate{}
 
   type dataToJSon struct{
@@ -47,4 +43,5 @@ func main() {
     },
   }
   fmt.Printf( "r: %s\n", ds.String() )
+  */
 }

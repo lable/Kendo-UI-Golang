@@ -46,7 +46,7 @@ func ExampleUIAutoComplete_String3() {
   fmt.Printf( "%v", e.String() )
 
   // Output:
-  // animation: open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', },
+  // animation: { open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', } },
 }
 
 func ExampleUIAutoComplete_String4() {
@@ -361,7 +361,7 @@ func ExampleUIAutoComplete_JavaScript() {
   fmt.Printf( "%v", e.JavaScript( "#products" ) )
 
   // Output:
-  // $('#autocomplete').kendoAutoComplete({animation: { open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', } },
+  // $('#products').kendoAutoComplete({animation: { open: { duration: 300,effects: 'zoom::in' },close: { duration: 300,effects: 'zoom::in', } },
   // autoWidth: true,
   // dataSource: {  transport: { read: { dataType: 'jsonp',url: "http://demos.telerik.com/kendo-ui/service/products" }, }, },
   // clearButton: true,

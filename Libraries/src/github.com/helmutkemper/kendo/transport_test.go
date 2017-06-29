@@ -28,6 +28,6 @@ func ExampleTransport_String2() {
   fmt.Print( e.String() )
 
   // Output:
-  //
+  // read: { dataType: 'jsonp',url: "http://demos.telerik.com/kendo-ui/service/products" },
 }
 

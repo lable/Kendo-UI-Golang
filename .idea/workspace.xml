@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fba84870-efb2-435f-aae2-363e89bda916" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Go_SDK.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Kendo-UI.iml" afterPath="$PROJECT_DIR$/.idea/Kendo-UI.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GOPATH__Kendo_UI_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GOPATH__Kendo_UI_.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go" afterPath="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,66 +23,68 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="uiAutoComplete.go" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="714" column="76" lean-forward="false" selection-start-line="714" selection-start-column="76" selection-end-line="714" selection-end-column="76" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="uiAutoComplete_test.go" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2599">
-                  <caret line="162" column="32" lean-forward="false" selection-start-line="162" selection-start-column="32" selection-end-line="162" selection-end-column="32" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="uiAutoComplete_test.go" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="201">
-                  <caret line="323" column="44" lean-forward="false" selection-start-line="323" selection-start-column="44" selection-end-line="323" selection-end-column="44" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="datasource.go" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="174" column="31" lean-forward="false" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="31" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="goTemplate.go" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="97" column="45" lean-forward="false" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="uiAutoComplete.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uiAutoComplete_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="371" column="1" lean-forward="true" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datasource.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="683" column="25" lean-forward="true" selection-start-line="683" selection-start-column="25" selection-end-line="683" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datasource_test.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="146" column="1" lean-forward="true" selection-start-line="146" selection-start-column="1" selection-end-line="146" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/init.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,17 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ExampleCreate</find>
-      <find>e := Create{</find>
-      <find>Client</find>
-      <find>Create</find>
-      <find>AggregateEnum</find>
-      <find>MapValueTo</find>
-      <find>&quot;null&quot;</find>
-      <find>offlineStorage</find>
-      <find>anima</find>
-      <find>datasour</find>
-      <find>Signalr</find>
       <find>update</find>
       <find>client</find>
       <find>create</find>
@@ -118,6 +115,17 @@
       <find>headerTemplate</find>
       <find>type</find>
       <find>Virtual</find>
+      <find>main</find>
+      <find>style</find>
+      <find>configureStylesheet</find>
+      <find>wireEdgeStyle</find>
+      <find>WireConnector</find>
+      <find>wireConne</find>
+      <find>ResistorShape</find>
+      <find>clk</find>
+      <find>e5</find>
+      <find>resis</find>
+      <find>clone</find>
     </findStrings>
     <replaceStrings>
       <replace>http://docs.telerik.com/kendo-ui/api/javascript/data/datasource#</replace>
@@ -151,9 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/autoCompleteFilterEnum_test.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/methodEnum.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/methodEnum_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/typeDataJSonEnum.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/typeDataJSonEnum_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/typeDataEnum_test.go" />
@@ -193,7 +198,6 @@
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/animation_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/signalr_test.go" />
-        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go" />
@@ -201,6 +205,10 @@
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go" />
+        <option value="$PROJECT_DIR$/../mxgraph/javascript/examples/kemper.html" />
+        <option value="$PROJECT_DIR$/../mxgraph/javascript/examples/kemper2.html" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go" />
         <option value="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go" />
       </list>
     </option>
@@ -221,9 +229,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
     <option name="x" value="49" />
-    <option name="y" value="18" />
+    <option name="y" value="-3" />
     <option name="width" value="1317" />
-    <option name="height" value="750" />
+    <option name="height" value="771" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -253,7 +261,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Kendo-UI" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -263,27 +271,27 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Kendo-UI" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Libraries" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="helmutkemper" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kendo" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -293,23 +301,23 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Kendo-UI" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Libraries" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="github.com" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="helmutkemper" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -320,28 +328,44 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="/opt/lampp/htdocs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KendoUI" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="/usr/local/lib/node_modules/eslint" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider$1" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
     <property name="configurable.Global.libraries.is.expanded" value="true" />
     <property name="configurable.Project.libraries.is.expanded" value="true" />
     <property name="configurable.Module.libraries.is.expanded" value="false" />
     <property name="GO_FMT" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../mxgraph/javascript/examples" />
+      <recent name="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo" />
       <recent name="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper" />
       <recent name="$PROJECT_DIR$/kendo" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo" />
-    </key>
   </component>
-  <component name="RunManager" selected="Go Test.ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Test.Test All">
     <configuration default="false" name="ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="Kendo-UI" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -407,6 +431,13 @@
       <kind value="DIRECTORY" />
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -414,39 +445,6 @@
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
-      <BehatRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
-      <PhpTestRunnerSettings />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="localhost">
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -465,17 +463,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
+    <configuration default="false" name="PHP debug bugado" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Unnamed">
       <method />
     </configuration>
     <configuration default="false" name="Go build and run" type="GoApplicationRunConfiguration" factoryName="Go Application">
@@ -494,18 +482,14 @@
       <filePath value="$PROJECT_DIR$" />
       <method />
     </configuration>
-    <configuration default="false" name="PHP debug bugado" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Unnamed">
-      <method />
-    </configuration>
-    <list size="8">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Go Application.Go build and run" />
       <item index="1" class="java.lang.String" itemvalue="Go Test.Test All" />
-      <item index="2" class="java.lang.String" itemvalue="PHP Web Application.PHP debug bugado" />
-      <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String21 in uiAutoComplete_test.go" />
-      <item index="5" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" />
-      <item index="6" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" />
-      <item index="7" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String20 in uiAutoComplete_test.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String21 in uiAutoComplete_test.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" />
+      <item index="5" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" />
+      <item index="6" class="java.lang.String" itemvalue="Go Test.ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -565,7 +549,9 @@
       <workItem from="1486908643658" duration="10891000" />
       <workItem from="1487108968866" duration="9687000" />
       <workItem from="1487285829257" duration="702000" />
-      <workItem from="1487544196627" duration="7306000" />
+      <workItem from="1487544196627" duration="7355000" />
+      <workItem from="1487623153576" duration="610000" />
+      <workItem from="1487776491809" duration="15683000" />
     </task>
     <task id="LOCAL-00001" summary="trabalhando">
       <created>1483642391239</created>
@@ -756,65 +742,72 @@
       <option name="project" value="LOCAL" />
       <updated>1487552236917</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="funcional">
+      <created>1487552349700</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1487552349700</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 27m 58s.xml">
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.06.28 at 20h 11m 55s.xml">
       <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 28m 18s.xml">
+    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.06.28 at 20h 13m 47s.xml">
       <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 31m 04s.xml">
-      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 49m 54s.xml">
-      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 54m 41s.xml">
-      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_JavaScript_in_uiAutoComplete_test_go - 2017.02.19 at 21h 57m 07s.xml">
-      <configuration name="ExampleUIAutoComplete_JavaScript in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String22_in_uiAutoComplete_test_go - 2017.02.19 at 21h 24m 48s.xml">
-      <configuration name="ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String22_in_uiAutoComplete_test_go - 2017.02.19 at 21h 24m 58s.xml">
-      <configuration name="ExampleUIAutoComplete_String22 in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 25m 22s.xml">
-      <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
     <history-entry file="ExampleUIAutoComplete_String_Completo_in_uiAutoComplete_test_go - 2017.02.19 at 21h 27m 44s.xml">
       <configuration name="ExampleUIAutoComplete_String_Completo in uiAutoComplete_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
+    <history-entry file="Test_All - 2017.06.28 at 20h 14m 33s.xml">
+      <configuration name="Test All" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_All - 2017.06.28 at 20h 20m 35s.xml">
+      <configuration name="Test All" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_All - 2017.06.28 at 20h 21m 19s.xml">
+      <configuration name="Test All" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_All - 2017.06.28 at 20h 21m 53s.xml">
+      <configuration name="Test All" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_All - 2017.06.28 at 20h 23m 10s.xml">
+      <configuration name="Test All" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_All - 2017.06.28 at 20h 23m 52s.xml">
+      <configuration name="Test All" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_All - 2017.06.28 at 20h 24m 05s.xml">
+      <configuration name="Test All" configurationId="GoTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160880000" />
+    <option name="totallyTimeSpent" value="177222000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="18" width="1317" height="750" extended-state="6" />
+    <frame x="49" y="-3" width="1317" height="771" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24941176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25333333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2825397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32539684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32522798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28115502" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45079365" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="GfmBrowser" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -828,22 +821,25 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2825397" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32522798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28115502" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24941176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25333333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45079365" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.php" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -857,13 +853,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="php">
-          <url>file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/_kendo/_index.php</url>
-          <line>127</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -877,34 +866,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/autoCompleteFilterEnum.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/dirEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/effectEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/logicEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/mapValueToEnum_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -975,13 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/schema.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5474">
@@ -1001,13 +955,6 @@
         <state relative-caret-position="204">
           <caret line="51" column="3" lean-forward="false" selection-start-line="46" selection-start-column="2" selection-end-line="51" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateEnum_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1167,14 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/init.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/read.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1187,15 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="110" column="227" lean-forward="false" selection-start-line="110" selection-start-column="227" selection-end-line="110" selection-end-column="227" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="24" column="19" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="24" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1207,42 +1137,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go">
+    <entry file="file://$PROJECT_DIR$/../mxgraph/javascript/examples/kemper.html" />
+    <entry file="file://$PROJECT_DIR$/../mxgraph/javascript/examples/kemper2.html" />
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateEnum.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="145" column="107" lean-forward="false" selection-start-line="145" selection-start-column="107" selection-end-line="145" selection-end-column="107" />
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="true" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go">
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/aggregateEnum_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="97" column="45" lean-forward="false" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
+        <state relative-caret-position="990">
+          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/transport_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="11" lean-forward="false" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/_kendo/_index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="205" column="26" lean-forward="false" selection-start-line="205" selection-start-column="26" selection-end-line="205" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="714" column="76" lean-forward="false" selection-start-line="714" selection-start-column="76" selection-end-line="714" selection-end-column="76" />
+        <state relative-caret-position="599">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go">
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/goTemplate.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="174" column="31" lean-forward="false" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/init.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/uiAutoComplete_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="323" column="44" lean-forward="false" selection-start-line="323" selection-start-column="44" selection-end-line="323" selection-end-column="44" />
+        <state relative-caret-position="599">
+          <caret line="371" column="1" lean-forward="true" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="146" column="1" lean-forward="true" selection-start-line="146" selection-start-column="1" selection-end-line="146" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/kendo/datasource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="683" column="25" lean-forward="true" selection-start-line="683" selection-start-column="25" selection-end-line="683" selection-end-column="25" />
           <folding />
         </state>
       </provider>
