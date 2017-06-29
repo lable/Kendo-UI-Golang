@@ -63,6 +63,7 @@ func ( GoTemplateAStt *GoTemplate ) Init (){
         case Read: return template.HTML( el.( Read ).String() )
         case Signalr: return template.HTML( el.( Signalr ).String() )
         case Update: return template.HTML( el.( Update ).String() )
+        case FieldLine: return template.HTML( el.( FieldLine ).String() )
 
         case []FilterLine:
           var buffer bytes.Buffer

@@ -145,3 +145,32 @@ func ExampleDataSource_String7() {
   // Output:
   // transport: { read: { dataType: 'jsonp',url: "http://demos.telerik.com/kendo-ui/service/products" }, },
 }
+
+func ExampleDataSource_String8() {
+  e := DataSource{
+    Transport: Transport{
+      Create: Create{
+        Url: ComplexJavaScriptType{
+          AsString: "http://demos.telerik.com/kendo-ui/service/products/create",
+        },
+        DataType: TYPE_DATA_JSON_JSONP,
+        GoTemplate: &t,
+      },
+      ParameterMap: ComplexJavaScriptType{
+        AsString: `function(data, type) { if (type == "create") { return { models: kendo.stringify(data.models) }; }`,
+      },
+      GoTemplate: &t,
+    },
+    Batch: true,
+    Schema: Schema{
+
+      GoTemplate: &t,
+    },
+    GoTemplate: &t,
+  }
+
+  fmt.Printf( "%v", e.String() )
+
+  // Output:
+  // transport: { read: { dataType: 'jsonp',url: "http://demos.telerik.com/kendo-ui/service/products" }, },
+}
